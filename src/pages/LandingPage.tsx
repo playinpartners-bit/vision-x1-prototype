@@ -374,7 +374,7 @@ export function LandingPage() {
               <p className="muted">Morning briefings, line-up alerts and the community on Telegram. The match page stays the source of truth.</p>
             </div>
             <Button variant="ghost" icon="telegram" href={TELEGRAM_URL} onClick={openTelegram}>
-              Open Telegram companion (demo)
+              Join Vision X1 on Telegram
             </Button>
           </div>
         </div>

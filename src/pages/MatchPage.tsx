@@ -421,7 +421,7 @@ export function MatchPage() {
               href={TELEGRAM_URL}
               onClick={() => track('telegram_open', { placement: 'match_follow', match_id: match.id, destination: TELEGRAM_URL })}
             >
-              Get Telegram alerts (demo)
+              Get match alerts on Telegram
             </Button>
           </div>
         </Card>

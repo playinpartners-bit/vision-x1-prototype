@@ -288,7 +288,7 @@ export function HomePage() {
               href={TELEGRAM_URL}
               onClick={() => track('telegram_open', { placement: 'home_pocket', destination: TELEGRAM_URL })}
             >
-              Connect Telegram (demo)
+              Join the Telegram community
             </Button>
           </div>
           <TelegramMock />
