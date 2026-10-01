@@ -18,9 +18,9 @@ export const plans = [
     highlight: true,
     features: [
       'AI summaries on all covered matches',
-      'All Vision X1 expert opinions & calls',
+      'Every Vision X1 expert opinion & View',
       'Key risks on every match page',
-      'Line-up & new-call alerts on Telegram',
+      'Line-up & new-View alerts on Telegram',
       'My Vision X1: follow matches & teams',
     ],
   },

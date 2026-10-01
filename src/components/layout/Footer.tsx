@@ -41,7 +41,7 @@ export function Footer() {
           </div>
           <div>
             <h4>Trust</h4>
-            <Link to="/track-record">How calls are recorded</Link>
+            <Link to="/track-record">How Views are recorded</Link>
             <span>Responsible use</span>
             <span>Privacy</span>
             <span>Terms</span>
@@ -49,7 +49,7 @@ export function Footer() {
         </div>
         <ResponsibleNote />
         <p className="footer__legal">
-          © {new Date().getFullYear()} Vision X1 · Prototype build. All fixtures, statistics, analysts, calls, timestamps and track-record entries
+          © {new Date().getFullYear()} Vision X1 · Prototype build. All fixtures, statistics, analysts, Vision X1 Views, timestamps and track-record entries
           shown are DEMO DATA for illustration only. Club names are used for identification; crests are generated placeholders.
         </p>
       </div>

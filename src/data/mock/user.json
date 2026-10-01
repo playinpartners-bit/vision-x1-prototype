@@ -20,8 +20,8 @@
     {
       "id": "n1",
       "kind": "insight",
-      "title": "New expert call",
-      "body": "Camille Rousseau published a call on PSG vs Marseille. Locked at publication.",
+      "title": "New Vision X1 View",
+      "body": "Camille Rousseau published the Vision X1 View on PSG vs Marseille. Locked at publication.",
       "minutesAgo": 12,
       "matchId": "psg-marseille"
     },
@@ -85,12 +85,12 @@
     {
       "id": "briefing",
       "label": "Morning briefing",
-      "detail": "Today's match pages and new expert calls at 09:00.",
+      "detail": "Today's match pages and new Vision X1 Views at 09:00.",
       "on": true
     },
     {
       "id": "call",
-      "label": "New expert call published",
+      "label": "New Vision X1 View published",
       "detail": "When a Vision X1 analyst publishes on a match you follow.",
       "on": true
     },
@@ -102,8 +102,8 @@
     },
     {
       "id": "graded",
-      "label": "Result graded",
-      "detail": "How each call you followed was graded after full time.",
+      "label": "View graded",
+      "detail": "How each View you followed was graded after full time.",
       "on": false
     },
     {

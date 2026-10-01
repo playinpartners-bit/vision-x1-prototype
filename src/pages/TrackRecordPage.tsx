@@ -6,18 +6,18 @@ import { Icon, type IconName } from '../components/ui/Icon';
 import { Card, CardSkeleton, DemoTag } from '../components/ui/primitives';
 import { CallCard, ConvictionMeter, OutcomeBadge, RecordStrip, recordSummary } from '../components/trust/Trust';
 import type { CallOutcome, Conviction, VisionCall } from '../types/football';
-import { cx, formatDateTime, leadTime } from '../utils';
+import { formatDateTime, leadTime } from '../utils';
 
 const steps: { icon: IconName; title: string; body: string }[] = [
-  { icon: 'shield', title: 'Published before kickoff', body: 'An analyst publishes a call with a conviction level and rationale. Calls close at kickoff.' },
-  { icon: 'fingerprint', title: 'Timestamped & locked', body: 'The call is written to an append-only record with a timestamp and content fingerprint. It cannot be edited or deleted.' },
-  { icon: 'check', title: 'Graded automatically', body: 'After full time the result is graded against the call. Misses stay visible. Postponed matches are marked void.' },
+  { icon: 'shield', title: 'Published before kickoff', body: 'An analyst publishes a Vision X1 View with a conviction level and rationale. Publishing closes at kickoff.' },
+  { icon: 'fingerprint', title: 'Timestamped & locked', body: 'The View is written to an append-only record with a timestamp and a content fingerprint. It cannot be edited or deleted.' },
+  { icon: 'ledger', title: 'Kept in public', body: 'Every View stays in this record after full time — including the reads that did not hold. Postponed matches are marked void.' },
 ];
 
 function Breakdown({ title, rows }: { title: string; rows: { label: string; correct: number; decided: number }[] }) {
   return (
-    <Card className="card--pad">
-      <h3 className="sub-title" style={{ marginTop: 0 }}>{title}</h3>
+    <div className="perf-breakdown">
+      <h4 className="side-label">{title}</h4>
       <div className="breakdown">
         {rows.map((r) => {
           const pct = r.decided ? r.correct / r.decided : 0;
@@ -34,7 +34,7 @@ function Breakdown({ title, rows }: { title: string; rows: { label: string; corr
           );
         })}
       </div>
-    </Card>
+    </div>
   );
 }
 
@@ -60,7 +60,8 @@ export function TrackRecordPage() {
   const [showAll, setShowAll] = useState(false);
 
   const graded = data?.graded ?? [];
-  const summary = recordSummary(graded);
+  const pending = data?.pending ?? [];
+  const s = recordSummary(graded, pending);
   const leagues = Array.from(new Set(graded.map((c) => c.competition)));
   const filtered = useMemo(
     () =>
@@ -72,16 +73,17 @@ export function TrackRecordPage() {
       ),
     [graded, league, conviction, outcome],
   );
+  const example = pending[0];
 
   return (
     <div className="container page">
       <header className="page-head">
         <div>
           <span className="eyebrow">Public Track Record</span>
-          <h1 className="page-title">Every call. Timestamped before kickoff. Never edited.</h1>
+          <h1 className="page-title">Accountability first. Performance second.</h1>
           <p className="muted page-lede">
-            Every Vision X1 expert call is recorded before the match starts and graded after it ends. Nothing is removed — including
-            the calls we got wrong.
+            Every Vision X1 View is timestamped before kickoff, fingerprinted and locked. It can’t be edited after publication, and it
+            stays here whatever happens on the pitch. How the Views have read the game is reported further down, with its methodology.
           </p>
         </div>
         <DemoTag label="Demo record" />
@@ -91,69 +93,59 @@ export function TrackRecordPage() {
         <CardSkeleton lines={4} />
       ) : (
         <>
-          <div className="kpis kpis--record">
-            <Card className="kpi-tile">
-              <span className="kpi-tile__value">{summary.total}</span>
-              <span className="kpi-tile__label">Calls graded</span>
-            </Card>
-            <Card className="kpi-tile">
-              <span className="kpi-tile__value">{Math.round(summary.rate * 100)}%</span>
-              <span className="kpi-tile__label">Correct reads ({summary.correct}/{summary.decided})</span>
-            </Card>
-            <Card className="kpi-tile">
-              <span className="kpi-tile__value">{summary.medianLeadHours.toFixed(1)} h</span>
-              <span className="kpi-tile__label">Median publication before kickoff</span>
-            </Card>
-            <Card className="kpi-tile kpi-tile--lock">
-              <span className="kpi-tile__value">0</span>
-              <span className="kpi-tile__label">Edits after publication</span>
-            </Card>
-          </div>
-
-          <Card className="card--pad strip-card">
-            <div className="block-head">
-              <h3 className="sub-title" style={{ margin: 0 }}>Last {graded.length} calls</h3>
-              <span className="strip-legend">
-                <span className="record-strip__dot record-strip__dot--correct" /> Correct
-                <span className="record-strip__dot record-strip__dot--missed" /> Missed
-                <span className="record-strip__dot record-strip__dot--void" /> Void
-              </span>
+          {/* ───── PRIMARY: ACCOUNTABILITY ───── */}
+          <section aria-labelledby="acc-title">
+            <h2 id="acc-title" className="sr-only">Accountability</h2>
+            <div className="kpis kpis--record">
+              <Card className="kpi-tile kpi-tile--acc">
+                <Icon name="ledger" size={18} />
+                <span className="kpi-tile__value">{s.published}</span>
+                <span className="kpi-tile__label">Analyses published</span>
+              </Card>
+              <Card className="kpi-tile kpi-tile--acc">
+                <Icon name="clock" size={18} />
+                <span className="kpi-tile__value">{Math.round(s.beforeKickoffPct * 100)}%</span>
+                <span className="kpi-tile__label">Timestamped before kickoff</span>
+              </Card>
+              <Card className="kpi-tile kpi-tile--acc">
+                <Icon name="lock" size={18} />
+                <span className="kpi-tile__value">{s.editsAfterPublication}</span>
+                <span className="kpi-tile__label">Edits after publication</span>
+              </Card>
+              <Card className="kpi-tile kpi-tile--acc">
+                <Icon name="fingerprint" size={18} />
+                <span className="kpi-tile__value">{s.medianLeadHours.toFixed(1)} h</span>
+                <span className="kpi-tile__label">Median publication lead time</span>
+              </Card>
             </div>
-            <RecordStrip calls={[...graded].reverse()} />
-            <div className="strip-axis muted small">
-              <span>Older</span>
-              <span>Most recent</span>
-            </div>
-          </Card>
+            <p className="muted small kpi-note">
+              Includes {pending.length} Views locked for upcoming matches. <DemoTag label="Demo data" />
+            </p>
+          </section>
 
           <section className="how">
-            {steps.map((s, i) => (
-              <div key={s.title} className="how__step">
+            {steps.map((st, i) => (
+              <div key={st.title} className="how__step">
                 <span className="how__n">{i + 1}</span>
                 <span className="feature__icon">
-                  <Icon name={s.icon} size={20} />
+                  <Icon name={st.icon} size={20} />
                 </span>
-                <h3>{s.title}</h3>
-                <p>{s.body}</p>
+                <h3>{st.title}</h3>
+                <p>{st.body}</p>
               </div>
             ))}
           </section>
 
-          <div className="grid grid--2">
-            <Breakdown title="By analyst conviction" rows={group(graded, (c) => c.conviction, ['High', 'Medium', 'Low'])} />
-            <Breakdown title="By competition" rows={group(graded, (c) => c.competition)} />
-          </div>
-
-          {data && data.pending.length > 0 && (
+          {pending.length > 0 && (
             <section className="tr-section">
               <div className="block-head">
                 <h2 className="block-title">
                   <Icon name="lock" size={18} /> Locked, awaiting kickoff
                 </h2>
-                <span className="muted small">Published calls for upcoming matches</span>
+                <span className="muted small">Vision X1 Views published for upcoming matches</span>
               </div>
               <div className="grid grid--2">
-                {data.pending.map((c) => (
+                {pending.map((c) => (
                   <CallCard key={c.id} call={c} showMatch linkToMatch />
                 ))}
               </div>
@@ -163,9 +155,9 @@ export function TrackRecordPage() {
           <section className="tr-section">
             <div className="block-head">
               <h2 className="block-title">
-                <Icon name="ledger" size={18} /> The full record
+                <Icon name="ledger" size={18} /> Publication record
               </h2>
-              <span className="muted small">{filtered.length} calls</span>
+              <span className="muted small">{filtered.length} graded Views</span>
             </div>
             <div className="ledger-filters">
               <select value={league} onChange={(e) => setLeague(e.target.value)} aria-label="Competition">
@@ -180,11 +172,11 @@ export function TrackRecordPage() {
                 <option>Medium</option>
                 <option>Low</option>
               </select>
-              <select value={outcome} onChange={(e) => setOutcome(e.target.value as typeof outcome)} aria-label="Outcome">
-                <option value="all">Any outcome</option>
-                <option>Correct</option>
-                <option>Missed</option>
-                <option>Void</option>
+              <select value={outcome} onChange={(e) => setOutcome(e.target.value as typeof outcome)} aria-label="Status">
+                <option value="all">Any status</option>
+                <option value="Correct">Read held</option>
+                <option value="Missed">Read missed</option>
+                <option value="Void">Void</option>
               </select>
             </div>
             <Card className="table-card">
@@ -195,14 +187,13 @@ export function TrackRecordPage() {
                       <th>Record</th>
                       <th>Match</th>
                       <th>Published</th>
-                      <th>Call</th>
+                      <th>Vision X1 View</th>
                       <th className="hide-sm">Conviction</th>
-                      <th>Result</th>
-                      <th>Outcome</th>
+                      <th>Status</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {(showAll ? filtered : filtered.slice(0, 12)).map((c) => (
+                    {(showAll ? filtered : filtered.slice(0, 10)).map((c) => (
                       <tr key={c.id}>
                         <td className="mono small nowrap">
                           {c.id}
@@ -218,21 +209,20 @@ export function TrackRecordPage() {
                         </td>
                         <td className="small">
                           <div className="nowrap">{formatDateTime(c.publishedAt)}</div>
-                          <div className="muted nowrap">
+                          <div className="ledger__lead nowrap">
                             <Icon name="lock" size={11} /> {leadTime(c.publishedAt, c.kickoff)} before KO
                           </div>
                         </td>
                         <td className="ledger__call">
-                          <div className="strong">{c.call}</div>
+                          <div>{c.view}</div>
                           <div className="muted small hide-sm">{c.analyst.name}</div>
                         </td>
                         <td className="hide-sm">
                           <ConvictionMeter value={c.conviction} />
                         </td>
-                        <td className="mono nowrap">{c.finalScore ?? '—'}</td>
-                        <td>
+                        <td title={`Grading criterion fixed at publication: ${c.grading}`}>
                           <OutcomeBadge outcome={c.outcome} />
-                          {c.voidReason && <div className="muted small">{c.voidReason}</div>}
+                          <div className="muted small mono">{c.finalScore ? `FT ${c.finalScore}` : c.voidReason}</div>
                         </td>
                       </tr>
                     ))}
@@ -240,18 +230,73 @@ export function TrackRecordPage() {
                 </table>
               </div>
             </Card>
-            {filtered.length > 12 && (
+            {filtered.length > 10 && (
               <button className="chip ledger-more" onClick={() => setShowAll((v) => !v)}>
-                {showAll ? 'Show fewer' : `Show all ${filtered.length} calls`}
+                {showAll ? 'Show fewer' : `Show all ${filtered.length} Views`}
               </button>
             )}
           </section>
 
-          <Card className={cx('card--pad', 'tr-principles')}>
-            <h3>What the record measures — and what it doesn't</h3>
+          {/* ───── SECONDARY: PERFORMANCE ───── */}
+          <section className="tr-section perf">
+            <div className="perf__divider">
+              <span>Secondary · Performance</span>
+            </div>
+            <div className="block-head">
+              <h2 className="block-title">How the Views have read the game</h2>
+              <DemoTag label="Demo data" />
+            </div>
+            <div className="perf__grid">
+              <Card className="card--pad perf__method">
+                <h3 className="sub-title" style={{ marginTop: 0 }}>Methodology</h3>
+                <ol className="method-list">
+                  <li>
+                    <strong>One criterion, fixed at publication.</strong> When a View is published it is paired with a single gradable
+                    criterion, locked with the View.
+                    {example && (
+                      <span className="method-example">
+                        “{example.view}” → <em>{example.grading}</em>
+                      </span>
+                    )}
+                  </li>
+                  <li>
+                    <strong>Graded automatically after full time</strong> against the official 90-minute result. Nobody re-scores a View.
+                  </li>
+                  <li>
+                    <strong>Voids are excluded.</strong> Postponed or abandoned matches are marked void and left out of the rate.
+                  </li>
+                  <li>
+                    <strong>Rate = reads held ÷ (held + missed).</strong> Conviction is declared before kickoff, so results can be split by it.
+                  </li>
+                  <li>
+                    <strong>Context, not a promise.</strong> {s.decided} graded Views is a small sample. Past reads don’t predict future
+                    results, and Vision X1 publishes no odds, returns or staking figures.
+                  </li>
+                </ol>
+              </Card>
+              <Card className="card--pad perf__stats">
+                <div className="perf__headline">
+                  <span className="perf__rate">{Math.round(s.rate * 100)}%</span>
+                  <span className="muted small">
+                    of graded Views held ({s.correct} of {s.decided}) · {s.voids} void
+                  </span>
+                </div>
+                <RecordStrip calls={[...graded].reverse()} />
+                <div className="strip-axis muted small">
+                  <span>Older</span>
+                  <span>Most recent</span>
+                </div>
+                <Breakdown title="By declared conviction" rows={group(graded, (c) => c.conviction, ['High', 'Medium', 'Low'])} />
+                <Breakdown title="By competition" rows={group(graded, (c) => c.competition)} />
+              </Card>
+            </div>
+          </section>
+
+          <Card className="card--pad tr-principles">
+            <h3>Why accountability comes first</h3>
             <p className="muted">
-              The Track Record measures whether an analyst's read of the match was right. Vision X1 does not publish odds, returns, profit
-              figures or staking advice, and past accuracy does not guarantee future results. 18+.
+              Anyone can claim a good run of form. What Vision X1 can prove is how it publishes: before kickoff, with a timestamp, without
+              edits, and in public. That is what this page is for. 18+.
             </p>
             <Link to="/matches" className="link-inline">
               Read today's match pages <Icon name="arrowRight" size={14} />

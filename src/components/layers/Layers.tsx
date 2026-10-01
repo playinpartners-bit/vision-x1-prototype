@@ -18,7 +18,7 @@ export const LAYERS: Record<LayerId, { n: string; label: string; short: string; 
     label: 'Vision X1 Expert Opinion',
     short: 'Expert',
     icon: 'shield',
-    what: 'A named analyst’s judgement and call. Published before kickoff, then locked.',
+    what: 'A named analyst’s judgement and Vision X1 View. Published before kickoff, then locked.',
   },
 };
 

@@ -120,8 +120,9 @@ interface RawCall {
   kickoffTime?: string;
   minutesBeforeKickoff: number;
   analyst: Analyst;
-  call: string;
+  view: string;
   rationale: string;
+  grading: string;
   conviction: string;
   outcome: string;
   finalScore?: string | null;
@@ -148,13 +149,14 @@ function toCall(c: RawCall): VisionCall {
     ...base,
     publishedAt,
     analyst: c.analyst,
-    call: c.call,
+    view: c.view,
     rationale: c.rationale,
+    grading: c.grading,
     conviction: c.conviction as Conviction,
     outcome: c.outcome as CallOutcome,
     finalScore: c.finalScore ?? undefined,
     voidReason: c.voidReason,
-    fingerprint: fingerprint(`${c.id}|${publishedAt.slice(0, 16)}|${c.call}|${c.analyst.name}`),
+    fingerprint: fingerprint(`${c.id}|${publishedAt.slice(0, 16)}|${c.view}|${c.grading}|${c.analyst.name}`),
   };
 }
 

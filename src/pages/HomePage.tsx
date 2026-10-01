@@ -12,8 +12,8 @@ import { MatchPageStack } from '../components/marketing/MatchPageStack';
 import { TelegramMock } from '../components/marketing/TelegramMock';
 import { plans } from '../components/marketing/plans';
 import { LAYERS, LayerTag, type LayerId } from '../components/layers/Layers';
-import { CallCard, OutcomeBadge, RecordStrip, recordSummary } from '../components/trust/Trust';
-import { cx, formatDateTime, formatKickoff } from '../utils';
+import { CallCard, recordSummary } from '../components/trust/Trust';
+import { cx, formatDateTime, formatKickoff, leadTime } from '../utils';
 
 const layerCopy: Record<LayerId, { is: string[]; isnt: string }> = {
   data: {
@@ -22,17 +22,17 @@ const layerCopy: Record<LayerId, { is: string[]; isnt: string }> = {
   },
   ai: {
     is: ['Synthesises the data layer', 'Ranks signals by strength', 'Timestamped when generated'],
-    isnt: 'Never edited by hand, never a Vision X1 call.',
+    isnt: 'Never edited by hand, never the Vision X1 View.',
   },
   expert: {
-    is: ['A named league analyst', 'One clear call + conviction level', 'Locked at publication'],
+    is: ['A named league analyst', 'One clear Vision X1 View + conviction', 'Locked at publication'],
     isnt: 'Published before kickoff. Graded in public.',
   },
 };
 
 const pocket: { icon: IconName; title: string; body: string }[] = [
-  { icon: 'clock', title: 'Briefings', body: "Every morning: today's match pages and the calls our analysts have locked." },
-  { icon: 'bell', title: 'Alerts', body: 'Line-ups confirmed, late fitness news, a new expert call on a match you follow.' },
+  { icon: 'clock', title: 'Briefings', body: "Every morning: today's match pages and the Views our analysts have locked." },
+  { icon: 'bell', title: 'Alerts', body: 'Line-ups confirmed, late fitness news, a new Vision X1 View on a match you follow.' },
   { icon: 'users', title: 'Community', body: 'Where Vision X1 began. Discuss match pages with members and analysts.' },
 ];
 
@@ -42,7 +42,8 @@ export function HomePage() {
   const record = useAsync(() => trackRecord.getCalls());
   const { openMembership } = useAppState();
   const fd = featured.data;
-  const summary = recordSummary(record.data?.graded ?? []);
+  const summary = recordSummary(record.data?.graded ?? [], record.data?.pending ?? []);
+  const latest = [...(record.data?.pending ?? []), ...(record.data?.graded ?? [])].slice(0, 5);
 
   return (
     <>
@@ -182,7 +183,7 @@ export function HomePage() {
           <SectionHeader
             eyebrow={<>Today <DemoTag label="Demo fixtures" /></>}
             title="Today's match pages"
-            description="Every fixture has a data layer. The biggest matches get an AI summary and a locked expert call."
+            description="Every fixture has a data layer. The biggest matches get an AI summary and a locked Vision X1 View."
             action={
               <Button variant="ghost" to="/matches" iconRight="arrowRight">
                 Match Center
@@ -202,54 +203,54 @@ export function HomePage() {
         <div className="container tr-teaser">
           <div>
             <span className="eyebrow">Public Track Record</span>
-            <h2 className="section-title">We publish before kickoff. We can't edit after.</h2>
+            <h2 className="section-title">Accountability first. Performance second.</h2>
             <p className="section-desc">
-              Every expert call is timestamped, fingerprinted and locked the moment it's published — then graded after full time, right or
-              wrong. Trust should be checkable.
+              Every Vision X1 View is timestamped before kickoff, fingerprinted and locked the moment it's published. It can't be edited
+              afterwards, and it stays in the public record whatever happens. Trust should be checkable.
             </p>
             <div className="tr-teaser__kpis">
               <div>
-                <strong>{summary.total || '—'}</strong>
-                <span>calls graded</span>
+                <strong>{summary.published || '—'}</strong>
+                <span>analyses published</span>
               </div>
               <div>
-                <strong>{summary.decided ? `${Math.round(summary.rate * 100)}%` : '—'}</strong>
-                <span>correct reads</span>
-              </div>
-              <div>
-                <strong>{summary.medianLeadHours ? `${summary.medianLeadHours.toFixed(1)} h` : '—'}</strong>
-                <span>median lead time</span>
+                <strong>{summary.published ? `${Math.round(summary.beforeKickoffPct * 100)}%` : '—'}</strong>
+                <span>timestamped before kickoff</span>
               </div>
               <div>
                 <strong>0</strong>
                 <span>edits after publication</span>
+              </div>
+              <div>
+                <strong>{summary.medianLeadHours ? `${summary.medianLeadHours.toFixed(1)} h` : '—'}</strong>
+                <span>median lead time</span>
               </div>
             </div>
             <Button to="/track-record" variant="secondary" icon="ledger">
               Explore the full record
             </Button>
             <p className="muted small" style={{ marginTop: 12 }}>
-              <DemoTag label="Demo record" /> Accuracy only — no odds, returns or profit figures.
+              <DemoTag label="Demo record" /> Performance is reported on the Track Record, with its methodology.
             </p>
           </div>
           <Card className="card--pad tr-teaser__panel">
             <div className="block-head">
-              <h3 className="sub-title" style={{ margin: 0 }}>Latest graded calls</h3>
-              <RecordStrip calls={[...(record.data?.graded ?? [])].slice(0, 16).reverse()} />
+              <h3 className="sub-title" style={{ margin: 0 }}>Latest published Views</h3>
+              <span className="muted small">Locked at publication</span>
             </div>
             <ul className="mini-ledger">
-              {record.data?.graded.slice(0, 5).map((c) => (
+              {latest.map((c) => (
                 <li key={c.id}>
                   <div>
-                    <strong>{c.call}</strong>
+                    <strong>{c.view}</strong>
                     <span className="muted small">
-                      {c.home} vs {c.away} · {c.finalScore ?? 'postponed'}
+                      {c.home} vs {c.away} · {c.competition}
                     </span>
                   </div>
                   <span className="mini-ledger__stamp mono small">
                     <Icon name="lock" size={11} /> {c.id}
                   </span>
-                  <OutcomeBadge outcome={c.outcome} />
+                  <span className="mini-ledger__lead small">{leadTime(c.publishedAt, c.kickoff)} before KO</span>
                 </li>
               ))}
             </ul>

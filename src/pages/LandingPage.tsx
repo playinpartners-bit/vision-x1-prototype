@@ -21,7 +21,7 @@ import { TeamCrest } from '../components/match/TeamCrest';
 import { FormStrip } from '../components/match/FormStrip';
 import { StatCompare } from '../components/match/StatCompare';
 import { LayerTag, type LayerId } from '../components/layers/Layers';
-import { ConvictionMeter, OutcomeBadge, RecordStrip, recordSummary } from '../components/trust/Trust';
+import { ConvictionMeter, recordSummary } from '../components/trust/Trust';
 import { cx, formatDateTime, formatKickoff, leadTime } from '../utils';
 
 const MATCH_ID = 'psg-marseille';
@@ -43,13 +43,13 @@ function useCountdown(iso?: string) {
 const layerIntro: Record<LayerId, { label: string; one: string }> = {
   data: { label: 'Data', one: 'Form, xG, goals and head-to-head. Facts only.' },
   ai: { label: 'AI Summary', one: 'The data, synthesised into the signals that matter.' },
-  expert: { label: 'Vision X1 View', one: 'A named analyst’s call — published and locked before kickoff.' },
+  expert: { label: 'Vision X1 View', one: 'A named analyst’s read of the match — published and locked before kickoff.' },
 };
 
 const method: { icon: IconName; title: string; body: string }[] = [
   { icon: 'clock', title: 'Published before kickoff', body: 'Every Vision X1 View carries its publication time.' },
-  { icon: 'fingerprint', title: 'Locked, never edited', body: 'Calls are fingerprinted at publication and cannot change.' },
-  { icon: 'ledger', title: 'Graded in public', body: 'Right or wrong, every call lands in the Track Record.' },
+  { icon: 'fingerprint', title: 'Locked, never edited', body: 'Each View is fingerprinted at publication and cannot change.' },
+  { icon: 'ledger', title: 'Kept in public', body: 'Every View stays in the public Track Record, whatever happens.' },
 ];
 
 export function LandingPage() {
@@ -77,7 +77,8 @@ export function LandingPage() {
   };
   const openTelegram = () => track('telegram_open', { placement: 'telegram_band', destination: 't.me/visionx1 (placeholder)' });
 
-  const summary = recordSummary(record.data?.graded ?? []);
+  const summary = recordSummary(record.data?.graded ?? [], record.data?.pending ?? []);
+  const latest = [...(record.data?.pending ?? []), ...(record.data?.graded ?? [])].slice(0, 3);
   const H = d?.match.home.shortName ?? '';
   const A = d?.match.away.shortName ?? '';
 
@@ -151,7 +152,7 @@ export function LandingPage() {
               {d.call && (
                 <div className="lp-matchcard__view">
                   <LayerTag layer="expert" size="sm" label="Vision X1 View" />
-                  <strong>{d.call.call}</strong>
+                  <strong>{d.call.view}</strong>
                   <span className="lp-matchcard__lock">
                     <Icon name="lock" size={12} /> Locked {leadTime(d.call.publishedAt, d.call.kickoff)} before kickoff
                   </span>
@@ -210,7 +211,7 @@ export function LandingPage() {
                 <p className="lp-layer__one">{layerIntro.expert.one}</p>
                 {d.call && (
                   <div className="lp-layer__sample lp-layer__call">
-                    <strong>{d.call.call}</strong>
+                    <strong>{d.call.view}</strong>
                     <ConvictionMeter value={d.call.conviction} />
                     <span className="muted small">
                       {d.call.analyst.name} · {formatDateTime(d.call.publishedAt)}
@@ -300,7 +301,7 @@ export function LandingPage() {
         <div className="container">
           <div className="lp-head">
             <span className="eyebrow">Transparency</span>
-            <h2 className="section-title">Accountable by design</h2>
+            <h2 className="section-title">Accountability first. Performance second.</h2>
             <p className="section-desc">We publish before kickoff and we can’t edit afterwards. So you can check us.</p>
           </div>
           <div className="lp-method">
@@ -318,28 +319,30 @@ export function LandingPage() {
           <Card className="lp-record">
             <div className="lp-record__stats">
               <div>
-                <strong>{summary.total || '—'}</strong>
-                <span>calls graded</span>
+                <strong>{summary.published || '—'}</strong>
+                <span>analyses published</span>
               </div>
               <div>
-                <strong>{summary.decided ? `${Math.round(summary.rate * 100)}%` : '—'}</strong>
-                <span>correct reads</span>
-              </div>
-              <div>
-                <strong>{summary.medianLeadHours ? `${summary.medianLeadHours.toFixed(1)} h` : '—'}</strong>
-                <span>median publication before kickoff</span>
+                <strong>{summary.published ? `${Math.round(summary.beforeKickoffPct * 100)}%` : '—'}</strong>
+                <span>timestamped before kickoff</span>
               </div>
               <div>
                 <strong>0</strong>
                 <span>edits after publication</span>
               </div>
+              <div>
+                <strong>{summary.medianLeadHours ? `${summary.medianLeadHours.toFixed(1)} h` : '—'}</strong>
+                <span>median publication lead time</span>
+              </div>
             </div>
             <div className="lp-record__side">
-              <RecordStrip calls={[...(record.data?.graded ?? [])].slice(0, 20).reverse()} />
+              <span className="side-label" style={{ margin: 0 }}>Latest published Views</span>
               <div className="lp-record__latest">
-                {record.data?.graded.slice(0, 2).map((c) => (
+                {latest.map((c) => (
                   <span key={c.id} className="lp-record__item">
-                    <span className="mono small">{c.id}</span> {c.call} <OutcomeBadge outcome={c.outcome} />
+                    <Icon name="lock" size={12} />
+                    <span className="mono small">{c.id}</span>
+                    <span className="lp-record__view">{c.view}</span>
                   </span>
                 ))}
               </div>
@@ -351,7 +354,10 @@ export function LandingPage() {
               </div>
             </div>
           </Card>
-          <p className="muted small lp-record__note">Accuracy only. Vision X1 publishes no odds, returns, profit figures or staking advice.</p>
+          <p className="muted small lp-record__note">
+            Accountability first, performance second: accuracy is published on the Track Record with its methodology. No odds, returns or
+            staking advice.
+          </p>
         </div>
       </section>
 
@@ -382,7 +388,7 @@ export function LandingPage() {
             </span>
             <h2>Start with tonight’s match. It’s free.</h2>
             <p className="muted">
-              Explore the full match page now. Create a free account to follow matches, get the morning briefing and see every call in
+              Explore the full match page now. Create a free account to follow matches, get the morning briefing and see every View in
               the Track Record.
             </p>
             <div className="lp-final__ctas">
@@ -404,7 +410,7 @@ export function LandingPage() {
         <div className="container">
           <ResponsibleNote />
           <p className="footer__legal">
-            © {new Date().getFullYear()} Vision X1 · Prototype. All fixtures, statistics, calls and track-record entries are DEMO DATA. Club
+            © {new Date().getFullYear()} Vision X1 · Prototype. All fixtures, statistics, Vision X1 Views and track-record entries are DEMO DATA. Club
             names are used for identification only; crests are generated placeholders.{' '}
             <Link to="/">Discover Vision X1</Link>
           </p>

@@ -15,13 +15,13 @@ export function TelegramMock() {
       <div className="phone__body">
         <div className="tg-msg">
           <div className="tg-msg__label">☀️ Morning briefing</div>
-          6 match pages today · 3 expert calls locked.
+          6 match pages today · 3 Vision X1 Views locked.
           <br />
           Featured: <strong>PSG vs Marseille</strong>, 21:00
           <div className="tg-msg__btn">Open match page</div>
         </div>
         <div className="tg-msg">
-          <div className="tg-msg__label">🔒 New expert call</div>
+          <div className="tg-msg__label">🔒 New Vision X1 View</div>
           Camille Rousseau published on PSG vs Marseille — locked 12 h 45 min before kickoff.
         </div>
         <div className="tg-msg">

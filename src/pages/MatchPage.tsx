@@ -73,14 +73,14 @@ function LayerOverview({ d }: { d: MatchDetail }) {
         </div>
         {call ? (
           <>
-            <div className="ov__call">{call.call}</div>
+            <div className="ov__call">{call.view}</div>
             <ConvictionMeter value={call.conviction} />
             <span className="ov__foot">
               <Icon name="lock" size={12} /> Locked {formatDateTime(call.publishedAt)} · {call.analyst.name}
             </span>
           </>
         ) : (
-          <p className="ov__empty">No expert call on {match.home.shortName} vs {match.away.shortName}.</p>
+          <p className="ov__empty">No Vision X1 View on {match.home.shortName} vs {match.away.shortName}.</p>
         )}
       </button>
     </div>
@@ -288,8 +288,8 @@ export function MatchPage() {
                 ))}
               </div>
               <p className="callout">
-                <Icon name="info" size={15} /> Generated automatically from the data layer only. It is not edited by analysts and is not a
-                Vision X1 call. AI output can be wrong.
+                <Icon name="info" size={15} /> Generated automatically from the data layer only. It is not edited by analysts and is not the
+                Vision X1 View. AI output can be wrong.
               </p>
             </Card>
           ) : (
@@ -316,7 +316,7 @@ export function MatchPage() {
             </div>
           ) : (
             <Card className="card--pad layer-empty">
-              <strong>No expert call on this fixture.</strong> Vision X1 analysts only publish where they have a view — we would rather
+              <strong>No Vision X1 View on this fixture.</strong> Vision X1 analysts only publish where they have a view — we would rather
               stay silent than fill the page.{' '}
               <Link to="/match/psg-marseille" className="link-inline">
                 See a full match page <Icon name="arrowRight" size={13} />
@@ -383,7 +383,7 @@ export function MatchPage() {
                       <Icon name="lock" size={13} /> Locked · {call.id}
                     </span>
                   ) : (
-                    <span className="muted">No call</span>
+                    <span className="muted">No View published</span>
                   )}
                 </td>
               </tr>
@@ -391,12 +391,12 @@ export function MatchPage() {
                 <td className="muted small">Kickoff</td>
                 <td>{match.venue}</td>
                 <td className="mono small">{formatDateTime(match.kickoff)}</td>
-                <td className="hide-sm muted">Call graded automatically after full time</td>
+                <td className="hide-sm muted">View graded automatically after full time</td>
               </tr>
             </tbody>
           </table>
           <p className="muted small pub-record__note">
-            Calls are written to an append-only record when published. They cannot be edited or deleted, and every one — right or wrong —
+            Vision X1 Views are written to an append-only record when published. They cannot be edited or deleted, and every one — right or wrong —
             appears in the <Link to="/track-record">public Track Record</Link>.
           </p>
         </section>

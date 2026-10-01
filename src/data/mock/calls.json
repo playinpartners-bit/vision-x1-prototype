@@ -9,10 +9,11 @@
         "initials": "CR",
         "role": "Lead Analyst, Ligue 1"
       },
-      "call": "PSG win",
-      "rationale": "PSG should control the ball; Marseille's best route is transition. Line-up dependent.",
       "conviction": "Medium",
-      "outcome": "Pending"
+      "outcome": "Pending",
+      "view": "PSG have the edge",
+      "rationale": "PSG should control the ball; Marseille's best route is transition. Line-up dependent.",
+      "grading": "Read holds if PSG win"
     },
     {
       "id": "VX1-26-0413",
@@ -23,10 +24,11 @@
         "initials": "TH",
         "role": "Premier League Analyst"
       },
-      "call": "Arsenal win",
-      "rationale": "Set-piece edge and Newcastle's weak away output.",
       "conviction": "Medium",
-      "outcome": "Pending"
+      "outcome": "Pending",
+      "view": "Arsenal hold the stronger match profile",
+      "rationale": "Set-piece edge and Newcastle's weak away output.",
+      "grading": "Read holds if Arsenal win"
     },
     {
       "id": "VX1-26-0414",
@@ -37,10 +39,11 @@
         "initials": "LB",
         "role": "Serie A Analyst"
       },
-      "call": "Both teams score",
-      "rationale": "Atalanta's press makes this open whichever way it breaks.",
       "conviction": "Low",
-      "outcome": "Pending"
+      "outcome": "Pending",
+      "view": "Both teams show strong scoring signals",
+      "rationale": "Atalanta's press makes this open whichever way it breaks.",
+      "grading": "Read holds if both teams score"
     },
     {
       "id": "VX1-26-0415",
@@ -51,10 +54,11 @@
         "initials": "TH",
         "role": "Premier League Analyst"
       },
-      "call": "Liverpool win",
-      "rationale": "Anfield tempo vs Villa's high line.",
       "conviction": "Medium",
-      "outcome": "Pending"
+      "outcome": "Pending",
+      "view": "Liverpool have the edge",
+      "rationale": "Anfield tempo vs Villa's high line.",
+      "grading": "Read holds if Liverpool win"
     }
   ],
   "graded": [
@@ -71,11 +75,12 @@
         "initials": "JW",
         "role": "Bundesliga Analyst"
       },
-      "call": "Dortmund win",
-      "rationale": "Dortmund's home pressing vs Freiburg's slow build-up.",
       "conviction": "Medium",
       "finalScore": "2-0",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Dortmund have the edge",
+      "rationale": "Dortmund's home pressing vs Freiburg's slow build-up.",
+      "grading": "Read holds if Dortmund win"
     },
     {
       "id": "VX1-26-0410",
@@ -90,11 +95,12 @@
         "initials": "CR",
         "role": "Lead Analyst, Ligue 1"
       },
-      "call": "Marseille win",
-      "rationale": "Brest without their two first-choice centre-backs.",
       "conviction": "High",
       "finalScore": "2-0",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Marseille have the clear edge",
+      "rationale": "Brest without their two first-choice centre-backs.",
+      "grading": "Read holds if Marseille win"
     },
     {
       "id": "VX1-26-0409",
@@ -109,11 +115,12 @@
         "initials": "CR",
         "role": "Lead Analyst, Ligue 1"
       },
-      "call": "PSG win",
-      "rationale": "PSG's home press vs Lens' build-up.",
       "conviction": "High",
       "finalScore": "3-1",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "PSG have the clear edge",
+      "rationale": "PSG's home press vs Lens' build-up.",
+      "grading": "Read holds if PSG win"
     },
     {
       "id": "VX1-26-0408",
@@ -128,11 +135,12 @@
         "initials": "MI",
         "role": "LaLiga Analyst"
       },
-      "call": "Real Sociedad avoid defeat",
-      "rationale": "La Real's away structure travels well.",
       "conviction": "Low",
       "finalScore": "0-1",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Real Sociedad have the more resilient profile",
+      "rationale": "La Real's away structure travels well.",
+      "grading": "Read holds if Real Sociedad avoid defeat"
     },
     {
       "id": "VX1-26-0407",
@@ -147,11 +155,12 @@
         "initials": "TH",
         "role": "Premier League Analyst"
       },
-      "call": "Arsenal win",
-      "rationale": "Arsenal's set-piece edge.",
       "conviction": "High",
       "finalScore": "1-1",
-      "outcome": "Missed"
+      "outcome": "Missed",
+      "view": "Arsenal have the clear edge",
+      "rationale": "Arsenal's set-piece edge.",
+      "grading": "Read holds if Arsenal win"
     },
     {
       "id": "VX1-26-0406",
@@ -166,11 +175,12 @@
         "initials": "LB",
         "role": "Serie A Analyst"
       },
-      "call": "Inter avoid defeat",
-      "rationale": "Inter's control away from home.",
       "conviction": "Medium",
       "finalScore": "1-2",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Inter have the more resilient profile",
+      "rationale": "Inter's control away from home.",
+      "grading": "Read holds if Inter avoid defeat"
     },
     {
       "id": "VX1-26-0405",
@@ -185,11 +195,12 @@
         "initials": "JW",
         "role": "Bundesliga Analyst"
       },
-      "call": "Both teams score",
-      "rationale": "Both sides' chance creation is high.",
       "conviction": "Low",
       "finalScore": "1-2",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Both teams show strong scoring signals",
+      "rationale": "Both sides' chance creation is high.",
+      "grading": "Read holds if both teams score"
     },
     {
       "id": "VX1-26-0404",
@@ -204,11 +215,12 @@
         "initials": "CR",
         "role": "Lead Analyst, Ligue 1"
       },
-      "call": "PSG win",
-      "rationale": "Nantes' injury list in midfield.",
       "conviction": "High",
       "finalScore": "0-2",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "PSG have the clear edge",
+      "rationale": "Nantes' injury list in midfield.",
+      "grading": "Read holds if PSG win"
     },
     {
       "id": "VX1-26-0403",
@@ -223,11 +235,12 @@
         "initials": "MI",
         "role": "LaLiga Analyst"
       },
-      "call": "Villarreal win",
-      "rationale": "Villarreal's transition threat.",
       "conviction": "Medium",
       "finalScore": "2-1",
-      "outcome": "Missed"
+      "outcome": "Missed",
+      "view": "Villarreal have the edge",
+      "rationale": "Villarreal's transition threat.",
+      "grading": "Read holds if Villarreal win"
     },
     {
       "id": "VX1-26-0402",
@@ -242,11 +255,12 @@
         "initials": "CR",
         "role": "Lead Analyst, Ligue 1"
       },
-      "call": "Lille avoid defeat",
-      "rationale": "Lille's compact block limits OM's transitions.",
       "conviction": "Medium",
       "finalScore": "2-1",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Lille have the more resilient profile",
+      "rationale": "Lille's compact block limits OM's transitions.",
+      "grading": "Read holds if Lille avoid defeat"
     },
     {
       "id": "VX1-26-0401",
@@ -261,11 +275,12 @@
         "initials": "LB",
         "role": "Serie A Analyst"
       },
-      "call": "Both teams score",
-      "rationale": "Atalanta matches are open by default.",
       "conviction": "Medium",
       "finalScore": "2-1",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Both teams show strong scoring signals",
+      "rationale": "Atalanta matches are open by default.",
+      "grading": "Read holds if both teams score"
     },
     {
       "id": "VX1-26-0400",
@@ -280,11 +295,12 @@
         "initials": "CR",
         "role": "Lead Analyst, Ligue 1"
       },
-      "call": "PSG avoid defeat",
-      "rationale": "Compared pressing intensity and rest days.",
       "conviction": "Low",
       "finalScore": "2-1",
-      "outcome": "Missed"
+      "outcome": "Missed",
+      "view": "PSG have the more resilient profile",
+      "rationale": "Compared pressing intensity and rest days.",
+      "grading": "Read holds if PSG avoid defeat"
     },
     {
       "id": "VX1-26-0399",
@@ -299,11 +315,12 @@
         "initials": "TH",
         "role": "Premier League Analyst"
       },
-      "call": "Arsenal win",
-      "rationale": "Fulham's high line vs Arsenal's runners.",
       "conviction": "High",
       "finalScore": "0-3",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Arsenal have the clear edge",
+      "rationale": "Fulham's high line vs Arsenal's runners.",
+      "grading": "Read holds if Arsenal win"
     },
     {
       "id": "VX1-26-0398",
@@ -318,11 +335,12 @@
         "initials": "TH",
         "role": "Premier League Analyst"
       },
-      "call": "Draw",
-      "rationale": "Two evenly matched midfields.",
       "conviction": "Low",
       "finalScore": "2-1",
-      "outcome": "Missed"
+      "outcome": "Missed",
+      "view": "Little separates the two sides",
+      "rationale": "Two evenly matched midfields.",
+      "grading": "Read holds if the match is drawn"
     },
     {
       "id": "VX1-26-0397",
@@ -337,11 +355,12 @@
         "initials": "MI",
         "role": "LaLiga Analyst"
       },
-      "call": "Both teams score",
-      "rationale": "Betis concede from wide areas.",
       "conviction": "Medium",
       "finalScore": "2-2",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Both teams show strong scoring signals",
+      "rationale": "Betis concede from wide areas.",
+      "grading": "Read holds if both teams score"
     },
     {
       "id": "VX1-26-0396",
@@ -356,11 +375,12 @@
         "initials": "CR",
         "role": "Lead Analyst, Ligue 1"
       },
-      "call": "Lyon avoid defeat",
-      "rationale": "Lyon's away xG has been steady.",
       "conviction": "Low",
       "finalScore": "2-1",
-      "outcome": "Missed"
+      "outcome": "Missed",
+      "view": "Lyon have the more resilient profile",
+      "rationale": "Lyon's away xG has been steady.",
+      "grading": "Read holds if Lyon avoid defeat"
     },
     {
       "id": "VX1-26-0395",
@@ -375,11 +395,12 @@
         "initials": "CR",
         "role": "Lead Analyst, Ligue 1"
       },
-      "call": "PSG win",
-      "rationale": "Monaco's high line is exploitable.",
       "conviction": "High",
       "finalScore": "1-1",
-      "outcome": "Missed"
+      "outcome": "Missed",
+      "view": "PSG have the clear edge",
+      "rationale": "Monaco's high line is exploitable.",
+      "grading": "Read holds if PSG win"
     },
     {
       "id": "VX1-26-0394",
@@ -394,12 +415,13 @@
         "initials": "LB",
         "role": "Serie A Analyst"
       },
-      "call": "Bologna win",
-      "rationale": "Bologna's chance quality away from home.",
       "conviction": "Low",
       "finalScore": null,
       "outcome": "Void",
-      "voidReason": "Match postponed (weather)"
+      "voidReason": "Match postponed (weather)",
+      "view": "Bologna shade it, narrowly",
+      "rationale": "Bologna's chance quality away from home.",
+      "grading": "Read holds if Bologna win"
     },
     {
       "id": "VX1-26-0393",
@@ -414,11 +436,12 @@
         "initials": "LB",
         "role": "Serie A Analyst"
       },
-      "call": "Inter win",
-      "rationale": "Inter's away control should limit Napoli.",
       "conviction": "Medium",
       "finalScore": "1-1",
-      "outcome": "Missed"
+      "outcome": "Missed",
+      "view": "Inter have the edge",
+      "rationale": "Inter's away control should limit Napoli.",
+      "grading": "Read holds if Inter win"
     },
     {
       "id": "VX1-26-0392",
@@ -433,11 +456,12 @@
         "initials": "TH",
         "role": "Premier League Analyst"
       },
-      "call": "Both teams score",
-      "rationale": "High-xG game expected; both sides create.",
       "conviction": "Medium",
       "finalScore": "2-2",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Both teams show strong scoring signals",
+      "rationale": "High-xG game expected; both sides create.",
+      "grading": "Read holds if both teams score"
     },
     {
       "id": "VX1-26-0391",
@@ -452,11 +476,12 @@
         "initials": "JW",
         "role": "Bundesliga Analyst"
       },
-      "call": "Leverkusen win",
-      "rationale": "Hoffenheim have conceded first in 4 of 5.",
       "conviction": "High",
       "finalScore": "3-1",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Leverkusen have the clear edge",
+      "rationale": "Hoffenheim have conceded first in 4 of 5.",
+      "grading": "Read holds if Leverkusen win"
     },
     {
       "id": "VX1-26-0390",
@@ -471,11 +496,12 @@
         "initials": "MI",
         "role": "LaLiga Analyst"
       },
-      "call": "Barcelona win",
-      "rationale": "Barcelona's home attack is the league's best.",
       "conviction": "High",
       "finalScore": "3-1",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Barcelona have the clear edge",
+      "rationale": "Barcelona's home attack is the league's best.",
+      "grading": "Read holds if Barcelona win"
     },
     {
       "id": "VX1-26-0389",
@@ -490,11 +516,12 @@
         "initials": "CR",
         "role": "Lead Analyst, Ligue 1"
       },
-      "call": "Marseille win",
-      "rationale": "Marseille's depth after a free week.",
       "conviction": "Low",
       "finalScore": "2-2",
-      "outcome": "Missed"
+      "outcome": "Missed",
+      "view": "Marseille shade it, narrowly",
+      "rationale": "Marseille's depth after a free week.",
+      "grading": "Read holds if Marseille win"
     },
     {
       "id": "VX1-26-0388",
@@ -509,11 +536,12 @@
         "initials": "CR",
         "role": "Lead Analyst, Ligue 1"
       },
-      "call": "PSG win",
-      "rationale": "Toulouse's away defence is the league's weakest.",
       "conviction": "High",
       "finalScore": "4-1",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "PSG have the clear edge",
+      "rationale": "Toulouse's away defence is the league's weakest.",
+      "grading": "Read holds if PSG win"
     },
     {
       "id": "VX1-26-0387",
@@ -528,11 +556,12 @@
         "initials": "LB",
         "role": "Serie A Analyst"
       },
-      "call": "Inter win",
-      "rationale": "Inter's wing-backs vs a narrow Torino.",
       "conviction": "High",
       "finalScore": "1-4",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Inter have the clear edge",
+      "rationale": "Inter's wing-backs vs a narrow Torino.",
+      "grading": "Read holds if Inter win"
     },
     {
       "id": "VX1-26-0386",
@@ -547,11 +576,12 @@
         "initials": "TH",
         "role": "Premier League Analyst"
       },
-      "call": "Arsenal win",
-      "rationale": "Brentford's long-ball threat neutralised by Arsenal's aerial strength.",
       "conviction": "High",
       "finalScore": "2-1",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Arsenal have the clear edge",
+      "rationale": "Brentford's long-ball threat neutralised by Arsenal's aerial strength.",
+      "grading": "Read holds if Arsenal win"
     },
     {
       "id": "VX1-26-0385",
@@ -566,11 +596,12 @@
         "initials": "JW",
         "role": "Bundesliga Analyst"
       },
-      "call": "Dortmund win",
-      "rationale": "Dortmund's home form vs a rotated Leverkusen.",
       "conviction": "Medium",
       "finalScore": "2-2",
-      "outcome": "Missed"
+      "outcome": "Missed",
+      "view": "Dortmund have the edge",
+      "rationale": "Dortmund's home form vs a rotated Leverkusen.",
+      "grading": "Read holds if Dortmund win"
     },
     {
       "id": "VX1-26-0384",
@@ -585,11 +616,12 @@
         "initials": "MI",
         "role": "LaLiga Analyst"
       },
-      "call": "Atlético win",
-      "rationale": "Atlético's low block vs La Real's possession.",
       "conviction": "Low",
       "finalScore": "1-0",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Atlético shade it, narrowly",
+      "rationale": "Atlético's low block vs La Real's possession.",
+      "grading": "Read holds if Atlético win"
     },
     {
       "id": "VX1-26-0383",
@@ -604,11 +636,12 @@
         "initials": "CR",
         "role": "Lead Analyst, Ligue 1"
       },
-      "call": "Draw",
-      "rationale": "Le Havre are hard to break down at home.",
       "conviction": "Low",
       "finalScore": "0-1",
-      "outcome": "Missed"
+      "outcome": "Missed",
+      "view": "Little separates the two sides",
+      "rationale": "Le Havre are hard to break down at home.",
+      "grading": "Read holds if the match is drawn"
     },
     {
       "id": "VX1-26-0382",
@@ -623,11 +656,12 @@
         "initials": "TH",
         "role": "Premier League Analyst"
       },
-      "call": "Liverpool win",
-      "rationale": "Leeds' poor away record.",
       "conviction": "Medium",
       "finalScore": "3-0",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Liverpool hold the stronger match profile",
+      "rationale": "Leeds' poor away record.",
+      "grading": "Read holds if Liverpool win"
     },
     {
       "id": "VX1-26-0381",
@@ -642,11 +676,12 @@
         "initials": "TH",
         "role": "Premier League Analyst"
       },
-      "call": "Both teams score",
-      "rationale": "Both teams create a lot of chances.",
       "conviction": "Low",
       "finalScore": "1-1",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Both teams show strong scoring signals",
+      "rationale": "Both teams create a lot of chances.",
+      "grading": "Read holds if both teams score"
     },
     {
       "id": "VX1-26-0380",
@@ -661,11 +696,12 @@
         "initials": "JW",
         "role": "Bundesliga Analyst"
       },
-      "call": "Bayern Munich win",
-      "rationale": "Bayern's home dominance.",
       "conviction": "High",
       "finalScore": "2-1",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Bayern Munich have the clear edge",
+      "rationale": "Bayern's home dominance.",
+      "grading": "Read holds if Bayern Munich win"
     },
     {
       "id": "VX1-26-0379",
@@ -680,11 +716,12 @@
         "initials": "LB",
         "role": "Serie A Analyst"
       },
-      "call": "Draw",
-      "rationale": "Two cautious sides in a big game.",
       "conviction": "Low",
       "finalScore": "0-0",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Little separates the two sides",
+      "rationale": "Two cautious sides in a big game.",
+      "grading": "Read holds if the match is drawn"
     },
     {
       "id": "VX1-26-0378",
@@ -699,11 +736,12 @@
         "initials": "MI",
         "role": "LaLiga Analyst"
       },
-      "call": "Sevilla win",
-      "rationale": "Sevilla's home record.",
       "conviction": "Low",
       "finalScore": "1-1",
-      "outcome": "Missed"
+      "outcome": "Missed",
+      "view": "Sevilla shade it, narrowly",
+      "rationale": "Sevilla's home record.",
+      "grading": "Read holds if Sevilla win"
     },
     {
       "id": "VX1-26-0377",
@@ -718,11 +756,12 @@
         "initials": "CR",
         "role": "Lead Analyst, Ligue 1"
       },
-      "call": "Lille avoid defeat",
-      "rationale": "Lille's clean-sheet record.",
       "conviction": "Low",
       "finalScore": "0-0",
-      "outcome": "Correct"
+      "outcome": "Correct",
+      "view": "Lille have the more resilient profile",
+      "rationale": "Lille's clean-sheet record.",
+      "grading": "Read holds if Lille avoid defeat"
     }
   ]
 }

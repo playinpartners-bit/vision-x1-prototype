@@ -160,9 +160,11 @@ export interface Risk {
 export type CallOutcome = 'Pending' | 'Correct' | 'Missed' | 'Void';
 
 /**
- * A Vision X1 call: the analyst's headline read, published before kickoff.
+ * A Vision X1 View: the analyst's headline read, published before kickoff.
  * Once published it is append-only — `publishedAt` and `fingerprint` never
- * change, and the outcome is graded automatically after full time.
+ * change. `view` is the user-facing analytical wording; `grading` is the
+ * structured criterion fixed at publication and used only to grade the read
+ * after full time (shown in the Track Record methodology, nowhere else).
  */
 export interface VisionCall {
   id: string; // public record ID, e.g. VX1-26-0412
@@ -173,8 +175,9 @@ export interface VisionCall {
   kickoff: string;
   publishedAt: string;
   analyst: Analyst;
-  call: string; // e.g. "PSG win"
+  view: string; // e.g. "PSG have the edge"
   rationale: string;
+  grading: string; // e.g. "Read holds if PSG win" — internal grading criterion
   conviction: Conviction;
   outcome: CallOutcome;
   finalScore?: string;

@@ -69,11 +69,11 @@ export function MatchCard({ match }: { match: Match }) {
           <>
             <Icon name="lock" size={13} />
             <span>
-              Expert call published <strong>{formatKickoff(match.call.publishedAt)}</strong>
+              Vision X1 View published <strong>{formatKickoff(match.call.publishedAt)}</strong>
             </span>
           </>
         ) : (
-          <span className="muted">No expert call on this fixture</span>
+          <span className="muted">No Vision X1 View on this fixture</span>
         )}
       </div>
       <div className="match-card__foot">

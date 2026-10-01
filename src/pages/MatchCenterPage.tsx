@@ -42,13 +42,13 @@ function FixtureRow({ match }: { match: Match }) {
         {match.call ? (
           <>
             <span className="fixture__call-label">
-              <Icon name="lock" size={12} /> Expert call · {leadTime(match.call.publishedAt, match.kickoff)} before KO
+              <Icon name="lock" size={12} /> Vision X1 View · {leadTime(match.call.publishedAt, match.kickoff)} before KO
             </span>
-            <strong>{match.call.call}</strong>
+            <strong>{match.call.view}</strong>
             <ConvictionMeter value={match.call.conviction} />
           </>
         ) : (
-          <span className="muted small">No expert call</span>
+          <span className="muted small">No Vision X1 View</span>
         )}
       </div>
       <div className="fixture__end">
@@ -74,7 +74,7 @@ export function MatchCenterPage() {
           <span className="eyebrow">Match Center</span>
           <h1 className="page-title">Every match page, in one place</h1>
           <p className="muted page-lede">
-            Each fixture opens a match page with up to three layers: data, an AI summary and a Vision X1 expert opinion. Expert calls are
+            Each fixture opens a match page with up to three layers: data, an AI summary and a Vision X1 expert opinion. Vision X1 Views are
             locked the moment they're published.
           </p>
         </div>

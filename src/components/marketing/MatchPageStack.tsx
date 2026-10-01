@@ -66,7 +66,7 @@ export function MatchPageStack({ d }: { d: MatchDetail }) {
             </span>
           </div>
           <div className="sv-call">
-            <strong>{call.call}</strong>
+            <strong>{call.view}</strong>
             <ConvictionMeter value={call.conviction} />
           </div>
           <span className="sv-time">

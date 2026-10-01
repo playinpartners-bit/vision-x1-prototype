@@ -97,12 +97,12 @@ export function MyVisionPage() {
                       {m.call ? (
                         <>
                           <span className="muted small">
-                            <Icon name="lock" size={12} /> Expert call
+                            <Icon name="lock" size={12} /> Vision X1 View
                           </span>
-                          <strong>{m.call.call}</strong>
+                          <strong>{m.call.view}</strong>
                         </>
                       ) : (
-                        <span className="muted small">No expert call</span>
+                        <span className="muted small">No Vision X1 View</span>
                       )}
                     </div>
                     <Icon name="chevronRight" size={18} />
@@ -117,7 +117,7 @@ export function MyVisionPage() {
               <h2 className="block-title">
                 <Icon name="history" size={18} /> Reading history
               </h2>
-              <span className="muted small">Match pages you read, and how the call was graded</span>
+              <span className="muted small">Match pages you read, and how each View was graded</span>
             </div>
             <Card className="table-card">
               <table className="table">
@@ -125,7 +125,7 @@ export function MyVisionPage() {
                   <tr>
                     <th>Match</th>
                     <th className="hide-sm">You read it</th>
-                    <th>Expert call</th>
+                    <th>Vision X1 View</th>
                     <th>Result</th>
                     <th>Graded</th>
                   </tr>
@@ -142,7 +142,7 @@ export function MyVisionPage() {
                         </div>
                       </td>
                       <td className="hide-sm muted small">{leadTime(h.openedAt, h.call.kickoff)} before KO</td>
-                      <td>{h.call.call}</td>
+                      <td>{h.call.view}</td>
                       <td className="mono">{h.call.finalScore ?? '—'}</td>
                       <td>
                         <OutcomeBadge outcome={h.call.outcome} />
@@ -213,7 +213,7 @@ export function MyVisionPage() {
             </div>
             <p className="muted small">
               Member since {me.data ? new Date(me.data.memberSince).toLocaleDateString([], { month: 'long', year: 'numeric' }) : '—'}. Full
-              match pages, all expert calls and Telegram alerts.
+              match pages, every Vision X1 View and Telegram alerts.
             </p>
             <Button variant="secondary" size="sm" onClick={() => openMembership('my_vision')}>
               Manage plan (demo)

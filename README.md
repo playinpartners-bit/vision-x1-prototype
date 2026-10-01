@@ -25,10 +25,15 @@ It uses `HashRouter`, so `dist/` can be dropped onto any static host (Netlify, V
    Read the match before kickoff.* The AI Assistant is shown only as a labelled concept / future layer.
 3. **Three layers, visually separated.** `01 DATA` (steel), `02 AI SUMMARY` (teal),
    `03 VISION X1 EXPERT OPINION` (violet) each have their own colour, number, description and timestamp.
-4. **Public Track Record.** Every expert call is timestamped before kickoff, fingerprinted, locked
-   and graded after full time — misses included. Accuracy only: no odds, returns or profit.
-5. **Telegram is a companion** — "Vision X1 in your pocket" for briefings, alerts and community.
-6. **Out of the MVP:** odds comparison, bookmaker links, stake advice, bankroll tracking, profit
+4. **Public Track Record — accountability first, performance second.** Primary metrics are analyses
+   published, % timestamped before kickoff, edits after publication (0) and median publication lead
+   time. Accuracy sits further down as secondary context with its methodology. No odds, returns or profit.
+5. **Vision X1 View, not "calls".** The analyst's headline read uses analytical wording
+   ("PSG have the edge", "Both teams show strong scoring signals"). Each View is paired at publication
+   with one internal grading criterion (`grading` in `calls.json`, e.g. "Read holds if PSG win"), which is
+   shown only in the Track Record methodology.
+6. **Telegram is a companion** — "Vision X1 in your pocket" for briefings, alerts and community.
+7. **Out of the MVP:** odds comparison, bookmaker links, stake advice, bankroll tracking, profit
    charts, betting slips. (The v1 "model outlook" percentages were removed too.)
 
 ## Screens
@@ -71,7 +76,7 @@ src/
   data/mock/        ← ALL DEMO DATA (JSON)
     teams.json, competitions.json, matches.json
     ai-analyses.json, expert-insights.json, user.json
-    calls.json                       Track Record: pending + graded expert calls
+    calls.json                       Track Record: pending + graded Vision X1 Views (view + internal grading criterion)
     match-intel/psg-marseille.json   full data/AI/expert/risk content for the demo fixture
     assistant.json                   scripted assistant intents & replies
   services/
