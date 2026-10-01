@@ -16,7 +16,11 @@ import { AccountModal } from './components/layout/AccountModal';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => window.scrollTo(0, 0), [pathname]);
+  // Block body on purpose: newer browsers return a Promise from scrollTo(), and an effect
+  // must return only undefined or a cleanup function.
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return null;
 }
 
