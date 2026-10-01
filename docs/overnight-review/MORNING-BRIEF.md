@@ -97,7 +97,7 @@ All commits are on `claude/vision-x1-overnight-review`:
 |---|---|
 | `f35efbf` | Fixes mobile clipping (CSS only) |
 | `0c1cb88` | Adds the overnight review reports |
-| Final commit | Adds this morning brief |
+| `1b2f0a1` | Adds this morning brief |
 
 ## 10. Needs human approval
 
