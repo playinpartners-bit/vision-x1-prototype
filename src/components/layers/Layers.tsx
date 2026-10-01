@@ -22,12 +22,12 @@ export const LAYERS: Record<LayerId, { n: string; label: string; short: string; 
   },
 };
 
-export function LayerTag({ layer, size = 'md' }: { layer: LayerId; size?: 'sm' | 'md' }) {
+export function LayerTag({ layer, size = 'md', label }: { layer: LayerId; size?: 'sm' | 'md'; label?: string }) {
   const l = LAYERS[layer];
   return (
     <span className={cx('layer-tag', `layer-tag--${layer}`, size === 'sm' && 'layer-tag--sm')}>
       <span className="layer-tag__n">{l.n}</span>
-      {size === 'sm' ? l.short : l.label}
+      {label ?? (size === 'sm' ? l.short : l.label)}
     </span>
   );
 }

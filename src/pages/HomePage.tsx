@@ -279,7 +279,7 @@ export function HomePage() {
                 </div>
               ))}
             </div>
-            <Button variant="secondary" icon="telegram" onClick={openMembership}>
+            <Button variant="secondary" icon="telegram" onClick={() => openMembership('home')}>
               Connect Telegram (demo)
             </Button>
           </div>
@@ -313,7 +313,7 @@ export function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <Button variant={p.highlight ? 'primary' : 'secondary'} className="w-full" onClick={openMembership}>
+                <Button variant={p.highlight ? 'primary' : 'secondary'} className="w-full" onClick={() => openMembership('home')}>
                   {p.id === 'free' ? 'Start free' : `Choose ${p.name}`}
                 </Button>
               </Card>

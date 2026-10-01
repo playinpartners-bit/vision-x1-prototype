@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { cx } from '../../utils';
 import { Icon, type IconName } from './Icon';
@@ -24,7 +24,7 @@ export function Button({ variant = 'primary', size = 'md', icon, iconRight, to, 
   );
   if (to) {
     return (
-      <Link to={to} className={cls}>
+      <Link to={to} className={cls} onClick={rest.onClick as unknown as MouseEventHandler<HTMLAnchorElement>}>
         {inner}
       </Link>
     );

@@ -10,8 +10,12 @@ interface AppState {
   isSaved: (id: string) => boolean;
   toggleSaved: (id: string) => void;
   membershipOpen: boolean;
-  openMembership: () => void;
+  membershipSource: string;
+  openMembership: (source?: string) => void;
   closeMembership: () => void;
+  accountOpen: boolean;
+  openAccount: () => void;
+  closeAccount: () => void;
 }
 
 const Ctx = createContext<AppState | null>(null);
@@ -40,6 +44,8 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
   });
   const [savedMatchIds, setSaved] = useState<string[]>(() => read('vx1-saved', userJson.user.savedMatchIds));
   const [membershipOpen, setMembershipOpen] = useState(false);
+  const [membershipSource, setMembershipSource] = useState('app');
+  const [accountOpen, setAccountOpen] = useState(false);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -65,10 +71,17 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
       isSaved: (id) => savedMatchIds.includes(id),
       toggleSaved,
       membershipOpen,
-      openMembership: () => setMembershipOpen(true),
+      membershipSource,
+      openMembership: (source = 'app') => {
+        setMembershipSource(source);
+        setMembershipOpen(true);
+      },
       closeMembership: () => setMembershipOpen(false),
+      accountOpen,
+      openAccount: () => setAccountOpen(true),
+      closeAccount: () => setAccountOpen(false),
     }),
-    [theme, savedMatchIds, toggleSaved, membershipOpen],
+    [theme, savedMatchIds, toggleSaved, membershipOpen, membershipSource, accountOpen],
   );
 
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

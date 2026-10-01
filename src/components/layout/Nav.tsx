@@ -39,7 +39,7 @@ export function Nav() {
               {l.preview && <span className="pill-preview">Preview</span>}
             </NavLink>
           ))}
-          <Button variant="primary" size="sm" className="nav__cta-mobile" onClick={openMembership}>
+          <Button variant="primary" size="sm" className="nav__cta-mobile" onClick={() => openMembership('nav')}>
             Get membership
           </Button>
         </nav>
@@ -47,7 +47,7 @@ export function Nav() {
           <button className="icon-btn" onClick={toggleTheme} aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}>
             <Icon name={theme === 'dark' ? 'sun' : 'moon'} />
           </button>
-          <Button variant="primary" size="sm" className="nav__cta" onClick={openMembership}>
+          <Button variant="primary" size="sm" className="nav__cta" onClick={() => openMembership('nav')}>
             Get membership
           </Button>
           <NavLink to="/me" className="nav__avatar" aria-label="My Vision X1 (demo account)">

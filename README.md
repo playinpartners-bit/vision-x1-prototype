@@ -41,7 +41,27 @@ It uses `HashRouter`, so `dist/` can be dropped onto any static host (Netlify, V
 | `#/match/<id>` | Any fixture: data layer always; AI/expert layers where published, honest empty states otherwise |
 | `#/track-record` | **Track Record** — KPIs, call strip, how-it-works, accuracy by conviction/competition, locked pending calls, filterable ledger with record IDs + fingerprints |
 | `#/me` | **My Vision X1** — followed match pages, reading history (with how each call was graded), followed teams, Telegram alert preferences, membership |
+| `#/welcome` | **Acquisition landing page** for Vision X1-owned social traffic — no app nav, one path: match hero → Data / AI Summary / Vision X1 View → product preview → transparency → Telegram companion → free CTA. Add `?debug=1` to see tracking events live |
 | `#/assistant` | **Ask Vision X1** — concept preview of a future AI layer (scripted demo answers) |
+
+## Landing page & tracking plan
+
+Link social posts to `#/welcome?utm_source=<network>&utm_campaign=<post>`. UTM parameters (from either the real
+query string or the hash query) are attached to every event on the page. Primary CTA is always
+**Explore the match** (`/match/psg-marseille`); secondary is **Discover Vision X1** (`/`). Telegram is a ghost button only.
+
+Events go through `src/analytics/track.ts`. Today they are pushed to `window.dataLayer` and logged in dev — nothing is
+sent anywhere. Add a vendor adapter (GA4, PostHog, Plausible…) in `send()` to go live.
+
+| Event | Fires when | Key props |
+|---|---|---|
+| `landing_view` | Landing page mounts (once) | `match_id`, `landing`, `utm_*` |
+| `match_open` | Any "Explore the match" click / match card / preview frame | `match_id`, `placement` (`header`, `hero`, `hero_card`, `preview`, `preview_frame`, `final`, `sticky_mobile`) |
+| `account_start` | "Create free account" clicked (opens demo sign-up) | `placement` |
+| `membership_view` | Membership modal opens, anywhere in the app | `source` (`landing_final`, `account_modal`, `nav`, `home`, `match_page`, `my_vision`) |
+| `telegram_open` | "Open Telegram companion" clicked | `placement`, `destination` (placeholder) |
+
+All events also carry `path` and `demo: true`.
 
 ## Project structure
 
@@ -61,6 +81,7 @@ src/
       mockProvider.ts           JSON → domain model
       mockAssistant.ts          keyword-intent scripted assistant
       apiProvider.example.ts    sketch of a real API adapter (not wired)
+  analytics/        track() placeholder + ?debug=1 event overlay
   hooks/            useAsync (data fetching), AppState (theme, saved matches, membership modal)
   components/
     ui/             Button, Card, Badge, DemoTag, Avatar, Skeleton, Icon …
@@ -71,7 +92,7 @@ src/
     assistant/      Reply renderer (text, tables, comparisons, form, callouts)
     layout/         Nav, Footer, DemoBanner, MembershipModal, Logo
     marketing/      Hero match-page stack, Telegram phone mock, plans
-  pages/            Home, MatchCenter, Match, TrackRecord, MyVision, Assistant
+  pages/            Home, Landing, MatchCenter, Match, TrackRecord, MyVision, Assistant
   styles/global.css Design tokens (dark + light) and component styles
 ```
 

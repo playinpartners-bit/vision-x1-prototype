@@ -4,19 +4,21 @@ import { cx } from '../../utils';
 import { Icon } from '../ui/Icon';
 import { Badge, Button } from '../ui/primitives';
 import { plans } from '../marketing/plans';
+import { track } from '../../analytics/track';
 
 export function MembershipModal() {
-  const { membershipOpen, closeMembership } = useAppState();
+  const { membershipOpen, membershipSource, closeMembership } = useAppState();
   const [selected, setSelected] = useState('pro');
   const [done, setDone] = useState(false);
 
   useEffect(() => {
     if (!membershipOpen) return;
     setDone(false);
+    track('membership_view', { source: membershipSource });
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && closeMembership();
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [membershipOpen, closeMembership]);
+  }, [membershipOpen, membershipSource, closeMembership]);
 
   if (!membershipOpen) return null;
   const plan = plans.find((p) => p.id === selected)!;

@@ -414,7 +414,7 @@ export function MatchPage() {
             <Button size="lg" icon="bookmark" to="/me">
               Open My Vision X1
             </Button>
-            <Button size="lg" variant="secondary" icon="telegram" onClick={openMembership}>
+            <Button size="lg" variant="secondary" icon="telegram" onClick={() => openMembership('match_page')}>
               Get Telegram alerts (demo)
             </Button>
           </div>

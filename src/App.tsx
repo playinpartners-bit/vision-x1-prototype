@@ -11,6 +11,8 @@ import { TrackRecordPage } from './pages/TrackRecordPage';
 import { MyVisionPage } from './pages/MyVisionPage';
 import { AssistantPage } from './pages/AssistantPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { LandingPage } from './pages/LandingPage';
+import { AccountModal } from './components/layout/AccountModal';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -20,14 +22,17 @@ function ScrollToTop() {
 
 export function App() {
   const { pathname } = useLocation();
+  // The acquisition landing page runs without the app nav/footer to keep one clear path.
+  const isLanding = pathname === '/welcome';
   return (
     <>
       <ScrollToTop />
       <DemoBanner />
-      <Nav />
+      {!isLanding && <Nav />}
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/welcome" element={<LandingPage />} />
           <Route path="/matches" element={<MatchCenterPage />} />
           <Route path="/match/:matchId" element={<MatchPage />} />
           <Route path="/track-record" element={<TrackRecordPage />} />
@@ -39,8 +44,9 @@ export function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
-      {pathname !== '/assistant' && <Footer />}
+      {pathname !== '/assistant' && !isLanding && <Footer />}
       <MembershipModal />
+      <AccountModal />
     </>
   );
 }

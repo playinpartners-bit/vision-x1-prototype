@@ -215,7 +215,7 @@ export function MyVisionPage() {
               Member since {me.data ? new Date(me.data.memberSince).toLocaleDateString([], { month: 'long', year: 'numeric' }) : '—'}. Full
               match pages, all expert calls and Telegram alerts.
             </p>
-            <Button variant="secondary" size="sm" onClick={openMembership}>
+            <Button variant="secondary" size="sm" onClick={() => openMembership('my_vision')}>
               Manage plan (demo)
             </Button>
           </Card>
