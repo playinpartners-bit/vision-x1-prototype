@@ -1,14 +1,13 @@
-import { Link } from 'react-router-dom';
-import type { AiAnalysis, ExpertInsight, Match, Risk, Signal } from '../../types/football';
-import { cx } from '../../utils';
+import type { ExpertInsight, Match, Risk, Signal } from '../../types/football';
+import { cx, formatDateTime } from '../../utils';
 import { Icon } from '../ui/Icon';
-import { Avatar, Badge, DemoTag, StrengthDots } from '../ui/primitives';
+import { Avatar, StrengthDots } from '../ui/primitives';
 
 const strengthLabel = { 1: 'Weak', 2: 'Moderate', 3: 'Strong' } as const;
 
 export function SignalList({ signals, match, compact }: { signals: Signal[]; match?: Match; compact?: boolean }) {
   const leanLabel = (s: Signal) =>
-    s.lean === 'neutral' ? 'Neutral' : match ? `Leans ${match[s.lean].shortName}` : s.lean === 'home' ? 'Leans home' : 'Leans away';
+    s.lean === 'neutral' ? 'Neutral' : match ? `Favours ${match[s.lean].shortName}` : s.lean === 'home' ? 'Favours home' : 'Favours away';
   return (
     <ul className={cx('signals', compact && 'signals--compact')}>
       {signals.map((s) => (
@@ -31,79 +30,39 @@ export function SignalList({ signals, match, compact }: { signals: Signal[]; mat
   );
 }
 
-export function AiAnalysisCard({ analysis, match, compact }: { analysis: AiAnalysis; match?: Match; compact?: boolean }) {
-  const body = (
-    <>
-      <div className="ai-card__top">
-        <Badge tone="ai" icon="spark">AI analysis</Badge>
-        <DemoTag label="Demo" />
-      </div>
-      {match && (
-        <div className="ai-card__match">
-          {match.home.shortName} <span>vs</span> {match.away.shortName}
-          <span className="ai-card__comp">· {match.competition.name}</span>
-        </div>
-      )}
-      <h3 className="ai-card__headline">{analysis.headline}</h3>
-      {!compact && <p className="ai-card__summary">{analysis.summary}</p>}
-      <SignalList signals={analysis.signals.slice(0, compact ? 2 : 3)} match={match} compact />
-      <div className="ai-card__foot">
-        <span>{analysis.modelLabel}</span>
-        {match && (
-          <span className="link-inline">
-            Open <Icon name="arrowRight" size={14} />
-          </span>
-        )}
-      </div>
-    </>
-  );
-  return match ? (
-    <Link to={`/match/${match.id}`} className="card card--interactive ai-card">
-      {body}
-    </Link>
-  ) : (
-    <div className="card ai-card">{body}</div>
-  );
-}
-
-const convictionLevel = { Low: 1, Medium: 2, High: 3 } as const;
-
-export function ExpertCard({ insight, match, expanded }: { insight: ExpertInsight; match?: Match; expanded?: boolean }) {
-  const inner = (
-    <>
-      <div className="expert-card__top">
-        <Avatar initials={insight.analyst.initials} size={40} />
+/** The analyst's written opinion (layer 03, alongside the locked call). */
+export function ExpertArticle({ insight }: { insight: ExpertInsight }) {
+  return (
+    <article className="card expert-article">
+      <div className="expert-article__by">
+        <Avatar initials={insight.analyst.initials} size={44} />
         <div>
-          <div className="expert-card__name">{insight.analyst.name}</div>
-          <div className="expert-card__role">{insight.analyst.role}</div>
+          <div className="expert-article__name">{insight.analyst.name}</div>
+          <div className="expert-article__role">{insight.analyst.role}</div>
         </div>
-        <Badge tone="accent" icon="shield">Vision X1 Expert</Badge>
+        <span className="expert-article__time">
+          <Icon name="clock" size={13} /> {formatDateTime(insight.publishedAt)}
+        </span>
       </div>
-      {match && (
-        <div className="expert-card__match">
-          {match.home.shortName} vs {match.away.shortName} · {match.competition.name}
-        </div>
-      )}
-      <h3 className="expert-card__title">{insight.title}</h3>
-      <p className="expert-card__excerpt">{insight.excerpt}</p>
-      {expanded && insight.body.map((p, i) => <p key={i} className="expert-card__para">{p}</p>)}
-      <div className="expert-card__foot">
-        <span className="expert-card__meta">
+      <h3 className="expert-article__title">{insight.title}</h3>
+      <p className="expert-article__excerpt">{insight.excerpt}</p>
+      {insight.body.map((p, i) => (
+        <p key={i} className="expert-article__para">
+          {p}
+        </p>
+      ))}
+      <div className="expert-article__foot">
+        <span>
           Angle: <strong>{insight.angle}</strong>
         </span>
-        <span className="expert-card__meta">
-          Analyst conviction <StrengthDots value={convictionLevel[insight.conviction]} /> <strong>{insight.conviction}</strong>
-        </span>
+        {insight.tags.map((t) => (
+          <span key={t} className="tag-soft">
+            {t}
+          </span>
+        ))}
       </div>
-    </>
+    </article>
   );
-  if (match && !expanded)
-    return (
-      <Link to={`/match/${match.id}`} className="card card--interactive expert-card">
-        {inner}
-      </Link>
-    );
-  return <article className="card expert-card">{inner}</article>;
 }
 
 export function RiskList({ risks }: { risks: Risk[] }) {

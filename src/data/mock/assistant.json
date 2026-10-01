@@ -331,7 +331,7 @@
         "blocks": [
           {
             "type": "text",
-            "text": "I can't tell you who will win or what to bet on — nobody can do that reliably, and Vision X1 isn't designed to. What I can do is help you understand the evidence: form, chance quality, tactical matchups, availability and the main sources of uncertainty."
+            "text": "I can't tell you who will win or what to bet on — nobody can do that reliably, and Vision X1 isn't designed to. What I can do is help you understand the match page: the data, the signals in the AI summary, and what the expert opinion is based on."
           },
           {
             "type": "bullets",
@@ -344,7 +344,7 @@
           {
             "type": "callout",
             "tone": "caution",
-            "text": "If you choose to bet, only stake what you can afford to lose. Vision X1 is for 18+ users. Support: BeGambleAware.org · Joueurs-info-service.fr"
+            "text": "Vision X1 is for adults (18+) and does not provide betting advice. If gambling stops being fun, free confidential support is available: BeGambleAware.org · Joueurs-info-service.fr"
           }
         ],
         "sources": [],

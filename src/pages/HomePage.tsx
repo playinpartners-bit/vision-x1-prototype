@@ -1,216 +1,284 @@
 import { Link } from 'react-router-dom';
-import { football } from '../services';
+import { football, trackRecord } from '../services';
 import { useAsync } from '../hooks/useAsync';
 import { useAppState } from '../hooks/AppState';
 import { Icon, type IconName } from '../components/ui/Icon';
 import { Badge, Button, Card, CardSkeleton, DemoTag, SectionHeader } from '../components/ui/primitives';
 import { MatchCard } from '../components/match/MatchCard';
 import { TeamCrest } from '../components/match/TeamCrest';
-import { FormStrip } from '../components/match/FormStrip';
-import { AiAnalysisCard, ExpertCard, SignalList } from '../components/match/Insights';
 import { StatCompare } from '../components/match/StatCompare';
-import { PitchVisual } from '../components/marketing/PitchVisual';
+import { RiskList, SignalList } from '../components/match/Insights';
+import { MatchPageStack } from '../components/marketing/MatchPageStack';
 import { TelegramMock } from '../components/marketing/TelegramMock';
 import { plans } from '../components/marketing/plans';
-import { cx, formatKickoff } from '../utils';
+import { LAYERS, LayerTag, type LayerId } from '../components/layers/Layers';
+import { CallCard, OutcomeBadge, RecordStrip, recordSummary } from '../components/trust/Trust';
+import { cx, formatDateTime, formatKickoff } from '../utils';
 
-const features: { icon: IconName; title: string; body: string }[] = [
-  { icon: 'chart', title: 'Match intelligence', body: 'Form, xG, head-to-head and tactical context for every fixture, distilled into one clear view.' },
-  { icon: 'spark', title: 'AI-assisted analysis', body: 'Models synthesise thousands of data points into signals — and tell you how strong each one really is.' },
-  { icon: 'shield', title: 'Expert analysts', body: 'Vision X1 analysts add what data misses: line-up dynamics, motivation, tactical matchups.' },
-  { icon: 'alert', title: 'Honest uncertainty', body: 'Every report surfaces the risks and unknowns. We never sell certainty that does not exist.' },
-  { icon: 'telegram', title: 'Telegram companion', body: 'Briefings, line-up alerts and quick answers wherever you already are.' },
-  { icon: 'history', title: 'Your research history', body: 'Save fixtures, revisit analysis and see how past reads compared with what happened.' },
+const layerCopy: Record<LayerId, { is: string[]; isnt: string }> = {
+  data: {
+    is: ['Form, xG, goals, head-to-head', 'Team & player availability', 'Updated until kickoff'],
+    isnt: 'No opinion. Just what happened.',
+  },
+  ai: {
+    is: ['Synthesises the data layer', 'Ranks signals by strength', 'Timestamped when generated'],
+    isnt: 'Never edited by hand, never a Vision X1 call.',
+  },
+  expert: {
+    is: ['A named league analyst', 'One clear call + conviction level', 'Locked at publication'],
+    isnt: 'Published before kickoff. Graded in public.',
+  },
+};
+
+const pocket: { icon: IconName; title: string; body: string }[] = [
+  { icon: 'clock', title: 'Briefings', body: "Every morning: today's match pages and the calls our analysts have locked." },
+  { icon: 'bell', title: 'Alerts', body: 'Line-ups confirmed, late fitness news, a new expert call on a match you follow.' },
+  { icon: 'users', title: 'Community', body: 'Where Vision X1 began. Discuss match pages with members and analysts.' },
 ];
 
 export function HomePage() {
-  const matches = useAsync(() => football.getMatches(0));
   const featured = useAsync(() => football.getMatchDetail('psg-marseille'));
-  const ai = useAsync(() => football.getAiAnalyses());
+  const matches = useAsync(() => football.getMatches(0));
+  const record = useAsync(() => trackRecord.getCalls());
   const { openMembership } = useAppState();
-
   const fd = featured.data;
+  const summary = recordSummary(record.data?.graded ?? []);
 
   return (
     <>
-      {/* HERO */}
+      {/* ───── HERO ───── */}
       <section className="hero">
         <div className="hero__bg" />
+        <div className="hero__pitch" aria-hidden="true" />
         <div className="container hero__inner">
           <div className="hero__copy">
-            <Badge tone="outline" icon="spark">AI-assisted football intelligence</Badge>
+            <span className="hero__brand">
+              VISION X1 <span>—</span> Football Intelligence
+            </span>
             <h1 className="hero__title">
-              Football intelligence.
+              Read the match
               <br />
-              <span className="gradient-text">Powered by data.</span>
+              <span className="hero__title-accent">before kickoff.</span>
             </h1>
             <p className="hero__lede">
-              Vision X1 combines match data, AI analysis and expert insight to help you understand every fixture more deeply —
-              form, signals, risks and context, in one place.
+              Every match page brings together the data, an AI-assisted summary and a Vision X1 expert opinion — clearly separated, and
+              timestamped before a ball is kicked.
             </p>
             <div className="hero__ctas">
               <Button size="lg" to="/match/psg-marseille" iconRight="arrowRight">
-                Explore a match report
+                Open tonight's match page
               </Button>
-              <Button size="lg" variant="secondary" to="/assistant" icon="spark">
-                Ask the AI assistant
+              <Button size="lg" variant="secondary" to="/track-record" icon="ledger">
+                See the track record
               </Button>
             </div>
-            <div className="hero__proof">
-              <div><strong>5</strong> top European leagues</div>
-              <div><strong>40+</strong> metrics per fixture</div>
-              <div><strong>Human</strong> + AI analysis</div>
-            </div>
+            <ul className="trust-row">
+              <li><Icon name="lock" size={15} /> Published before kickoff</li>
+              <li><Icon name="fingerprint" size={15} /> Never edited</li>
+              <li><Icon name="check" size={15} /> Every call graded in public</li>
+            </ul>
           </div>
-          <div className="hero__visual">
-            <PitchVisual />
-            {fd && (
-              <Link to={`/match/${fd.match.id}`} className="hero__float card">
-                <div className="hero__float-top">
-                  <span className="eyebrow">Featured tonight</span>
-                  <DemoTag label="Demo" />
-                </div>
-                <div className="hero__float-teams">
-                  <TeamCrest team={fd.match.home} size={34} />
-                  <div>
-                    <strong>{fd.match.home.shortName}</strong> vs <strong>{fd.match.away.shortName}</strong>
-                    <div className="muted small">
-                      {fd.match.competition.name} · {formatKickoff(fd.match.kickoff)}
-                    </div>
-                  </div>
-                  <TeamCrest team={fd.match.away} size={34} />
-                </div>
-                {fd.intel && <SignalList signals={fd.intel.aiSummary.signals.slice(0, 3)} match={fd.match} compact />}
-              </Link>
-            )}
-          </div>
+          <div className="hero__visual">{fd ? <MatchPageStack d={fd} /> : <CardSkeleton lines={6} />}</div>
         </div>
       </section>
 
-      {/* TODAY'S MATCHES */}
-      <section className="section">
-        <div className="container">
-          <SectionHeader
-            eyebrow={<>Today's fixtures <DemoTag /></>}
-            title="Today's featured matches"
-            description="Every fixture comes with form, core statistics and an AI-generated read. Full analyst reports for the biggest games."
-            action={
-              <Button variant="ghost" to="/dashboard" iconRight="arrowRight">
-                Open dashboard
-              </Button>
-            }
-          />
-          <div className="grid grid--3">
-            {matches.loading
-              ? Array.from({ length: 3 }).map((_, i) => <CardSkeleton key={i} />)
-              : matches.data?.slice(0, 6).map((m) => <MatchCard key={m.id} match={m} />)}
-          </div>
-        </div>
-      </section>
-
-      {/* MATCH INSIGHT PREVIEW */}
-      {fd && fd.intel && (
+      {/* ───── TONIGHT'S MATCH PAGE ───── */}
+      {fd && (
         <section className="section section--tint">
           <div className="container">
             <SectionHeader
-              eyebrow="Match insight preview"
-              title={
-                <>
-                  {fd.match.home.shortName} vs {fd.match.away.shortName}: the full picture
-                </>
+              eyebrow="The match page"
+              title="One match. Three layers. Never blended."
+              description="This is the core of Vision X1. Here's tonight's match page for Le Classique — data, machine summary and human judgement, each in its own lane."
+              action={
+                <Button variant="ghost" to={`/match/${fd.match.id}`} iconRight="arrowRight">
+                  Open full match page
+                </Button>
               }
-              description="A glimpse of a Vision X1 match report — data, AI synthesis and an expert view side by side."
             />
-            <div className="preview-grid">
-              <Card className="card--pad">
-                <div className="preview-teams">
-                  {(['home', 'away'] as const).map((s) => (
-                    <div key={s} className="preview-team">
-                      <TeamCrest team={fd.match[s]} size={44} />
-                      <div>
-                        <div className="preview-team__name">{fd.match[s].name}</div>
-                        <FormStrip results={fd.match[s].recent} size="sm" />
-                      </div>
-                    </div>
-                  ))}
+            <div className="showcase card">
+              <div className="showcase__head">
+                <div className="showcase__teams">
+                  <TeamCrest team={fd.match.home} size={44} />
+                  <div>
+                    <h3>
+                      {fd.match.home.name} <span className="muted">vs</span> {fd.match.away.name}
+                    </h3>
+                    <span className="muted small">
+                      {fd.match.competition.name} · {fd.match.round} · Kickoff {formatKickoff(fd.match.kickoff)}
+                    </span>
+                  </div>
+                  <TeamCrest team={fd.match.away} size={44} />
                 </div>
-                <StatCompare stats={fd.stats.slice(1, 6)} homeLabel={fd.match.home.shortName} awayLabel={fd.match.away.shortName} />
-                <div className="card-foot-row">
-                  <DemoTag />
-                  <Link to={`/match/${fd.match.id}`} className="link-inline">
-                    View full report <Icon name="arrowRight" size={14} />
-                  </Link>
+                <DemoTag label="Demo match page" />
+              </div>
+
+              <div className="showcase__layers">
+                <div className="sc-col sc-col--data">
+                  <LayerTag layer="data" />
+                  <p className="sc-col__what">{LAYERS.data.what}</p>
+                  <StatCompare
+                    stats={fd.data.stats.filter((s) => ['Points per game', 'Expected goals (xG) / game', 'Goals conceded / game', 'Possession'].includes(s.label))}
+                    homeLabel={fd.match.home.shortName}
+                    awayLabel={fd.match.away.shortName}
+                  />
                 </div>
-              </Card>
-              <div className="stack">
-                <AiAnalysisCard analysis={fd.intel.aiSummary} match={fd.match} />
+                {fd.ai && (
+                  <div className="sc-col sc-col--ai">
+                    <LayerTag layer="ai" />
+                    <p className="sc-col__what">Generated {formatDateTime(fd.ai.generatedAt)}</p>
+                    <h4 className="sc-col__headline">{fd.ai.headline}</h4>
+                    <SignalList signals={fd.ai.signals.slice(0, 4)} match={fd.match} compact />
+                  </div>
+                )}
+                {fd.call && (
+                  <div className="sc-col sc-col--expert">
+                    <LayerTag layer="expert" />
+                    <p className="sc-col__what">{fd.call.analyst.role}</p>
+                    <CallCard call={fd.call} />
+                  </div>
+                )}
+              </div>
+
+              <div className="showcase__risks">
+                <span className="showcase__risks-label">
+                  <Icon name="alert" size={15} /> Key risks
+                </span>
+                <RiskList risks={fd.risks.slice(0, 3)} />
               </div>
             </div>
           </div>
         </section>
       )}
 
-      {/* AI + EXPERT */}
+      {/* ───── THREE LAYERS ───── */}
       <section className="section">
         <div className="container">
-          <div className="split">
-            <div>
-              <SectionHeader
-                eyebrow="AI analysis"
-                title="Signals, not certainties"
-                description="Our models read form, chance quality, tactical profiles and availability — then rank which signals matter and how strong they are."
-              />
-              <div className="stack">
-                {ai.data?.slice(1, 3).map((a) => (
-                  <AiAnalysisCard key={a.id} analysis={a} compact />
-                ))}
-              </div>
-            </div>
-            <div>
-              <SectionHeader
-                eyebrow="Vision X1 expert analysis"
-                title="The human read"
-                description="Specialist analysts for each league add tactical and contextual judgement that data alone can't capture."
-              />
-              {fd?.intel && <ExpertCard insight={fd.intel.expert} match={fd.match} />}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURES */}
-      <section className="section section--tint">
-        <div className="container">
-          <SectionHeader align="center" eyebrow="The platform" title="Everything you need to read a match" />
+          <SectionHeader align="center" eyebrow="How we read a match" title="Know exactly what you're reading" />
           <div className="grid grid--3">
-            {features.map((f) => (
-              <Card key={f.title} className="card--pad feature">
-                <span className="feature__icon">
-                  <Icon name={f.icon} size={20} />
-                </span>
-                <h3>{f.title}</h3>
-                <p>{f.body}</p>
+            {(Object.keys(LAYERS) as LayerId[]).map((id) => (
+              <Card key={id} className={cx('card--pad', 'layer-card', `layer-card--${id}`)}>
+                <span className="layer-card__n">{LAYERS[id].n}</span>
+                <h3>
+                  <Icon name={LAYERS[id].icon} size={18} /> {LAYERS[id].label}
+                </h3>
+                <ul className="checklist">
+                  {layerCopy[id].is.map((x) => (
+                    <li key={x}>
+                      <Icon name="check" size={15} /> {x}
+                    </li>
+                  ))}
+                </ul>
+                <p className="layer-card__isnt">{layerCopy[id].isnt}</p>
               </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TELEGRAM */}
+      {/* ───── TODAY'S MATCH PAGES ───── */}
+      <section className="section section--tint">
+        <div className="container">
+          <SectionHeader
+            eyebrow={<>Today <DemoTag label="Demo fixtures" /></>}
+            title="Today's match pages"
+            description="Every fixture has a data layer. The biggest matches get an AI summary and a locked expert call."
+            action={
+              <Button variant="ghost" to="/matches" iconRight="arrowRight">
+                Match Center
+              </Button>
+            }
+          />
+          <div className="grid grid--3">
+            {matches.loading
+              ? [0, 1, 2].map((i) => <CardSkeleton key={i} />)
+              : matches.data?.slice(0, 6).map((m) => <MatchCard key={m.id} match={m} />)}
+          </div>
+        </div>
+      </section>
+
+      {/* ───── TRACK RECORD ───── */}
       <section className="section">
+        <div className="container tr-teaser">
+          <div>
+            <span className="eyebrow">Public Track Record</span>
+            <h2 className="section-title">We publish before kickoff. We can't edit after.</h2>
+            <p className="section-desc">
+              Every expert call is timestamped, fingerprinted and locked the moment it's published — then graded after full time, right or
+              wrong. Trust should be checkable.
+            </p>
+            <div className="tr-teaser__kpis">
+              <div>
+                <strong>{summary.total || '—'}</strong>
+                <span>calls graded</span>
+              </div>
+              <div>
+                <strong>{summary.decided ? `${Math.round(summary.rate * 100)}%` : '—'}</strong>
+                <span>correct reads</span>
+              </div>
+              <div>
+                <strong>{summary.medianLeadHours ? `${summary.medianLeadHours.toFixed(1)} h` : '—'}</strong>
+                <span>median lead time</span>
+              </div>
+              <div>
+                <strong>0</strong>
+                <span>edits after publication</span>
+              </div>
+            </div>
+            <Button to="/track-record" variant="secondary" icon="ledger">
+              Explore the full record
+            </Button>
+            <p className="muted small" style={{ marginTop: 12 }}>
+              <DemoTag label="Demo record" /> Accuracy only — no odds, returns or profit figures.
+            </p>
+          </div>
+          <Card className="card--pad tr-teaser__panel">
+            <div className="block-head">
+              <h3 className="sub-title" style={{ margin: 0 }}>Latest graded calls</h3>
+              <RecordStrip calls={[...(record.data?.graded ?? [])].slice(0, 16).reverse()} />
+            </div>
+            <ul className="mini-ledger">
+              {record.data?.graded.slice(0, 5).map((c) => (
+                <li key={c.id}>
+                  <div>
+                    <strong>{c.call}</strong>
+                    <span className="muted small">
+                      {c.home} vs {c.away} · {c.finalScore ?? 'postponed'}
+                    </span>
+                  </div>
+                  <span className="mini-ledger__stamp mono small">
+                    <Icon name="lock" size={11} /> {c.id}
+                  </span>
+                  <OutcomeBadge outcome={c.outcome} />
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </div>
+      </section>
+
+      {/* ───── TELEGRAM COMPANION ───── */}
+      <section className="section section--tint">
         <div className="container telegram">
           <div className="telegram__copy">
             <Badge tone="accent" icon="telegram">Telegram companion</Badge>
-            <h2 className="section-title">Where Vision X1 started. Now your companion.</h2>
+            <h2 className="section-title">Vision X1 in your pocket</h2>
             <p className="section-desc">
-              Our community began on Telegram. It's still the fastest way to stay informed: a morning briefing, line-up and fitness
-              alerts, and quick answers — with the full analysis one tap away in the platform.
+              The match page is where you read the game. Telegram is how it finds you — wherever you are on matchday.
             </p>
-            <ul className="checklist">
-              <li><Icon name="check" size={16} /> Daily briefing at 09:00 local time</li>
-              <li><Icon name="check" size={16} /> Alerts when line-ups or key news change a read</li>
-              <li><Icon name="check" size={16} /> Ask the assistant directly in chat</li>
-            </ul>
+            <div className="pocket-grid">
+              {pocket.map((p) => (
+                <div key={p.title} className="pocket-item">
+                  <span className="feature__icon">
+                    <Icon name={p.icon} size={18} />
+                  </span>
+                  <div>
+                    <h3>{p.title}</h3>
+                    <p>{p.body}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
             <Button variant="secondary" icon="telegram" onClick={openMembership}>
               Connect Telegram (demo)
             </Button>
@@ -219,14 +287,14 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* MEMBERSHIP */}
-      <section className="section section--tint" id="membership">
+      {/* ───── MEMBERSHIP ───── */}
+      <section className="section" id="membership">
         <div className="container">
           <SectionHeader
             align="center"
             eyebrow="Membership"
-            title="Go deeper on every match"
-            description="For adults 18+. Analysis and context — never guaranteed outcomes. Indicative prototype pricing; no payment is taken in this demo."
+            title="Read every match properly"
+            description="For adults 18+. Football analysis — never guaranteed outcomes or betting advice. Indicative prototype pricing; no payment is taken."
           />
           <div className="grid grid--3 plans">
             {plans.map((p) => (
@@ -240,7 +308,9 @@ export function HomePage() {
                 </div>
                 <ul className="checklist">
                   {p.features.map((f) => (
-                    <li key={f}><Icon name="check" size={16} /> {f}</li>
+                    <li key={f}>
+                      <Icon name="check" size={16} /> {f}
+                    </li>
                   ))}
                 </ul>
                 <Button variant={p.highlight ? 'primary' : 'secondary'} className="w-full" onClick={openMembership}>
@@ -249,6 +319,9 @@ export function HomePage() {
               </Card>
             ))}
           </div>
+          <p className="muted small center-note">
+            Coming later: <Link to="/assistant">Ask Vision X1</Link>, an AI research assistant for match pages (concept preview).
+          </p>
         </div>
       </section>
     </>

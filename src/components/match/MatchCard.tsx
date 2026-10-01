@@ -3,7 +3,7 @@ import type { Match } from '../../types/football';
 import { cx, formatDay, formatKickoff } from '../../utils';
 import { useAppState } from '../../hooks/AppState';
 import { Icon } from '../ui/Icon';
-import { Badge } from '../ui/primitives';
+import { CoveragePills } from '../layers/Layers';
 import { FormStrip } from './FormStrip';
 import { TeamCrest } from './TeamCrest';
 
@@ -64,43 +64,22 @@ export function MatchCard({ match }: { match: Match }) {
         );
       })}
       <p className="match-card__headline">{match.headline}</p>
+      <div className="match-card__call">
+        {match.call ? (
+          <>
+            <Icon name="lock" size={13} />
+            <span>
+              Expert call published <strong>{formatKickoff(match.call.publishedAt)}</strong>
+            </span>
+          </>
+        ) : (
+          <span className="muted">No expert call on this fixture</span>
+        )}
+      </div>
       <div className="match-card__foot">
-        <div className="match-card__tags">
-          {match.hasFullReport && <Badge tone="ai" icon="spark">Full report</Badge>}
-          {match.tags.slice(0, match.hasFullReport ? 1 : 2).map((t) => (
-            <Badge key={t}>{t}</Badge>
-          ))}
-        </div>
+        <CoveragePills coverage={match.coverage} />
         <SaveButton matchId={match.id} compact />
       </div>
-    </Link>
-  );
-}
-
-/** Row variant: used in compact lists (dashboard fixture list). */
-export function MatchRow({ match, active }: { match: Match; active?: boolean }) {
-  return (
-    <Link to={`/match/${match.id}`} className={cx('match-row', active && 'is-active')}>
-      <span className="match-row__time">
-        {match.status === 'live' ? (
-          <span className="match-status--live">
-            <span className="live-dot" /> {match.score?.home}–{match.score?.away}
-          </span>
-        ) : (
-          formatKickoff(match.kickoff)
-        )}
-      </span>
-      <span className="match-row__teams">
-        <span className="match-row__team">
-          <TeamCrest team={match.home} size={22} /> {match.home.shortName}
-        </span>
-        <span className="match-row__team">
-          <TeamCrest team={match.away} size={22} /> {match.away.shortName}
-        </span>
-      </span>
-      <span className="match-row__comp">{match.competition.shortName}</span>
-      {match.hasFullReport ? <Icon name="spark" size={15} className="match-row__ai" /> : <span />}
-      <SaveButton matchId={match.id} compact />
     </Link>
   );
 }

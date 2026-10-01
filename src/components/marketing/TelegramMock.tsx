@@ -15,23 +15,24 @@ export function TelegramMock() {
       <div className="phone__body">
         <div className="tg-msg">
           <div className="tg-msg__label">☀️ Morning briefing</div>
-          6 fixtures today · 4 AI analyses · 3 expert insights.
+          6 match pages today · 3 expert calls locked.
           <br />
           Featured: <strong>PSG vs Marseille</strong>, 21:00
+          <div className="tg-msg__btn">Open match page</div>
         </div>
         <div className="tg-msg">
-          <div className="tg-msg__label">⚠️ Fitness update</div>
-          PSG centre-back is a late fitness test. Our analysts will update the read once XIs are confirmed.
+          <div className="tg-msg__label">🔒 New expert call</div>
+          Camille Rousseau published on PSG vs Marseille — locked 12 h 45 min before kickoff.
         </div>
         <div className="tg-msg">
           <div className="tg-msg__label">📋 Line-ups confirmed</div>
-          Inter vs Atalanta — both XIs are in. Tap to see what changed vs. our preview.
-          <div className="tg-msg__btn">Open in Vision X1</div>
+          Inter vs Atalanta XIs are in. The data layer has been updated.
         </div>
-        <div className="tg-msg tg-msg--me">Key risks for PSG–OM?</div>
-        <div className="tg-msg">
-          Top 3: line-up uncertainty, rotation after Europe, rivalry discipline. Full breakdown in the app →
+        <div className="tg-msg tg-msg--community">
+          <div className="tg-msg__label">💬 Community · 1,240 members</div>
+          <em>Hugo:</em> That PSG right-back vs OM's left winger duel is the whole game.
         </div>
+        <div className="tg-msg tg-msg--me">Remind me at line-ups 👍</div>
       </div>
       <div className="phone__input">
         <span>Message</span>

@@ -66,7 +66,18 @@ export function AssistantPage() {
   const empty = messages.length === 0;
 
   return (
-    <div className="container page assistant">
+    <div className="container page">
+      <div className="concept-banner">
+        <span className="pill-preview">Concept · future layer</span>
+        <p>
+          <strong>Ask Vision X1</strong> is a preview of a possible future layer: an AI research assistant that answers questions about a
+          match page. It is not part of the MVP. Responses below are scripted demo content.
+        </p>
+        <Link to={`/match/${matchId}`} className="link-inline">
+          Back to the match page <Icon name="arrowRight" size={13} />
+        </Link>
+      </div>
+    <div className="assistant">
       <aside className="assistant__side">
         <Card className="card--pad">
           <div className="side-card__head">
@@ -113,6 +124,7 @@ export function AssistantPage() {
           <ul className="scope-list scope-list--no">
             <li><Icon name="close" size={14} /> Predicting results with certainty</li>
             <li><Icon name="close" size={14} /> Betting tips or staking advice</li>
+            <li><Icon name="close" size={14} /> Replacing the expert opinion layer</li>
           </ul>
         </Card>
       </aside>
@@ -124,8 +136,8 @@ export function AssistantPage() {
               <Icon name="spark" size={18} />
             </span>
             <div>
-              <h1>Vision X1 Assistant</h1>
-              <span className="muted small">Football research · data synthesis · match intelligence</span>
+              <h1>Ask Vision X1</h1>
+              <span className="muted small">Research questions about a match page · concept</span>
             </div>
           </div>
           <Badge tone="caution">Scripted demo responses</Badge>
@@ -218,6 +230,7 @@ export function AssistantPage() {
           </p>
         </form>
       </section>
+    </div>
     </div>
   );
 }

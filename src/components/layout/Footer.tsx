@@ -8,7 +8,7 @@ export function ResponsibleNote({ compact }: { compact?: boolean }) {
       <p>
         {compact
           ? 'Vision X1 provides football analysis, not betting advice. No outcome is guaranteed.'
-          : 'Vision X1 is a football intelligence and research product for adults (18+). We provide analysis and context, never guaranteed outcomes or betting advice. If you choose to bet, set limits and only stake what you can afford to lose.'}{' '}
+          : 'Vision X1 is a football intelligence product for adults (18+). We publish analysis and context — never guaranteed outcomes, odds or betting advice. Past accuracy does not guarantee future results.'}{' '}
         Support: <a href="https://www.begambleaware.org" target="_blank" rel="noreferrer">BeGambleAware</a> ·{' '}
         <a href="https://www.joueurs-info-service.fr" target="_blank" rel="noreferrer">Joueurs Info Service</a>
       </p>
@@ -23,22 +23,25 @@ export function Footer() {
         <div className="footer__grid">
           <div className="footer__brand">
             <Logo />
-            <p>Football intelligence, powered by data. Built in Europe for fans who want to understand the game more deeply.</p>
+            <p>Football Intelligence. Read the match before kickoff — data, AI summary and expert opinion, timestamped and accountable.</p>
           </div>
           <div>
             <h4>Product</h4>
-            <Link to="/dashboard">Dashboard</Link>
-            <Link to="/match/psg-marseille">Match Centre</Link>
-            <Link to="/assistant">AI Assistant</Link>
+            <Link to="/matches">Match Center</Link>
+            <Link to="/track-record">Track Record</Link>
+            <Link to="/me">My Vision X1</Link>
+            <Link to="/assistant">Ask Vision X1 (preview)</Link>
           </div>
           <div>
             <h4>Company</h4>
             <span>Methodology</span>
-            <span>Analyst team</span>
+            <span>Our analysts</span>
+            <span>Telegram community</span>
             <span>Contact</span>
           </div>
           <div>
             <h4>Trust</h4>
+            <Link to="/track-record">How calls are recorded</Link>
             <span>Responsible use</span>
             <span>Privacy</span>
             <span>Terms</span>
@@ -46,8 +49,8 @@ export function Footer() {
         </div>
         <ResponsibleNote />
         <p className="footer__legal">
-          © {new Date().getFullYear()} Vision X1 · Prototype build. All fixtures, statistics, analysts and outputs shown are DEMO DATA for
-          illustration only. Club names are used for identification; crests are generated placeholders.
+          © {new Date().getFullYear()} Vision X1 · Prototype build. All fixtures, statistics, analysts, calls, timestamps and track-record entries
+          shown are DEMO DATA for illustration only. Club names are used for identification; crests are generated placeholders.
         </p>
       </div>
     </footer>

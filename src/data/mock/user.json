@@ -5,21 +5,112 @@
     "plan": "Pro",
     "memberSince": "2025-03-14",
     "telegramLinked": true,
-    "savedMatchIds": ["psg-marseille", "inter-atalanta", "liverpool-aston-villa"],
-    "favouriteTeamIds": ["psg", "arsenal"]
+    "savedMatchIds": [
+      "psg-marseille",
+      "inter-atalanta",
+      "liverpool-aston-villa"
+    ],
+    "favouriteTeamIds": [
+      "psg",
+      "arsenal",
+      "inter"
+    ]
   },
-  "history": [
-    { "id": "h1", "matchLabel": "Lille vs Marseille", "competition": "Ligue 1", "daysAgo": 9, "type": "Expert insight", "title": "Lille's compact block limits OM's transitions", "outcome": "Read aligned", "finalScore": "2-1" },
-    { "id": "h2", "matchLabel": "Man City vs Arsenal", "competition": "Premier League", "daysAgo": 19, "type": "AI analysis", "title": "High-xG game expected; both sides create", "outcome": "Read aligned", "finalScore": "2-2" },
-    { "id": "h3", "matchLabel": "Napoli vs Inter", "competition": "Serie A", "daysAgo": 18, "type": "AI analysis", "title": "Inter's away control should limit Napoli", "outcome": "Read not aligned", "finalScore": "1-1" },
-    { "id": "h4", "matchLabel": "Bayern Munich vs PSG", "competition": "Champions League", "daysAgo": 12, "type": "Assistant session", "title": "Compared pressing intensity and rest days", "outcome": "Read not aligned", "finalScore": "2-1" },
-    { "id": "h5", "matchLabel": "PSG vs Lens", "competition": "Ligue 1", "daysAgo": 4, "type": "Expert insight", "title": "PSG's home press vs Lens' build-up", "outcome": "Read aligned", "finalScore": "3-1" },
-    { "id": "h6", "matchLabel": "PSG vs Marseille", "competition": "Ligue 1", "daysAgo": 0, "type": "AI analysis", "title": "Control vs transition — full report", "outcome": "Pending" }
-  ],
   "notifications": [
-    { "id": "n1", "kind": "insight", "title": "New expert insight", "body": "Camille Rousseau published “Why the first 20 minutes decide Le Classique”.", "minutesAgo": 12, "matchId": "psg-marseille" },
-    { "id": "n2", "kind": "alert", "title": "Fitness update", "body": "PSG centre-back listed as a late fitness test for tonight (demo).", "minutesAgo": 38, "matchId": "psg-marseille" },
-    { "id": "n3", "kind": "lineup", "title": "Line-ups reminder set", "body": "We'll ping you on Telegram when the Inter vs Atalanta XIs drop.", "minutesAgo": 95, "matchId": "inter-atalanta" },
-    { "id": "n4", "kind": "digest", "title": "Morning digest delivered", "body": "6 fixtures, 4 AI analyses and 3 expert insights in today's briefing.", "minutesAgo": 240 }
+    {
+      "id": "n1",
+      "kind": "insight",
+      "title": "New expert call",
+      "body": "Camille Rousseau published a call on PSG vs Marseille. Locked at publication.",
+      "minutesAgo": 12,
+      "matchId": "psg-marseille"
+    },
+    {
+      "id": "n2",
+      "kind": "alert",
+      "title": "Fitness update",
+      "body": "PSG centre-back listed as a late fitness test for tonight (demo).",
+      "minutesAgo": 38,
+      "matchId": "psg-marseille"
+    },
+    {
+      "id": "n3",
+      "kind": "lineup",
+      "title": "Line-ups reminder set",
+      "body": "We'll ping you on Telegram when the Inter vs Atalanta XIs drop.",
+      "minutesAgo": 95,
+      "matchId": "inter-atalanta"
+    },
+    {
+      "id": "n4",
+      "kind": "digest",
+      "title": "Morning digest delivered",
+      "body": "6 fixtures, 4 AI analyses and 3 expert insights in today's briefing.",
+      "minutesAgo": 240
+    }
+  ],
+  "readingHistory": [
+    {
+      "id": "r1",
+      "callId": "VX1-26-0409",
+      "openedMinutesBeforeKickoff": 240
+    },
+    {
+      "id": "r2",
+      "callId": "VX1-26-0402",
+      "openedMinutesBeforeKickoff": 95
+    },
+    {
+      "id": "r3",
+      "callId": "VX1-26-0400",
+      "openedMinutesBeforeKickoff": 180
+    },
+    {
+      "id": "r4",
+      "callId": "VX1-26-0393",
+      "openedMinutesBeforeKickoff": 60
+    },
+    {
+      "id": "r5",
+      "callId": "VX1-26-0392",
+      "openedMinutesBeforeKickoff": 300
+    },
+    {
+      "id": "r6",
+      "callId": "VX1-26-0394",
+      "openedMinutesBeforeKickoff": 120
+    }
+  ],
+  "alertPrefs": [
+    {
+      "id": "briefing",
+      "label": "Morning briefing",
+      "detail": "Today's match pages and new expert calls at 09:00.",
+      "on": true
+    },
+    {
+      "id": "call",
+      "label": "New expert call published",
+      "detail": "When a Vision X1 analyst publishes on a match you follow.",
+      "on": true
+    },
+    {
+      "id": "lineups",
+      "label": "Line-ups & fitness",
+      "detail": "When confirmed XIs or late news change the picture.",
+      "on": true
+    },
+    {
+      "id": "graded",
+      "label": "Result graded",
+      "detail": "How each call you followed was graded after full time.",
+      "on": false
+    },
+    {
+      "id": "community",
+      "label": "Community digest",
+      "detail": "Weekly highlights from the Vision X1 Telegram community.",
+      "on": false
+    }
   ]
 }

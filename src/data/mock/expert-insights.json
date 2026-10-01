@@ -2,37 +2,68 @@
   {
     "id": "ins-arsenal-newcastle",
     "matchId": "arsenal-newcastle",
-    "analyst": { "name": "Tom Hadley", "role": "Premier League Analyst", "initials": "TH" },
+    "analyst": {
+      "name": "Tom Hadley",
+      "role": "Premier League Analyst",
+      "initials": "TH"
+    },
     "title": "Set pieces are Arsenal's quiet edge again",
     "excerpt": "Newcastle concede more from corners than any top-half side. Arsenal have scored four from dead balls already.",
-    "body": [],
+    "body": [
+      "Arsenal have scored four set-piece goals already, and Newcastle have conceded more from corners than any other top-half side. The duel between Arsenal's near-post runners and Newcastle's zonal marking is the clearest edge on the pitch.",
+      "In open play this is closer than the table suggests: Newcastle press well for an hour, but their away output has dropped sharply (three goals in three). I expect Arsenal to have the ball and the better chances without it being comfortable.",
+      "Watch the Newcastle left-back. If he starts, they're far better at stopping Arsenal's right-sided overloads."
+    ],
     "conviction": "Medium",
     "angle": "Set-piece matchup",
-    "publishedAt": "2026-10-01T07:40:00Z",
-    "tags": ["Set pieces"]
+    "tags": [
+      "Set pieces"
+    ],
+    "minutesBeforeKickoff": 590
   },
   {
     "id": "ins-inter-atalanta",
     "matchId": "inter-atalanta",
-    "analyst": { "name": "Luca Bernardi", "role": "Serie A Analyst", "initials": "LB" },
+    "analyst": {
+      "name": "Luca Bernardi",
+      "role": "Serie A Analyst",
+      "initials": "LB"
+    },
     "title": "Atalanta's press is the variable that matters",
     "excerpt": "If Inter's back three can play through the first line, the space behind Atalanta's wing-backs is enormous. If not, expect a scrappy, stop-start game.",
-    "body": [],
+    "body": [
+      "Atalanta's man-to-man press is the variable that decides this. Inter's back three are comfortable on the ball, but nobody has played through Atalanta's first line cleanly this season.",
+      "If Inter do get through it, the space behind Atalanta's wing-backs is enormous, and Inter's forwards are the best in Serie A at attacking it. If they can't, expect a scrappy, stop-start game with chances at both ends.",
+      "That uncertainty is why my conviction is low. This is a game to read after twenty minutes, not before kickoff."
+    ],
     "conviction": "Low",
     "angle": "Pressing & build-up",
-    "publishedAt": "2026-10-01T06:55:00Z",
-    "tags": ["Tactical", "Uncertain"]
+    "tags": [
+      "Tactical",
+      "Uncertain"
+    ],
+    "minutesBeforeKickoff": 735
   },
   {
     "id": "ins-liverpool-villa",
     "matchId": "liverpool-aston-villa",
-    "analyst": { "name": "Tom Hadley", "role": "Premier League Analyst", "initials": "TH" },
+    "analyst": {
+      "name": "Tom Hadley",
+      "role": "Premier League Analyst",
+      "initials": "TH"
+    },
     "title": "Villa's high line vs Anfield's tempo",
     "excerpt": "Villa hold one of the league's highest defensive lines. Against Liverpool's runners in behind, that's a structural risk worth tracking.",
-    "body": [],
+    "body": [
+      "Villa hold one of the league's highest defensive lines. Against Liverpool's runners in behind, that's a structural risk worth tracking.",
+      "Villa have been good at Villa Park but have kept just one clean sheet. Anfield's tempo in the first half-hour has broken better-organised sides this season.",
+      "Liverpool should win the territory battle comfortably; the question is whether Villa's counter can punish a Liverpool side that commits full-backs high."
+    ],
     "conviction": "Medium",
     "angle": "Defensive structure",
-    "publishedAt": "2026-09-30T18:20:00Z",
-    "tags": ["Tactical"]
+    "tags": [
+      "Tactical"
+    ],
+    "minutesBeforeKickoff": 1300
   }
 ]

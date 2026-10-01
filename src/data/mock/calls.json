@@ -1,0 +1,728 @@
+{
+  "pending": [
+    {
+      "id": "VX1-26-0412",
+      "matchId": "psg-marseille",
+      "minutesBeforeKickoff": 765,
+      "analyst": {
+        "name": "Camille Rousseau",
+        "initials": "CR",
+        "role": "Lead Analyst, Ligue 1"
+      },
+      "call": "PSG win",
+      "rationale": "PSG should control the ball; Marseille's best route is transition. Line-up dependent.",
+      "conviction": "Medium",
+      "outcome": "Pending"
+    },
+    {
+      "id": "VX1-26-0413",
+      "matchId": "arsenal-newcastle",
+      "minutesBeforeKickoff": 590,
+      "analyst": {
+        "name": "Tom Hadley",
+        "initials": "TH",
+        "role": "Premier League Analyst"
+      },
+      "call": "Arsenal win",
+      "rationale": "Set-piece edge and Newcastle's weak away output.",
+      "conviction": "Medium",
+      "outcome": "Pending"
+    },
+    {
+      "id": "VX1-26-0414",
+      "matchId": "inter-atalanta",
+      "minutesBeforeKickoff": 735,
+      "analyst": {
+        "name": "Luca Bernardi",
+        "initials": "LB",
+        "role": "Serie A Analyst"
+      },
+      "call": "Both teams score",
+      "rationale": "Atalanta's press makes this open whichever way it breaks.",
+      "conviction": "Low",
+      "outcome": "Pending"
+    },
+    {
+      "id": "VX1-26-0415",
+      "matchId": "liverpool-aston-villa",
+      "minutesBeforeKickoff": 1300,
+      "analyst": {
+        "name": "Tom Hadley",
+        "initials": "TH",
+        "role": "Premier League Analyst"
+      },
+      "call": "Liverpool win",
+      "rationale": "Anfield tempo vs Villa's high line.",
+      "conviction": "Medium",
+      "outcome": "Pending"
+    }
+  ],
+  "graded": [
+    {
+      "id": "VX1-26-0411",
+      "competition": "Bundesliga",
+      "home": "Dortmund",
+      "away": "Freiburg",
+      "kickoffDaysAgo": 2,
+      "kickoffTime": "18:30",
+      "minutesBeforeKickoff": 610,
+      "analyst": {
+        "name": "Jonas Weber",
+        "initials": "JW",
+        "role": "Bundesliga Analyst"
+      },
+      "call": "Dortmund win",
+      "rationale": "Dortmund's home pressing vs Freiburg's slow build-up.",
+      "conviction": "Medium",
+      "finalScore": "2-0",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0410",
+      "competition": "Ligue 1",
+      "home": "Marseille",
+      "away": "Brest",
+      "kickoffDaysAgo": 3,
+      "kickoffTime": "21:00",
+      "minutesBeforeKickoff": 720,
+      "analyst": {
+        "name": "Camille Rousseau",
+        "initials": "CR",
+        "role": "Lead Analyst, Ligue 1"
+      },
+      "call": "Marseille win",
+      "rationale": "Brest without their two first-choice centre-backs.",
+      "conviction": "High",
+      "finalScore": "2-0",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0409",
+      "competition": "Ligue 1",
+      "home": "PSG",
+      "away": "Lens",
+      "kickoffDaysAgo": 4,
+      "kickoffTime": "21:00",
+      "minutesBeforeKickoff": 780,
+      "analyst": {
+        "name": "Camille Rousseau",
+        "initials": "CR",
+        "role": "Lead Analyst, Ligue 1"
+      },
+      "call": "PSG win",
+      "rationale": "PSG's home press vs Lens' build-up.",
+      "conviction": "High",
+      "finalScore": "3-1",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0408",
+      "competition": "LaLiga",
+      "home": "Getafe",
+      "away": "Real Sociedad",
+      "kickoffDaysAgo": 4,
+      "kickoffTime": "16:15",
+      "minutesBeforeKickoff": 300,
+      "analyst": {
+        "name": "Marta Iglesias",
+        "initials": "MI",
+        "role": "LaLiga Analyst"
+      },
+      "call": "Real Sociedad avoid defeat",
+      "rationale": "La Real's away structure travels well.",
+      "conviction": "Low",
+      "finalScore": "0-1",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0407",
+      "competition": "Premier League",
+      "home": "Brighton",
+      "away": "Arsenal",
+      "kickoffDaysAgo": 5,
+      "kickoffTime": "15:00",
+      "minutesBeforeKickoff": 540,
+      "analyst": {
+        "name": "Tom Hadley",
+        "initials": "TH",
+        "role": "Premier League Analyst"
+      },
+      "call": "Arsenal win",
+      "rationale": "Arsenal's set-piece edge.",
+      "conviction": "High",
+      "finalScore": "1-1",
+      "outcome": "Missed"
+    },
+    {
+      "id": "VX1-26-0406",
+      "competition": "Serie A",
+      "home": "Lazio",
+      "away": "Inter",
+      "kickoffDaysAgo": 5,
+      "kickoffTime": "20:45",
+      "minutesBeforeKickoff": 660,
+      "analyst": {
+        "name": "Luca Bernardi",
+        "initials": "LB",
+        "role": "Serie A Analyst"
+      },
+      "call": "Inter avoid defeat",
+      "rationale": "Inter's control away from home.",
+      "conviction": "Medium",
+      "finalScore": "1-2",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0405",
+      "competition": "Bundesliga",
+      "home": "Mainz",
+      "away": "Leverkusen",
+      "kickoffDaysAgo": 6,
+      "kickoffTime": "15:30",
+      "minutesBeforeKickoff": 420,
+      "analyst": {
+        "name": "Jonas Weber",
+        "initials": "JW",
+        "role": "Bundesliga Analyst"
+      },
+      "call": "Both teams score",
+      "rationale": "Both sides' chance creation is high.",
+      "conviction": "Low",
+      "finalScore": "1-2",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0404",
+      "competition": "Ligue 1",
+      "home": "Nantes",
+      "away": "PSG",
+      "kickoffDaysAgo": 8,
+      "kickoffTime": "17:00",
+      "minutesBeforeKickoff": 700,
+      "analyst": {
+        "name": "Camille Rousseau",
+        "initials": "CR",
+        "role": "Lead Analyst, Ligue 1"
+      },
+      "call": "PSG win",
+      "rationale": "Nantes' injury list in midfield.",
+      "conviction": "High",
+      "finalScore": "0-2",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0403",
+      "competition": "LaLiga",
+      "home": "Rayo",
+      "away": "Villarreal",
+      "kickoffDaysAgo": 8,
+      "kickoffTime": "21:00",
+      "minutesBeforeKickoff": 505,
+      "analyst": {
+        "name": "Marta Iglesias",
+        "initials": "MI",
+        "role": "LaLiga Analyst"
+      },
+      "call": "Villarreal win",
+      "rationale": "Villarreal's transition threat.",
+      "conviction": "Medium",
+      "finalScore": "2-1",
+      "outcome": "Missed"
+    },
+    {
+      "id": "VX1-26-0402",
+      "competition": "Ligue 1",
+      "home": "Lille",
+      "away": "Marseille",
+      "kickoffDaysAgo": 9,
+      "kickoffTime": "20:45",
+      "minutesBeforeKickoff": 690,
+      "analyst": {
+        "name": "Camille Rousseau",
+        "initials": "CR",
+        "role": "Lead Analyst, Ligue 1"
+      },
+      "call": "Lille avoid defeat",
+      "rationale": "Lille's compact block limits OM's transitions.",
+      "conviction": "Medium",
+      "finalScore": "2-1",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0401",
+      "competition": "Serie A",
+      "home": "Roma",
+      "away": "Atalanta",
+      "kickoffDaysAgo": 11,
+      "kickoffTime": "18:00",
+      "minutesBeforeKickoff": 580,
+      "analyst": {
+        "name": "Luca Bernardi",
+        "initials": "LB",
+        "role": "Serie A Analyst"
+      },
+      "call": "Both teams score",
+      "rationale": "Atalanta matches are open by default.",
+      "conviction": "Medium",
+      "finalScore": "2-1",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0400",
+      "competition": "Champions League",
+      "home": "Bayern Munich",
+      "away": "PSG",
+      "kickoffDaysAgo": 12,
+      "kickoffTime": "21:00",
+      "minutesBeforeKickoff": 840,
+      "analyst": {
+        "name": "Camille Rousseau",
+        "initials": "CR",
+        "role": "Lead Analyst, Ligue 1"
+      },
+      "call": "PSG avoid defeat",
+      "rationale": "Compared pressing intensity and rest days.",
+      "conviction": "Low",
+      "finalScore": "2-1",
+      "outcome": "Missed"
+    },
+    {
+      "id": "VX1-26-0399",
+      "competition": "Premier League",
+      "home": "Fulham",
+      "away": "Arsenal",
+      "kickoffDaysAgo": 12,
+      "kickoffTime": "17:30",
+      "minutesBeforeKickoff": 600,
+      "analyst": {
+        "name": "Tom Hadley",
+        "initials": "TH",
+        "role": "Premier League Analyst"
+      },
+      "call": "Arsenal win",
+      "rationale": "Fulham's high line vs Arsenal's runners.",
+      "conviction": "High",
+      "finalScore": "0-3",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0398",
+      "competition": "Premier League",
+      "home": "Chelsea",
+      "away": "Newcastle",
+      "kickoffDaysAgo": 13,
+      "kickoffTime": "20:00",
+      "minutesBeforeKickoff": 380,
+      "analyst": {
+        "name": "Tom Hadley",
+        "initials": "TH",
+        "role": "Premier League Analyst"
+      },
+      "call": "Draw",
+      "rationale": "Two evenly matched midfields.",
+      "conviction": "Low",
+      "finalScore": "2-1",
+      "outcome": "Missed"
+    },
+    {
+      "id": "VX1-26-0397",
+      "competition": "LaLiga",
+      "home": "Betis",
+      "away": "Real Sociedad",
+      "kickoffDaysAgo": 14,
+      "kickoffTime": "18:30",
+      "minutesBeforeKickoff": 530,
+      "analyst": {
+        "name": "Marta Iglesias",
+        "initials": "MI",
+        "role": "LaLiga Analyst"
+      },
+      "call": "Both teams score",
+      "rationale": "Betis concede from wide areas.",
+      "conviction": "Medium",
+      "finalScore": "2-2",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0396",
+      "competition": "Ligue 1",
+      "home": "Lens",
+      "away": "Lyon",
+      "kickoffDaysAgo": 15,
+      "kickoffTime": "21:00",
+      "minutesBeforeKickoff": 450,
+      "analyst": {
+        "name": "Camille Rousseau",
+        "initials": "CR",
+        "role": "Lead Analyst, Ligue 1"
+      },
+      "call": "Lyon avoid defeat",
+      "rationale": "Lyon's away xG has been steady.",
+      "conviction": "Low",
+      "finalScore": "2-1",
+      "outcome": "Missed"
+    },
+    {
+      "id": "VX1-26-0395",
+      "competition": "Ligue 1",
+      "home": "PSG",
+      "away": "Monaco",
+      "kickoffDaysAgo": 16,
+      "kickoffTime": "21:00",
+      "minutesBeforeKickoff": 730,
+      "analyst": {
+        "name": "Camille Rousseau",
+        "initials": "CR",
+        "role": "Lead Analyst, Ligue 1"
+      },
+      "call": "PSG win",
+      "rationale": "Monaco's high line is exploitable.",
+      "conviction": "High",
+      "finalScore": "1-1",
+      "outcome": "Missed"
+    },
+    {
+      "id": "VX1-26-0394",
+      "competition": "Serie A",
+      "home": "Genoa",
+      "away": "Bologna",
+      "kickoffDaysAgo": 17,
+      "kickoffTime": "15:00",
+      "minutesBeforeKickoff": 480,
+      "analyst": {
+        "name": "Luca Bernardi",
+        "initials": "LB",
+        "role": "Serie A Analyst"
+      },
+      "call": "Bologna win",
+      "rationale": "Bologna's chance quality away from home.",
+      "conviction": "Low",
+      "finalScore": null,
+      "outcome": "Void",
+      "voidReason": "Match postponed (weather)"
+    },
+    {
+      "id": "VX1-26-0393",
+      "competition": "Serie A",
+      "home": "Napoli",
+      "away": "Inter",
+      "kickoffDaysAgo": 18,
+      "kickoffTime": "20:45",
+      "minutesBeforeKickoff": 770,
+      "analyst": {
+        "name": "Luca Bernardi",
+        "initials": "LB",
+        "role": "Serie A Analyst"
+      },
+      "call": "Inter win",
+      "rationale": "Inter's away control should limit Napoli.",
+      "conviction": "Medium",
+      "finalScore": "1-1",
+      "outcome": "Missed"
+    },
+    {
+      "id": "VX1-26-0392",
+      "competition": "Premier League",
+      "home": "Man City",
+      "away": "Arsenal",
+      "kickoffDaysAgo": 19,
+      "kickoffTime": "16:30",
+      "minutesBeforeKickoff": 620,
+      "analyst": {
+        "name": "Tom Hadley",
+        "initials": "TH",
+        "role": "Premier League Analyst"
+      },
+      "call": "Both teams score",
+      "rationale": "High-xG game expected; both sides create.",
+      "conviction": "Medium",
+      "finalScore": "2-2",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0391",
+      "competition": "Bundesliga",
+      "home": "Leverkusen",
+      "away": "Hoffenheim",
+      "kickoffDaysAgo": 20,
+      "kickoffTime": "15:30",
+      "minutesBeforeKickoff": 560,
+      "analyst": {
+        "name": "Jonas Weber",
+        "initials": "JW",
+        "role": "Bundesliga Analyst"
+      },
+      "call": "Leverkusen win",
+      "rationale": "Hoffenheim have conceded first in 4 of 5.",
+      "conviction": "High",
+      "finalScore": "3-1",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0390",
+      "competition": "LaLiga",
+      "home": "Barcelona",
+      "away": "Celta",
+      "kickoffDaysAgo": 21,
+      "kickoffTime": "21:00",
+      "minutesBeforeKickoff": 650,
+      "analyst": {
+        "name": "Marta Iglesias",
+        "initials": "MI",
+        "role": "LaLiga Analyst"
+      },
+      "call": "Barcelona win",
+      "rationale": "Barcelona's home attack is the league's best.",
+      "conviction": "High",
+      "finalScore": "3-1",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0389",
+      "competition": "Ligue 1",
+      "home": "Strasbourg",
+      "away": "Marseille",
+      "kickoffDaysAgo": 22,
+      "kickoffTime": "17:00",
+      "minutesBeforeKickoff": 400,
+      "analyst": {
+        "name": "Camille Rousseau",
+        "initials": "CR",
+        "role": "Lead Analyst, Ligue 1"
+      },
+      "call": "Marseille win",
+      "rationale": "Marseille's depth after a free week.",
+      "conviction": "Low",
+      "finalScore": "2-2",
+      "outcome": "Missed"
+    },
+    {
+      "id": "VX1-26-0388",
+      "competition": "Ligue 1",
+      "home": "PSG",
+      "away": "Toulouse",
+      "kickoffDaysAgo": 23,
+      "kickoffTime": "21:00",
+      "minutesBeforeKickoff": 800,
+      "analyst": {
+        "name": "Camille Rousseau",
+        "initials": "CR",
+        "role": "Lead Analyst, Ligue 1"
+      },
+      "call": "PSG win",
+      "rationale": "Toulouse's away defence is the league's weakest.",
+      "conviction": "High",
+      "finalScore": "4-1",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0387",
+      "competition": "Serie A",
+      "home": "Torino",
+      "away": "Inter",
+      "kickoffDaysAgo": 25,
+      "kickoffTime": "18:00",
+      "minutesBeforeKickoff": 610,
+      "analyst": {
+        "name": "Luca Bernardi",
+        "initials": "LB",
+        "role": "Serie A Analyst"
+      },
+      "call": "Inter win",
+      "rationale": "Inter's wing-backs vs a narrow Torino.",
+      "conviction": "High",
+      "finalScore": "1-4",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0386",
+      "competition": "Premier League",
+      "home": "Arsenal",
+      "away": "Brentford",
+      "kickoffDaysAgo": 26,
+      "kickoffTime": "15:00",
+      "minutesBeforeKickoff": 540,
+      "analyst": {
+        "name": "Tom Hadley",
+        "initials": "TH",
+        "role": "Premier League Analyst"
+      },
+      "call": "Arsenal win",
+      "rationale": "Brentford's long-ball threat neutralised by Arsenal's aerial strength.",
+      "conviction": "High",
+      "finalScore": "2-1",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0385",
+      "competition": "Bundesliga",
+      "home": "Dortmund",
+      "away": "Leverkusen",
+      "kickoffDaysAgo": 27,
+      "kickoffTime": "18:30",
+      "minutesBeforeKickoff": 600,
+      "analyst": {
+        "name": "Jonas Weber",
+        "initials": "JW",
+        "role": "Bundesliga Analyst"
+      },
+      "call": "Dortmund win",
+      "rationale": "Dortmund's home form vs a rotated Leverkusen.",
+      "conviction": "Medium",
+      "finalScore": "2-2",
+      "outcome": "Missed"
+    },
+    {
+      "id": "VX1-26-0384",
+      "competition": "LaLiga",
+      "home": "Atlético",
+      "away": "Real Sociedad",
+      "kickoffDaysAgo": 28,
+      "kickoffTime": "21:00",
+      "minutesBeforeKickoff": 500,
+      "analyst": {
+        "name": "Marta Iglesias",
+        "initials": "MI",
+        "role": "LaLiga Analyst"
+      },
+      "call": "Atlético win",
+      "rationale": "Atlético's low block vs La Real's possession.",
+      "conviction": "Low",
+      "finalScore": "1-0",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0383",
+      "competition": "Ligue 1",
+      "home": "Le Havre",
+      "away": "Marseille",
+      "kickoffDaysAgo": 29,
+      "kickoffTime": "19:00",
+      "minutesBeforeKickoff": 360,
+      "analyst": {
+        "name": "Camille Rousseau",
+        "initials": "CR",
+        "role": "Lead Analyst, Ligue 1"
+      },
+      "call": "Draw",
+      "rationale": "Le Havre are hard to break down at home.",
+      "conviction": "Low",
+      "finalScore": "0-1",
+      "outcome": "Missed"
+    },
+    {
+      "id": "VX1-26-0382",
+      "competition": "Premier League",
+      "home": "Liverpool",
+      "away": "Leeds",
+      "kickoffDaysAgo": 31,
+      "kickoffTime": "15:00",
+      "minutesBeforeKickoff": 590,
+      "analyst": {
+        "name": "Tom Hadley",
+        "initials": "TH",
+        "role": "Premier League Analyst"
+      },
+      "call": "Liverpool win",
+      "rationale": "Leeds' poor away record.",
+      "conviction": "Medium",
+      "finalScore": "3-0",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0381",
+      "competition": "Premier League",
+      "home": "Chelsea",
+      "away": "Liverpool",
+      "kickoffDaysAgo": 33,
+      "kickoffTime": "17:30",
+      "minutesBeforeKickoff": 610,
+      "analyst": {
+        "name": "Tom Hadley",
+        "initials": "TH",
+        "role": "Premier League Analyst"
+      },
+      "call": "Both teams score",
+      "rationale": "Both teams create a lot of chances.",
+      "conviction": "Low",
+      "finalScore": "1-1",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0380",
+      "competition": "Bundesliga",
+      "home": "Bayern Munich",
+      "away": "Stuttgart",
+      "kickoffDaysAgo": 34,
+      "kickoffTime": "18:30",
+      "minutesBeforeKickoff": 700,
+      "analyst": {
+        "name": "Jonas Weber",
+        "initials": "JW",
+        "role": "Bundesliga Analyst"
+      },
+      "call": "Bayern Munich win",
+      "rationale": "Bayern's home dominance.",
+      "conviction": "High",
+      "finalScore": "2-1",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0379",
+      "competition": "Serie A",
+      "home": "Juventus",
+      "away": "Milan",
+      "kickoffDaysAgo": 35,
+      "kickoffTime": "20:45",
+      "minutesBeforeKickoff": 520,
+      "analyst": {
+        "name": "Luca Bernardi",
+        "initials": "LB",
+        "role": "Serie A Analyst"
+      },
+      "call": "Draw",
+      "rationale": "Two cautious sides in a big game.",
+      "conviction": "Low",
+      "finalScore": "0-0",
+      "outcome": "Correct"
+    },
+    {
+      "id": "VX1-26-0378",
+      "competition": "LaLiga",
+      "home": "Sevilla",
+      "away": "Valencia",
+      "kickoffDaysAgo": 36,
+      "kickoffTime": "19:00",
+      "minutesBeforeKickoff": 410,
+      "analyst": {
+        "name": "Marta Iglesias",
+        "initials": "MI",
+        "role": "LaLiga Analyst"
+      },
+      "call": "Sevilla win",
+      "rationale": "Sevilla's home record.",
+      "conviction": "Low",
+      "finalScore": "1-1",
+      "outcome": "Missed"
+    },
+    {
+      "id": "VX1-26-0377",
+      "competition": "Ligue 1",
+      "home": "Monaco",
+      "away": "Lille",
+      "kickoffDaysAgo": 38,
+      "kickoffTime": "21:00",
+      "minutesBeforeKickoff": 555,
+      "analyst": {
+        "name": "Camille Rousseau",
+        "initials": "CR",
+        "role": "Lead Analyst, Ligue 1"
+      },
+      "call": "Lille avoid defeat",
+      "rationale": "Lille's clean-sheet record.",
+      "conviction": "Low",
+      "finalScore": "0-0",
+      "outcome": "Correct"
+    }
+  ]
+}

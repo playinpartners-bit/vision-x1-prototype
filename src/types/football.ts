@@ -71,6 +71,13 @@ export interface Team {
 
 export type MatchStatus = 'scheduled' | 'live' | 'finished';
 
+/** Which of the three match-page layers are published for a fixture. */
+export interface Coverage {
+  data: true; // every fixture has the data layer
+  ai: boolean;
+  expert: boolean;
+}
+
 export interface Match {
   id: string;
   competition: Competition;
@@ -84,7 +91,8 @@ export interface Match {
   featured: boolean;
   tags: string[];
   headline: string;
-  hasFullReport: boolean;
+  coverage: Coverage;
+  call?: VisionCall; // the locked Vision X1 call, if one was published
 }
 
 export interface HeadToHead {
@@ -149,43 +157,61 @@ export interface Risk {
   severity: 'low' | 'medium' | 'high';
 }
 
-/** Illustrative output only. Must always be rendered with a DEMO label. */
-export interface DemoOutlook {
-  home: [number, number];
-  draw: [number, number];
-  away: [number, number];
-  note: string;
+export type CallOutcome = 'Pending' | 'Correct' | 'Missed' | 'Void';
+
+/**
+ * A Vision X1 call: the analyst's headline read, published before kickoff.
+ * Once published it is append-only — `publishedAt` and `fingerprint` never
+ * change, and the outcome is graded automatically after full time.
+ */
+export interface VisionCall {
+  id: string; // public record ID, e.g. VX1-26-0412
+  matchId?: string; // set when the fixture exists in the match dataset
+  competition: string;
+  home: string;
+  away: string;
+  kickoff: string;
+  publishedAt: string;
+  analyst: Analyst;
+  call: string; // e.g. "PSG win"
+  rationale: string;
+  conviction: Conviction;
+  outcome: CallOutcome;
+  finalScore?: string;
+  voidReason?: string;
+  fingerprint: string; // content hash recorded at publication (demo)
 }
 
-export interface MatchIntel {
-  matchId: string;
-  h2h: HeadToHead[];
-  goalTiming: { buckets: string[]; home: number[]; away: number[] };
+export interface MatchData {
+  stats: StatComparison[];
   extraStats: StatComparison[];
-  aiSummary: AiAnalysis;
-  expert: ExpertInsight;
-  risks: Risk[];
-  outlook: DemoOutlook;
+  h2h: HeadToHead[];
+  goalTiming?: { buckets: string[]; home: number[]; away: number[] };
   keyAbsences: { teamId: string; player: string; status: string }[];
+  updatedAt: string;
 }
 
+/** Everything a Match Page shows, split into the three product layers. */
 export interface MatchDetail {
   match: Match;
-  stats: StatComparison[];
-  intel?: MatchIntel; // only some fixtures have a full analyst report
+  data: MatchData; // layer 01
+  ai?: AiAnalysis; // layer 02
+  expert?: ExpertInsight; // layer 03
+  call?: VisionCall; // layer 03 — the locked call
+  risks: Risk[];
 }
 
-export type HistoryOutcome = 'Read aligned' | 'Read not aligned' | 'Pending';
-
-export interface HistoryEntry {
+export interface ReadingEntry {
   id: string;
-  matchLabel: string;
-  competition: string;
-  date: string;
-  type: 'AI analysis' | 'Expert insight' | 'Assistant session';
-  title: string;
-  outcome: HistoryOutcome;
-  finalScore?: string;
+  call: VisionCall;
+  openedAt: string;
+}
+
+export interface AlertPref {
+  id: string;
+  label: string;
+  detail: string;
+  on: boolean;
 }
 
 export interface CompanionNotification {

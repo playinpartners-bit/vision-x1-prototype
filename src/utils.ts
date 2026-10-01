@@ -27,3 +27,24 @@ export function timeAgo(minutes: number) {
   const h = Math.round(minutes / 60);
   return `${h} h ago`;
 }
+
+export function formatDateTime(iso: string) {
+  const d = new Date(iso);
+  const day = formatDay(iso);
+  const time = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
+  return `${day}, ${time}`;
+}
+
+/** "12 h 45 min" between two ISO timestamps. */
+export function leadTime(fromIso: string, toIso: string) {
+  const mins = Math.max(0, Math.round((new Date(toIso).getTime() - new Date(fromIso).getTime()) / 60_000));
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  if (h === 0) return `${m} min`;
+  if (m === 0) return `${h} h`;
+  return `${h} h ${m} min`;
+}
+
+export function minutesSince(iso: string) {
+  return Math.max(0, Math.round((Date.now() - new Date(iso).getTime()) / 60_000));
+}

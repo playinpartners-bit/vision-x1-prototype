@@ -142,32 +142,3 @@ export function XgTrend({ xgFor, xgAgainst, labels }: { xgFor: number[]; xgAgain
     </figure>
   );
 }
-
-/** Segmented range bar for the DEMO outlook. Midpoints sized; ranges shown as text. */
-export function OutlookBar({
-  segments,
-}: {
-  segments: { label: string; range: [number, number]; tone: 'home' | 'draw' | 'away' }[];
-}) {
-  const mids = segments.map((s) => (s.range[0] + s.range[1]) / 2);
-  const total = mids.reduce((a, b) => a + b, 0);
-  return (
-    <div className="outlook">
-      <div className="outlook__bar">
-        {segments.map((s, i) => (
-          <span key={s.label} className={`outlook__seg outlook__seg--${s.tone}`} style={{ width: `${(mids[i] / total) * 100}%` }} />
-        ))}
-      </div>
-      <div className="outlook__labels">
-        {segments.map((s) => (
-          <div key={s.label} className="outlook__label">
-            <span className={`legend legend--${s.tone === 'draw' ? 'muted' : s.tone}`}>{s.label}</span>
-            <strong>
-              {s.range[0]}–{s.range[1]}%
-            </strong>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}

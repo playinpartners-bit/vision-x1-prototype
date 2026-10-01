@@ -5,13 +5,30 @@
     "headline": "Low-event profile likely: Arsenal concede 0.33 goals per home game.",
     "summary": "Arsenal's home defensive numbers are the strongest in the demo dataset. Newcastle's away output (1.0 goals/game) is their weakest phase.",
     "signals": [
-      { "label": "Home defence", "detail": "1 goal conceded in 3 home games.", "lean": "home", "strength": 3 },
-      { "label": "Away attack", "detail": "Newcastle: 3 goals in 3 away games.", "lean": "home", "strength": 2 },
-      { "label": "Fatigue", "detail": "Both sides played midweek.", "lean": "neutral", "strength": 1 }
+      {
+        "label": "Home defence",
+        "detail": "1 goal conceded in 3 home games.",
+        "lean": "home",
+        "strength": 3
+      },
+      {
+        "label": "Away attack",
+        "detail": "Newcastle: 3 goals in 3 away games.",
+        "lean": "home",
+        "strength": 2
+      },
+      {
+        "label": "Fatigue",
+        "detail": "Both sides played midweek.",
+        "lean": "neutral",
+        "strength": 1
+      }
     ],
-    "dataCoverage": ["Premier League 2026/27, MW 1–6"],
-    "generatedAt": "2026-10-01T09:10:00Z",
-    "modelLabel": "VX1 Analyst · demo"
+    "dataCoverage": [
+      "Premier League 2026/27, MW 1–6"
+    ],
+    "modelLabel": "VX1 Analyst · demo",
+    "minutesBeforeKickoff": 540
   },
   {
     "id": "ai-inter-atalanta",
@@ -19,13 +36,30 @@
     "headline": "Atalanta matches average 3.3 goals — the highest in Serie A's top four.",
     "summary": "Atalanta's games are consistently open (BTTS in 4 of 6). Inter have conceded once at home, so the key tension is Inter's control vs Atalanta's chaos.",
     "signals": [
-      { "label": "Goals environment", "detail": "Atalanta: 67% of matches over 2.5 goals.", "lean": "neutral", "strength": 2 },
-      { "label": "Inter home form", "detail": "W3, 9 scored, 1 conceded.", "lean": "home", "strength": 3 },
-      { "label": "Atalanta away", "detail": "W1 D1 L1, 5 conceded.", "lean": "home", "strength": 1 }
+      {
+        "label": "Goals environment",
+        "detail": "Atalanta: 67% of matches over 2.5 goals.",
+        "lean": "neutral",
+        "strength": 2
+      },
+      {
+        "label": "Inter home form",
+        "detail": "W3, 9 scored, 1 conceded.",
+        "lean": "home",
+        "strength": 3
+      },
+      {
+        "label": "Atalanta away",
+        "detail": "W1 D1 L1, 5 conceded.",
+        "lean": "home",
+        "strength": 1
+      }
     ],
-    "dataCoverage": ["Serie A 2026/27, Giornata 1–6"],
-    "generatedAt": "2026-10-01T09:12:00Z",
-    "modelLabel": "VX1 Analyst · demo"
+    "dataCoverage": [
+      "Serie A 2026/27, Giornata 1–6"
+    ],
+    "modelLabel": "VX1 Analyst · demo",
+    "minutesBeforeKickoff": 700
   },
   {
     "id": "ai-lyon-lille",
@@ -33,12 +67,24 @@
     "headline": "Two of Ligue 1's most balanced profiles — little separating them on xG.",
     "summary": "Lyon (10.6 xG) and Lille (10.1 xG) sit close on most underlying metrics. Lille's away defence is the main point of difference.",
     "signals": [
-      { "label": "xG parity", "detail": "0.5 xG separates the sides across 7 games.", "lean": "neutral", "strength": 2 },
-      { "label": "Lille clean sheets", "detail": "3 clean sheets — joint-second in Ligue 1.", "lean": "away", "strength": 1 }
+      {
+        "label": "xG parity",
+        "detail": "0.5 xG separates the sides across 7 games.",
+        "lean": "neutral",
+        "strength": 2
+      },
+      {
+        "label": "Lille clean sheets",
+        "detail": "3 clean sheets — joint-second in Ligue 1.",
+        "lean": "away",
+        "strength": 1
+      }
     ],
-    "dataCoverage": ["Ligue 1 2026/27, MD 1–7"],
-    "generatedAt": "2026-10-01T09:14:00Z",
-    "modelLabel": "VX1 Analyst · demo"
+    "dataCoverage": [
+      "Ligue 1 2026/27, MD 1–7"
+    ],
+    "modelLabel": "VX1 Analyst · demo",
+    "minutesBeforeKickoff": 600
   },
   {
     "id": "ai-barcelona-sevilla",
@@ -46,11 +92,23 @@
     "headline": "Strongest home attack vs a Sevilla side without an away win.",
     "summary": "Barcelona average 3.5 goals per home game. Sevilla have conceded 7 in 3 away. Rotation ahead of a European week is the main uncertainty.",
     "signals": [
-      { "label": "Home attack", "detail": "14 goals in 4 home games.", "lean": "home", "strength": 3 },
-      { "label": "Rotation risk", "detail": "Champions League fixture 3 days later.", "lean": "away", "strength": 1 }
+      {
+        "label": "Home attack",
+        "detail": "14 goals in 4 home games.",
+        "lean": "home",
+        "strength": 3
+      },
+      {
+        "label": "Rotation risk",
+        "detail": "Champions League fixture 3 days later.",
+        "lean": "away",
+        "strength": 1
+      }
     ],
-    "dataCoverage": ["LaLiga 2026/27, Jornada 1–7"],
-    "generatedAt": "2026-10-01T09:16:00Z",
-    "modelLabel": "VX1 Analyst · demo"
+    "dataCoverage": [
+      "LaLiga 2026/27, Jornada 1–7"
+    ],
+    "modelLabel": "VX1 Analyst · demo",
+    "minutesBeforeKickoff": 1950
   }
 ]

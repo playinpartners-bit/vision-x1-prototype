@@ -1,25 +1,134 @@
 {
   "matchId": "psg-marseille",
   "h2h": [
-    { "daysAgo": 214, "competition": "Ligue 1", "homeTeamId": "marseille", "awayTeamId": "psg", "score": { "home": 1, "away": 3 } },
-    { "daysAgo": 371, "competition": "Ligue 1", "homeTeamId": "psg", "awayTeamId": "marseille", "score": { "home": 1, "away": 0 }, "note": "Winner after 82'" },
-    { "daysAgo": 553, "competition": "Ligue 1", "homeTeamId": "marseille", "awayTeamId": "psg", "score": { "home": 0, "away": 2 } },
-    { "daysAgo": 735, "competition": "Ligue 1", "homeTeamId": "psg", "awayTeamId": "marseille", "score": { "home": 3, "away": 0 } },
-    { "daysAgo": 917, "competition": "Ligue 1", "homeTeamId": "marseille", "awayTeamId": "psg", "score": { "home": 2, "away": 2 }, "note": "OM led 2-0 at HT" },
-    { "daysAgo": 1100, "competition": "Coupe de France", "homeTeamId": "marseille", "awayTeamId": "psg", "score": { "home": 2, "away": 1 } }
+    {
+      "daysAgo": 214,
+      "competition": "Ligue 1",
+      "homeTeamId": "marseille",
+      "awayTeamId": "psg",
+      "score": {
+        "home": 1,
+        "away": 3
+      }
+    },
+    {
+      "daysAgo": 371,
+      "competition": "Ligue 1",
+      "homeTeamId": "psg",
+      "awayTeamId": "marseille",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "note": "Winner after 82'"
+    },
+    {
+      "daysAgo": 553,
+      "competition": "Ligue 1",
+      "homeTeamId": "marseille",
+      "awayTeamId": "psg",
+      "score": {
+        "home": 0,
+        "away": 2
+      }
+    },
+    {
+      "daysAgo": 735,
+      "competition": "Ligue 1",
+      "homeTeamId": "psg",
+      "awayTeamId": "marseille",
+      "score": {
+        "home": 3,
+        "away": 0
+      }
+    },
+    {
+      "daysAgo": 917,
+      "competition": "Ligue 1",
+      "homeTeamId": "marseille",
+      "awayTeamId": "psg",
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "note": "OM led 2-0 at HT"
+    },
+    {
+      "daysAgo": 1100,
+      "competition": "Coupe de France",
+      "homeTeamId": "marseille",
+      "awayTeamId": "psg",
+      "score": {
+        "home": 2,
+        "away": 1
+      }
+    }
   ],
   "goalTiming": {
-    "buckets": ["0–15", "16–30", "31–45", "46–60", "61–75", "76–90"],
-    "home": [2, 3, 2, 4, 3, 4],
-    "away": [1, 2, 3, 2, 2, 4]
+    "buckets": [
+      "0–15",
+      "16–30",
+      "31–45",
+      "46–60",
+      "61–75",
+      "76–90"
+    ],
+    "home": [
+      2,
+      3,
+      2,
+      4,
+      3,
+      4
+    ],
+    "away": [
+      1,
+      2,
+      3,
+      2,
+      2,
+      4
+    ]
   },
   "extraStats": [
-    { "label": "Expected goals (xG) / game", "home": 2.27, "away": 1.77, "format": "decimal" },
-    { "label": "xG conceded / game", "home": 0.97, "away": 1.24, "format": "decimal", "higherIsBetter": false },
-    { "label": "High turnovers / game", "home": 9.8, "away": 8.1, "format": "decimal" },
-    { "label": "Counter-attack shots / game", "home": 1.6, "away": 3.1, "format": "decimal" },
-    { "label": "Set-piece goals", "home": 3, "away": 5, "format": "number" },
-    { "label": "PPDA (lower = more pressing)", "home": 8.4, "away": 10.9, "format": "decimal", "higherIsBetter": false }
+    {
+      "label": "Expected goals (xG) / game",
+      "home": 2.27,
+      "away": 1.77,
+      "format": "decimal"
+    },
+    {
+      "label": "xG conceded / game",
+      "home": 0.97,
+      "away": 1.24,
+      "format": "decimal",
+      "higherIsBetter": false
+    },
+    {
+      "label": "High turnovers / game",
+      "home": 9.8,
+      "away": 8.1,
+      "format": "decimal"
+    },
+    {
+      "label": "Counter-attack shots / game",
+      "home": 1.6,
+      "away": 3.1,
+      "format": "decimal"
+    },
+    {
+      "label": "Set-piece goals",
+      "home": 3,
+      "away": 5,
+      "format": "number"
+    },
+    {
+      "label": "PPDA (lower = more pressing)",
+      "home": 8.4,
+      "away": 10.9,
+      "format": "decimal",
+      "higherIsBetter": false
+    }
   ],
   "aiSummary": {
     "id": "ai-psg-marseille",
@@ -27,21 +136,60 @@
     "headline": "Control vs. transition: PSG's territorial dominance meets Marseille's league-high counter threat.",
     "summary": "Across the demo dataset, PSG have generated the most xG in Ligue 1 (15.9 in 7) and concede few clear chances at home (3 goals in 4). Marseille are the league's most direct side — 3.1 counter-attack shots per game — and have scored in every match this season. The most informative signals point to PSG controlling territory, but Marseille's set-piece output (5 goals) and transition speed make this less one-sided than the table suggests. Rivalry fixtures have historically produced higher card counts and late goals, which widens the range of plausible outcomes.",
     "signals": [
-      { "label": "Home control", "detail": "PSG unbeaten at home in Ligue 1 (W3 D1); 66% average home possession.", "lean": "home", "strength": 3 },
-      { "label": "Chance quality", "detail": "PSG xG differential +9.1 vs Marseille +3.7 across 7 matches.", "lean": "home", "strength": 2 },
-      { "label": "Transition threat", "detail": "OM lead the league in counter-attack shots; PSG's high line has conceded 4 of 6 goals in transition.", "lean": "away", "strength": 2 },
-      { "label": "Set pieces", "detail": "Marseille have 5 set-piece goals — joint-most in the division.", "lean": "away", "strength": 2 },
-      { "label": "Fixture congestion", "detail": "PSG played a Champions League away game 4 days ago; Marseille had a full week.", "lean": "away", "strength": 1 },
-      { "label": "Rivalry volatility", "detail": "Last 6 meetings averaged 5.2 cards and 2 of them were decided after the 75th minute.", "lean": "neutral", "strength": 2 }
+      {
+        "label": "Home control",
+        "detail": "PSG unbeaten at home in Ligue 1 (W3 D1); 66% average home possession.",
+        "lean": "home",
+        "strength": 3
+      },
+      {
+        "label": "Chance quality",
+        "detail": "PSG xG differential +9.1 vs Marseille +3.7 across 7 matches.",
+        "lean": "home",
+        "strength": 2
+      },
+      {
+        "label": "Transition threat",
+        "detail": "OM lead the league in counter-attack shots; PSG's high line has conceded 4 of 6 goals in transition.",
+        "lean": "away",
+        "strength": 2
+      },
+      {
+        "label": "Set pieces",
+        "detail": "Marseille have 5 set-piece goals — joint-most in the division.",
+        "lean": "away",
+        "strength": 2
+      },
+      {
+        "label": "Fixture congestion",
+        "detail": "PSG played a Champions League away game 4 days ago; Marseille had a full week.",
+        "lean": "away",
+        "strength": 1
+      },
+      {
+        "label": "Rivalry volatility",
+        "detail": "Last 6 meetings averaged 5.2 cards and 2 of them were decided after the 75th minute.",
+        "lean": "neutral",
+        "strength": 2
+      }
     ],
-    "dataCoverage": ["Ligue 1 2026/27, matchdays 1–7", "Last 6 head-to-head meetings", "Squad availability (demo)", "Event data: shots, xG, turnovers"],
-    "generatedAt": "2026-10-01T09:30:00Z",
-    "modelLabel": "VX1 Analyst · demo"
+    "dataCoverage": [
+      "Ligue 1 2026/27, matchdays 1–7",
+      "Last 6 head-to-head meetings",
+      "Squad availability (demo)",
+      "Event data: shots, xG, turnovers"
+    ],
+    "modelLabel": "VX1 Analyst · demo",
+    "minutesBeforeKickoff": 690
   },
   "expert": {
     "id": "expert-psg-marseille",
     "matchId": "psg-marseille",
-    "analyst": { "name": "Camille Rousseau", "role": "Lead Analyst, Ligue 1", "initials": "CR" },
+    "analyst": {
+      "name": "Camille Rousseau",
+      "role": "Lead Analyst, Ligue 1",
+      "initials": "CR"
+    },
     "title": "Why the first 20 minutes decide Le Classique",
     "excerpt": "Marseille's best path is to survive PSG's opening press and attack the space behind a high full-back line. If they can't, the game state turns quickly.",
     "body": [
@@ -51,25 +199,55 @@
     ],
     "conviction": "Medium",
     "angle": "Game-state & early tempo",
-    "publishedAt": "2026-10-01T08:15:00Z",
-    "tags": ["Tactical", "Line-up dependent"]
+    "tags": [
+      "Tactical",
+      "Line-up dependent"
+    ],
+    "minutesBeforeKickoff": 765
   },
   "risks": [
-    { "title": "Line-up uncertainty", "detail": "PSG's first-choice centre-back is a late fitness test after a minor knock in midweek. Official XIs drop ~60 min before kick-off.", "severity": "high" },
-    { "title": "Rotation after Europe", "detail": "PSG played away in the Champions League 4 days ago; partial rotation in midfield is plausible.", "severity": "medium" },
-    { "title": "Rivalry discipline", "detail": "Red cards in 2 of the last 6 meetings. A dismissal changes every pre-match signal.", "severity": "medium" },
-    { "title": "Small sample size", "detail": "Seven league matches is early-season data; home/away splits rest on 3–4 games each.", "severity": "medium" },
-    { "title": "Weather", "detail": "Light rain forecast in Paris — minor effect on passing tempo.", "severity": "low" }
+    {
+      "title": "Line-up uncertainty",
+      "detail": "PSG's first-choice centre-back is a late fitness test after a minor knock in midweek. Official XIs drop ~60 min before kick-off.",
+      "severity": "high"
+    },
+    {
+      "title": "Rotation after Europe",
+      "detail": "PSG played away in the Champions League 4 days ago; partial rotation in midfield is plausible.",
+      "severity": "medium"
+    },
+    {
+      "title": "Rivalry discipline",
+      "detail": "Red cards in 2 of the last 6 meetings. A dismissal changes every pre-match signal.",
+      "severity": "medium"
+    },
+    {
+      "title": "Small sample size",
+      "detail": "Seven league matches is early-season data; home/away splits rest on 3–4 games each.",
+      "severity": "medium"
+    },
+    {
+      "title": "Weather",
+      "detail": "Light rain forecast in Paris — minor effect on passing tempo.",
+      "severity": "low"
+    }
   ],
-  "outlook": {
-    "home": [52, 60],
-    "draw": [20, 26],
-    "away": [18, 24],
-    "note": "Illustrative ranges from a placeholder demo model, shown to preview the UI. Not a prediction and not betting advice."
-  },
   "keyAbsences": [
-    { "teamId": "psg", "player": "Centre-back (demo)", "status": "Late fitness test" },
-    { "teamId": "marseille", "player": "Defensive midfielder (demo)", "status": "Suspended" },
-    { "teamId": "marseille", "player": "Reserve goalkeeper (demo)", "status": "Injured" }
-  ]
+    {
+      "teamId": "psg",
+      "player": "Centre-back (demo)",
+      "status": "Late fitness test"
+    },
+    {
+      "teamId": "marseille",
+      "player": "Defensive midfielder (demo)",
+      "status": "Suspended"
+    },
+    {
+      "teamId": "marseille",
+      "player": "Reserve goalkeeper (demo)",
+      "status": "Injured"
+    }
+  ],
+  "dataUpdatedMinutesAgo": 18
 }

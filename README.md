@@ -16,15 +16,32 @@ npm run preview    # serve the production build
 
 It uses `HashRouter`, so `dist/` can be dropped onto any static host (Netlify, Vercel, S3, GitHub Pages) with no server config.
 
+## Product principles (v2)
+
+1. **The Match Page is the core product.** Every screen leads to a match page that combines
+   football data, an AI-assisted summary, Vision X1 expert opinion, key risks and a transparent
+   publication record.
+2. **AI is a feature, not the promise.** Positioning: *VISION X1 — Football Intelligence.
+   Read the match before kickoff.* The AI Assistant is shown only as a labelled concept / future layer.
+3. **Three layers, visually separated.** `01 DATA` (steel), `02 AI SUMMARY` (teal),
+   `03 VISION X1 EXPERT OPINION` (violet) each have their own colour, number, description and timestamp.
+4. **Public Track Record.** Every expert call is timestamped before kickoff, fingerprinted, locked
+   and graded after full time — misses included. Accuracy only: no odds, returns or profit.
+5. **Telegram is a companion** — "Vision X1 in your pocket" for briefings, alerts and community.
+6. **Out of the MVP:** odds comparison, bookmaker links, stake advice, bankroll tracking, profit
+   charts, betting slips. (The v1 "model outlook" percentages were removed too.)
+
 ## Screens
 
 | Route | Screen |
 |---|---|
-| `#/` | Homepage: hero, today's matches, match-insight preview, AI + expert previews, features, Telegram companion, membership, 18+ framing |
-| `#/dashboard` | Dashboard: KPIs, featured match, AI analysis cards, expert insights, history, today's matches, saved matches, Telegram notifications |
-| `#/match/psg-marseille` | Match Centre: full demo report (form, goals, stats, radar, H2H, AI summary, expert opinion, risks, labelled demo outlook) |
-| `#/match/<id>` | Any other fixture: stats derived from the dataset, with a "report not published" state |
-| `#/assistant` | AI Football Assistant: suggested prompts, simulated streaming, structured answers with sources, betting-request guardrail |
+| `#/` | **Homepage** — hero "Read the match before kickoff.", live three-layer match page showcase, layer explainer, today's match pages, track record teaser, Telegram companion, membership |
+| `#/matches` | **Match Center** — fixtures by day/competition with published-layer indicators and locked call status |
+| `#/match/psg-marseille` | **Match Page** — layer overview, 01 Data (form, goals, stats, radar, H2H, availability), 02 AI Summary, 03 Expert Opinion (locked call + article), Key Risks, Publication record |
+| `#/match/<id>` | Any fixture: data layer always; AI/expert layers where published, honest empty states otherwise |
+| `#/track-record` | **Track Record** — KPIs, call strip, how-it-works, accuracy by conviction/competition, locked pending calls, filterable ledger with record IDs + fingerprints |
+| `#/me` | **My Vision X1** — followed match pages, reading history (with how each call was graded), followed teams, Telegram alert preferences, membership |
+| `#/assistant` | **Ask Vision X1** — concept preview of a future AI layer (scripted demo answers) |
 
 ## Project structure
 
@@ -34,10 +51,11 @@ src/
   data/mock/        ← ALL DEMO DATA (JSON)
     teams.json, competitions.json, matches.json
     ai-analyses.json, expert-insights.json, user.json
-    match-intel/psg-marseille.json   full report for the demo fixture
+    calls.json                       Track Record: pending + graded expert calls
+    match-intel/psg-marseille.json   full data/AI/expert/risk content for the demo fixture
     assistant.json                   scripted assistant intents & replies
   services/
-    types.ts        Provider contracts (FootballDataProvider, UserDataProvider, AssistantProvider)
+    types.ts        Provider contracts (Football, TrackRecord, User, Assistant)
     index.ts        Picks the provider (VITE_DATA_SOURCE) — the only import UI code uses
     providers/
       mockProvider.ts           JSON → domain model
@@ -46,12 +64,14 @@ src/
   hooks/            useAsync (data fetching), AppState (theme, saved matches, membership modal)
   components/
     ui/             Button, Card, Badge, DemoTag, Avatar, Skeleton, Icon …
-    match/          TeamCrest, FormStrip, MatchCard/Row, StatCompare, AI/Expert cards, Signals, Risks
-    charts/         Dependency-free SVG charts (goal timing, radar, xG trend, outlook bar)
+    layers/         LayerTag, LayerSection, CoveragePills — the 01/02/03 visual system
+    trust/          PublicationStamp, CallCard, OutcomeBadge, RecordStrip
+    match/          TeamCrest, FormStrip, MatchCard, MatchParts, StatCompare, Signals, ExpertArticle, Risks
+    charts/         Dependency-free SVG charts (goal timing, radar, xG trend)
     assistant/      Reply renderer (text, tables, comparisons, form, callouts)
     layout/         Nav, Footer, DemoBanner, MembershipModal, Logo
-    marketing/      Pitch visual, Telegram phone mock, plans
-  pages/            HomePage, DashboardPage, MatchDetailPage, AssistantPage
+    marketing/      Hero match-page stack, Telegram phone mock, plans
+  pages/            Home, MatchCenter, Match, TrackRecord, MyVision, Assistant
   styles/global.css Design tokens (dark + light) and component styles
 ```
 
@@ -65,8 +85,11 @@ src/
    No page or component changes are needed.
 4. Call **your own backend (BFF)**, not the vendor directly, so API keys never reach the browser
    and responses can be cached and rate-limited.
-5. Replace `useAsync` with TanStack Query for caching, retries and background refresh once data is live.
-6. The **assistant** becomes a backend endpoint: retrieval over your match/stat store and analyst notes,
+5. **Track Record integrity:** back `TrackRecordProvider` with an append-only table (insert before kickoff,
+   grade after full time, no UPDATE on call content), store a SHA-256 of the canonical call payload, and
+   consider periodically anchoring a hash of the ledger publicly so the record is independently verifiable.
+6. Replace `useAsync` with TanStack Query for caching, retries and background refresh once data is live.
+7. The **assistant** becomes a backend endpoint: retrieval over your match/stat store and analyst notes,
    then an LLM call with a system prompt that enforces the research-not-tips positioning. Keep the
    `AssistantReply` block format so answers keep rendering as tables and comparisons.
 
@@ -75,17 +98,18 @@ src/
 - Football + data + AI + premium analysis; fintech-grade UI, not a sportsbook.
 - Home = blue, away = violet, AI = teal. No green/red win/lose colour coding, no odds tables.
 - Uncertainty is always shown: signal strength, analyst conviction, a dedicated risks section.
-- Anything numeric that resembles a prediction carries a **DEMO** label and a disclaimer.
+- Every statistic, call, timestamp and record entry carries a **DEMO** label.
 - 18+ and responsible-use messaging in the footer, membership and assistant.
 - Crests are generated placeholders. Real club marks need licensing.
 
-## Suggested next steps once strategy is final
+## Suggested next steps
 
-1. **Data partner and backend:** choose a provider, build the BFF + database, and set up ingestion jobs for fixtures, events and line-ups.
-2. **Auth and accounts:** real sign-up/login, 18+ age gate, saved matches and history stored server-side.
-3. **Telegram bridge:** bot with account linking, a digest scheduler and line-up/news alerts.
-4. **AI pipeline:** retrieval-grounded assistant and generated match summaries, with an evaluation set, citations and guardrails.
-5. **Analyst CMS:** publishing workflow for expert insights, conviction levels and risk notes.
-6. **Payments:** a subscription provider such as Stripe or Paddle, with tier gating in the UI.
-7. **Compliance:** legal review of responsible-gambling messaging per market (FR/UK/EU), GDPR and consent, and the T&Cs.
-8. **Quality:** component tests, e2e smoke tests, accessibility audit, analytics.
+1. **Match page MVP** — data partner + backend (BFF), ingestion for fixtures/events/line-ups, data layer live.
+2. **Publishing tool for analysts** — write expert opinion, set the call + conviction, publish (locks the record).
+3. **Track Record service** — append-only storage, automatic grading after full time, public ledger API.
+4. **AI summary pipeline** — generated strictly from layer-01 data, with evaluation, citations and regeneration on data change.
+5. **Accounts & My Vision X1** — auth, 18+ gate, followed matches/teams, reading history.
+6. **Telegram companion** — bot with account linking, briefings, alerts, community moderation.
+7. **Payments** — Stripe/Paddle subscriptions with layer gating per tier.
+8. **Compliance** — per-market review (FR/UK/EU) of responsible-gambling messaging and track-record claims; GDPR.
+9. **Later:** Ask Vision X1 assistant, once match pages and the record are proven.

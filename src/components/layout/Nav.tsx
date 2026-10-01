@@ -6,11 +6,12 @@ import { Icon, type IconName } from '../ui/Icon';
 import { Avatar, Button } from '../ui/primitives';
 import { Logo } from './Logo';
 
-const links: { to: string; label: string; icon: IconName; end?: boolean }[] = [
+const links: { to: string; label: string; icon: IconName; end?: boolean; preview?: boolean }[] = [
   { to: '/', label: 'Home', icon: 'home', end: true },
-  { to: '/dashboard', label: 'Dashboard', icon: 'grid' },
-  { to: '/match/psg-marseille', label: 'Match Centre', icon: 'pitch' },
-  { to: '/assistant', label: 'AI Assistant', icon: 'spark' },
+  { to: '/matches', label: 'Match Center', icon: 'pitch' },
+  { to: '/track-record', label: 'Track Record', icon: 'ledger' },
+  { to: '/me', label: 'My Vision X1', icon: 'user' },
+  { to: '/assistant', label: 'Assistant', icon: 'spark', preview: true },
 ];
 
 export function Nav() {
@@ -30,11 +31,12 @@ export function Nav() {
               to={l.to}
               end={l.end}
               className={({ isActive }) =>
-                cx('nav__link', (isActive || (l.to.startsWith('/match') && pathname.startsWith('/match'))) && 'is-active')
+                cx('nav__link', l.preview && 'nav__link--preview', (isActive || (l.to === '/matches' && pathname.startsWith('/match/'))) && 'is-active')
               }
             >
               <Icon name={l.icon} size={16} />
               {l.label}
+              {l.preview && <span className="pill-preview">Preview</span>}
             </NavLink>
           ))}
           <Button variant="primary" size="sm" className="nav__cta-mobile" onClick={openMembership}>
@@ -48,7 +50,7 @@ export function Nav() {
           <Button variant="primary" size="sm" className="nav__cta" onClick={openMembership}>
             Get membership
           </Button>
-          <NavLink to="/dashboard" className="nav__avatar" aria-label="Demo account">
+          <NavLink to="/me" className="nav__avatar" aria-label="My Vision X1 (demo account)">
             <Avatar initials="AM" size={32} />
           </NavLink>
           <button className="icon-btn nav__burger" onClick={() => setOpen((o) => !o)} aria-label="Menu" aria-expanded={open}>

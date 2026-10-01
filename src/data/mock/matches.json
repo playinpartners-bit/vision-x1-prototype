@@ -9,8 +9,11 @@
     "round": "Matchday 8",
     "status": "scheduled",
     "featured": true,
-    "hasFullReport": true,
-    "tags": ["Le Classique", "Top of table", "High tempo"],
+    "tags": [
+      "Le Classique",
+      "Top of table",
+      "High tempo"
+    ],
     "headline": "Leaders host the league's most direct transition side in Le Classique."
   },
   {
@@ -23,9 +26,23 @@
     "round": "Matchweek 7",
     "status": "scheduled",
     "featured": false,
-    "hasFullReport": false,
-    "tags": ["Set pieces", "Low concession"],
-    "headline": "Arsenal's home defence (1 conceded) meets an inconsistent Newcastle away side."
+    "tags": [
+      "Set pieces",
+      "Low concession"
+    ],
+    "headline": "Arsenal's home defence (1 conceded) meets an inconsistent Newcastle away side.",
+    "risks": [
+      {
+        "title": "Left-back availability",
+        "detail": "Newcastle's first-choice left-back is doubtful; it changes how they defend Arsenal's right side.",
+        "severity": "medium"
+      },
+      {
+        "title": "Midweek legs",
+        "detail": "Both sides played in Europe on Wednesday.",
+        "severity": "low"
+      }
+    ]
   },
   {
     "id": "inter-atalanta",
@@ -37,9 +54,23 @@
     "round": "Giornata 7",
     "status": "scheduled",
     "featured": false,
-    "hasFullReport": false,
-    "tags": ["Pressing duel", "Goals trend"],
-    "headline": "Atalanta's man-to-man press tests Inter's build-up at San Siro."
+    "tags": [
+      "Pressing duel",
+      "Goals trend"
+    ],
+    "headline": "Atalanta's man-to-man press tests Inter's build-up at San Siro.",
+    "risks": [
+      {
+        "title": "Press-dependent game",
+        "detail": "If Inter play through Atalanta's first line early, most pre-match signals flip.",
+        "severity": "high"
+      },
+      {
+        "title": "Atalanta volatility",
+        "detail": "Both teams scored in 4 of 6, with two 2-2 draws — high variance profile.",
+        "severity": "medium"
+      }
+    ]
   },
   {
     "id": "real-sociedad-villarreal",
@@ -51,8 +82,9 @@
     "round": "Jornada 8",
     "status": "scheduled",
     "featured": false,
-    "hasFullReport": false,
-    "tags": ["Tight margins"],
+    "tags": [
+      "Tight margins"
+    ],
     "headline": "La Real's low-event home games versus Villarreal's open away profile."
   },
   {
@@ -64,10 +96,15 @@
     "time": "15:30",
     "round": "Spieltag 6",
     "status": "live",
-    "score": { "home": 1, "away": 1 },
+    "score": {
+      "home": 1,
+      "away": 1
+    },
     "featured": false,
-    "hasFullReport": false,
-    "tags": ["Live", "Open game"],
+    "tags": [
+      "Live",
+      "Open game"
+    ],
     "headline": "Two of the Bundesliga's highest shot-volume sides."
   },
   {
@@ -80,8 +117,9 @@
     "round": "Matchday 8",
     "status": "scheduled",
     "featured": false,
-    "hasFullReport": false,
-    "tags": ["Defensive structure"],
+    "tags": [
+      "Defensive structure"
+    ],
     "headline": "Lille's three clean sheets meet a Lyon side unbeaten at home."
   },
   {
@@ -94,9 +132,23 @@
     "round": "Matchweek 7",
     "status": "scheduled",
     "featured": false,
-    "hasFullReport": false,
-    "tags": ["Anfield", "Goals trend"],
-    "headline": "Perfect home record against a Villa side that has kept one clean sheet."
+    "tags": [
+      "Anfield",
+      "Goals trend"
+    ],
+    "headline": "Perfect home record against a Villa side that has kept one clean sheet.",
+    "risks": [
+      {
+        "title": "Line-ups not yet confirmed",
+        "detail": "Expert read published the day before kickoff; XIs land ~60 minutes before.",
+        "severity": "medium"
+      },
+      {
+        "title": "High line exposure",
+        "detail": "Villa's high line can produce a lopsided score either way.",
+        "severity": "medium"
+      }
+    ]
   },
   {
     "id": "barcelona-sevilla",
@@ -108,8 +160,10 @@
     "round": "Jornada 8",
     "status": "scheduled",
     "featured": false,
-    "hasFullReport": false,
-    "tags": ["Mismatch?", "Rotation risk"],
+    "tags": [
+      "Mismatch?",
+      "Rotation risk"
+    ],
     "headline": "League's top attack against its most vulnerable away defence."
   }
 ]

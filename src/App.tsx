@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { Nav } from './components/layout/Nav';
 import { Footer } from './components/layout/Footer';
 import { DemoBanner } from './components/layout/DemoBanner';
 import { MembershipModal } from './components/layout/MembershipModal';
 import { HomePage } from './pages/HomePage';
-import { DashboardPage } from './pages/DashboardPage';
-import { MatchDetailPage } from './pages/MatchDetailPage';
+import { MatchCenterPage } from './pages/MatchCenterPage';
+import { MatchPage } from './pages/MatchPage';
+import { TrackRecordPage } from './pages/TrackRecordPage';
+import { MyVisionPage } from './pages/MyVisionPage';
 import { AssistantPage } from './pages/AssistantPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 
@@ -26,9 +28,13 @@ export function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/match/:matchId" element={<MatchDetailPage />} />
-          <Route path="/match" element={<MatchDetailPage />} />
+          <Route path="/matches" element={<MatchCenterPage />} />
+          <Route path="/match/:matchId" element={<MatchPage />} />
+          <Route path="/track-record" element={<TrackRecordPage />} />
+          <Route path="/me" element={<MyVisionPage />} />
+          {/* legacy routes from the first prototype */}
+          <Route path="/dashboard" element={<Navigate to="/me" replace />} />
+          <Route path="/match" element={<Navigate to="/matches" replace />} />
           <Route path="/assistant" element={<AssistantPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
