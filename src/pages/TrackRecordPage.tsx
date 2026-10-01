@@ -58,6 +58,7 @@ export function TrackRecordPage() {
   const [conviction, setConviction] = useState<'all' | Conviction>('all');
   const [outcome, setOutcome] = useState<'all' | CallOutcome>('all');
   const [showAll, setShowAll] = useState(false);
+  const [showAllPerf, setShowAllPerf] = useState(false);
 
   const graded = data?.graded ?? [];
   const pending = data?.pending ?? [];
@@ -66,13 +67,12 @@ export function TrackRecordPage() {
   const filtered = useMemo(
     () =>
       graded.filter(
-        (c) =>
-          (league === 'all' || c.competition === league) &&
-          (conviction === 'all' || c.conviction === conviction) &&
-          (outcome === 'all' || c.outcome === outcome),
+        (c) => (league === 'all' || c.competition === league) && (conviction === 'all' || c.conviction === conviction),
       ),
-    [graded, league, conviction, outcome],
+    [graded, league, conviction],
   );
+  // Outcomes live only in the secondary Performance section.
+  const outcomes = useMemo(() => graded.filter((c) => outcome === 'all' || c.outcome === outcome), [graded, outcome]);
   const example = pending[0];
 
   return (
@@ -157,7 +157,7 @@ export function TrackRecordPage() {
               <h2 className="block-title">
                 <Icon name="ledger" size={18} /> Publication record
               </h2>
-              <span className="muted small">{filtered.length} graded Views</span>
+              <span className="muted small">{filtered.length} published Views · locked at publication</span>
             </div>
             <div className="ledger-filters">
               <select value={league} onChange={(e) => setLeague(e.target.value)} aria-label="Competition">
@@ -172,24 +172,18 @@ export function TrackRecordPage() {
                 <option>Medium</option>
                 <option>Low</option>
               </select>
-              <select value={outcome} onChange={(e) => setOutcome(e.target.value as typeof outcome)} aria-label="Status">
-                <option value="all">Any status</option>
-                <option value="Correct">Read held</option>
-                <option value="Missed">Read missed</option>
-                <option value="Void">Void</option>
-              </select>
             </div>
             <Card className="table-card">
               <div className="table-scroll">
-                <table className="table ledger">
+                <table className="table ledger ledger--stack">
                   <thead>
                     <tr>
                       <th>Record</th>
                       <th>Match</th>
                       <th>Published</th>
                       <th>Vision X1 View</th>
-                      <th className="hide-sm">Conviction</th>
-                      <th>Status</th>
+                      <th>Conviction</th>
+                      <th>Record status</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -215,14 +209,16 @@ export function TrackRecordPage() {
                         </td>
                         <td className="ledger__call">
                           <div>{c.view}</div>
-                          <div className="muted small hide-sm">{c.analyst.name}</div>
+                          <div className="muted small">{c.analyst.name}</div>
                         </td>
-                        <td className="hide-sm">
+                        <td className="ledger__conv">
                           <ConvictionMeter value={c.conviction} />
                         </td>
-                        <td title={`Grading criterion fixed at publication: ${c.grading}`}>
-                          <OutcomeBadge outcome={c.outcome} />
-                          <div className="muted small mono">{c.finalScore ? `FT ${c.finalScore}` : c.voidReason}</div>
+                        <td>
+                          <span className="record-status">
+                            <Icon name="lock" size={12} /> Locked
+                          </span>
+                          <div className="muted small">{c.outcome === 'Void' ? 'Void · match postponed' : 'Graded after full time'}</div>
                         </td>
                       </tr>
                     ))}
@@ -290,6 +286,58 @@ export function TrackRecordPage() {
                 <Breakdown title="By competition" rows={group(graded, (c) => c.competition)} />
               </Card>
             </div>
+            <div className="block-head perf__table-head">
+              <h3 className="sub-title" style={{ margin: 0 }}>Graded outcomes</h3>
+              <div className="ledger-filters" style={{ margin: 0 }}>
+                <select value={outcome} onChange={(e) => setOutcome(e.target.value as typeof outcome)} aria-label="Status">
+                <option value="all">Any status</option>
+                <option value="Correct">Read held</option>
+                <option value="Missed">Read missed</option>
+                <option value="Void">Void</option>
+              </select>
+              </div>
+            </div>
+            <Card className="table-card">
+              <div className="table-scroll">
+                <table className="table ledger">
+                  <thead>
+                    <tr>
+                      <th>Record</th>
+                      <th>Match</th>
+                      <th>Vision X1 View</th>
+                      <th className="hide-sm">Grading criterion</th>
+                      <th>Full time</th>
+                      <th>Outcome</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(showAllPerf ? outcomes : outcomes.slice(0, 8)).map((c) => (
+                      <tr key={c.id}>
+                        <td className="mono small nowrap">{c.id}</td>
+                        <td>
+                          <div className="strong nowrap">
+                            {c.home} vs {c.away}
+                          </div>
+                          <div className="muted small">{c.competition}</div>
+                        </td>
+                        <td className="ledger__call">{c.view}</td>
+                        <td className="hide-sm muted small mono">{c.grading}</td>
+                        <td className="mono nowrap">{c.finalScore ?? '—'}</td>
+                        <td>
+                          <OutcomeBadge outcome={c.outcome} />
+                          {c.voidReason && <div className="muted small">{c.voidReason}</div>}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </Card>
+            {outcomes.length > 8 && (
+              <button className="chip ledger-more" onClick={() => setShowAllPerf((v) => !v)}>
+                {showAllPerf ? 'Show fewer' : `Show all ${outcomes.length} graded outcomes`}
+              </button>
+            )}
           </section>
 
           <Card className="card--pad tr-principles">
