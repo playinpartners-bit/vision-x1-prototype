@@ -1,0 +1,382 @@
+{
+  "suggestedPrompts": [
+    "How has PSG performed at home this season?",
+    "What are the key signals before PSG vs Marseille?",
+    "Compare both teams' recent form.",
+    "What makes this fixture difficult to predict?"
+  ],
+  "intents": [
+    {
+      "id": "psg-home",
+      "keywords": [
+        "home",
+        "parc",
+        "psg at home",
+        "home form",
+        "home record"
+      ],
+      "reply": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "PSG have been the most dominant home side in Ligue 1 so far. In four league games at the Parc des Princes they are unbeaten, with a goal difference of +8."
+          },
+          {
+            "type": "table",
+            "caption": "PSG — Ligue 1 home matches, 2026/27 (demo data)",
+            "columns": [
+              "Opponent",
+              "Score",
+              "xG",
+              "xGA",
+              "Possession"
+            ],
+            "rows": [
+              [
+                "Lens",
+                "3-1",
+                2.6,
+                0.9,
+                "64%"
+              ],
+              [
+                "Monaco",
+                "1-1",
+                2.1,
+                1.2,
+                "61%"
+              ],
+              [
+                "Toulouse",
+                "4-1",
+                3.2,
+                0.8,
+                "70%"
+              ],
+              [
+                "Le Havre",
+                "3-0",
+                1.9,
+                0.3,
+                "69%"
+              ]
+            ]
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Record: W3 D1 L0 · 11 scored, 3 conceded (2.75 / 0.75 per game).",
+              "Chance creation: 9.8 xG at home (2.45 per game), the highest in the league.",
+              "The one dropped result (Monaco, 1-1) came despite a 2.1 xG performance — a finishing variance game rather than a structural concern.",
+              "Defensively, two of the three goals conceded came from fast breaks after PSG lost the ball high up the pitch."
+            ]
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "text": "Context: four matches is a small sample. Treat home splits as directional, not definitive."
+          }
+        ],
+        "sources": [
+          "Ligue 1 2026/27 MD 1–7 (demo dataset)",
+          "Vision X1 event data (demo)"
+        ],
+        "followUps": [
+          "How does Marseille perform away from home?",
+          "What are the key signals before PSG vs Marseille?"
+        ]
+      }
+    },
+    {
+      "id": "key-signals",
+      "keywords": [
+        "signal",
+        "key",
+        "before",
+        "preview",
+        "what to watch",
+        "factors"
+      ],
+      "reply": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "Here are the six signals our models and analysts weighted most for PSG vs Marseille, grouped by which side they favour. None of them is decisive on its own."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Home control (strong · PSG): unbeaten at home, 66% average possession, opponents held to 0.75 goals per game.",
+              "Chance quality (moderate · PSG): xG difference of +9.1 vs Marseille's +3.7.",
+              "Transition threat (moderate · Marseille): league-high 3.1 counter-attack shots per game, aimed at PSG's high line.",
+              "Set pieces (moderate · Marseille): 5 set-piece goals — joint-most in Ligue 1.",
+              "Rest days (weak · Marseille): PSG played in the Champions League four days ago; OM had a full week.",
+              "Rivalry volatility (neutral): last six meetings averaged 5.2 cards; two were decided after 75'."
+            ]
+          },
+          {
+            "type": "callout",
+            "tone": "caution",
+            "text": "The biggest open variable is PSG's centre-back fitness test. Re-check this once the official line-ups are published (≈ 60 minutes before kick-off)."
+          }
+        ],
+        "sources": [
+          "VX1 AI match summary (demo)",
+          "Expert insight — Camille Rousseau (demo)",
+          "Head-to-head, last 6 meetings (demo)"
+        ],
+        "followUps": [
+          "What makes this fixture difficult to predict?",
+          "Compare both teams' recent form."
+        ]
+      }
+    },
+    {
+      "id": "compare-form",
+      "keywords": [
+        "compare",
+        "form",
+        "recent",
+        "last five",
+        "last 5",
+        "both teams"
+      ],
+      "reply": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "Both teams arrive in good form, but the shape of that form is different: PSG's comes from sustained territorial control, Marseille's from efficiency in transition."
+          },
+          {
+            "type": "form",
+            "rows": [
+              {
+                "team": "PSG",
+                "results": [
+                  "W",
+                  "W",
+                  "L",
+                  "D",
+                  "W"
+                ]
+              },
+              {
+                "team": "Marseille",
+                "results": [
+                  "W",
+                  "L",
+                  "W",
+                  "D",
+                  "W"
+                ]
+              }
+            ]
+          },
+          {
+            "type": "compare",
+            "caption": "Last 5 matches, all competitions (demo data)",
+            "homeLabel": "PSG",
+            "awayLabel": "Marseille",
+            "rows": [
+              {
+                "label": "Goals scored",
+                "home": 11,
+                "away": 9
+              },
+              {
+                "label": "Goals conceded",
+                "home": 5,
+                "away": 5
+              },
+              {
+                "label": "xG created",
+                "home": 11.2,
+                "away": 7.9
+              },
+              {
+                "label": "xG conceded",
+                "home": 5.2,
+                "away": 5.6
+              },
+              {
+                "label": "Clean sheets",
+                "home": 1,
+                "away": 2
+              }
+            ]
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "PSG's only defeat came away at Bayern Munich in the Champions League — their Ligue 1 run is unbeaten.",
+              "Marseille's xG (7.9) is below their actual goals (9): they've been clinical, which tends to regress over larger samples.",
+              "Defensively the two sides are closer than the league table implies."
+            ]
+          }
+        ],
+        "sources": [
+          "Last 5 fixtures per team, all competitions (demo dataset)"
+        ],
+        "followUps": [
+          "How has PSG performed at home this season?",
+          "What makes this fixture difficult to predict?"
+        ]
+      }
+    },
+    {
+      "id": "difficult",
+      "keywords": [
+        "difficult",
+        "hard",
+        "uncertain",
+        "unpredictable",
+        "risk",
+        "why"
+      ],
+      "reply": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "Le Classique is one of the harder Ligue 1 fixtures to read, even with PSG as the stronger side on paper. Five factors widen the range of plausible outcomes:"
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Line-up uncertainty — a late fitness test at centre-back and possible midfield rotation after a midweek European away trip.",
+              "Discipline — red cards in 2 of the last 6 meetings. A sending-off invalidates most pre-match signals.",
+              "Style clash — PSG's high line is exactly what Marseille's transition game is built to exploit.",
+              "Small samples — seven league games is early-season data, and home/away splits rest on 3–4 matches.",
+              "Rivalry dynamics — historical meetings have produced late goals and momentum swings (OM led 2-0 at half-time in one recent 2-2)."
+            ]
+          },
+          {
+            "type": "callout",
+            "tone": "info",
+            "text": "Vision X1 is a research tool: it can summarise evidence and uncertainty, but no model can tell you the result of a football match."
+          }
+        ],
+        "sources": [
+          "VX1 risk assessment (demo)",
+          "Head-to-head, last 6 meetings (demo)"
+        ],
+        "followUps": [
+          "What are the key signals before PSG vs Marseille?",
+          "Compare both teams' recent form."
+        ]
+      }
+    },
+    {
+      "id": "marseille-away",
+      "keywords": [
+        "marseille away",
+        "om away",
+        "away from home",
+        "away record",
+        "away form"
+      ],
+      "reply": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "Marseille's away record is mixed: W1 D1 L1 in Ligue 1, scoring 4 and conceding 4. Their most controlled away performance was a 1-0 at Le Havre; the defeat at Lille came after conceding twice from set pieces."
+          },
+          {
+            "type": "compare",
+            "caption": "Marseille — home vs away, Ligue 1 2026/27 (demo)",
+            "homeLabel": "Home",
+            "awayLabel": "Away",
+            "rows": [
+              {
+                "label": "Points per game",
+                "home": 2.25,
+                "away": 1.33
+              },
+              {
+                "label": "Goals scored / game",
+                "home": 2.5,
+                "away": 1.33
+              },
+              {
+                "label": "Goals conceded / game",
+                "home": 1.25,
+                "away": 1.33
+              }
+            ]
+          }
+        ],
+        "sources": [
+          "Ligue 1 2026/27 MD 1–7 (demo dataset)"
+        ],
+        "followUps": [
+          "Compare both teams' recent form.",
+          "What makes this fixture difficult to predict?"
+        ]
+      }
+    },
+    {
+      "id": "guardrail",
+      "keywords": [
+        "bet",
+        "win for sure",
+        "guarantee",
+        "tip",
+        "sure",
+        "lock",
+        "who will win",
+        "odds",
+        "stake",
+        "accumulator"
+      ],
+      "reply": {
+        "blocks": [
+          {
+            "type": "text",
+            "text": "I can't tell you who will win or what to bet on — nobody can do that reliably, and Vision X1 isn't designed to. What I can do is help you understand the evidence: form, chance quality, tactical matchups, availability and the main sources of uncertainty."
+          },
+          {
+            "type": "bullets",
+            "items": [
+              "Ask me to break down the key signals for a fixture.",
+              "Compare two teams across any metric in our dataset.",
+              "Explain what makes a match hard to read."
+            ]
+          },
+          {
+            "type": "callout",
+            "tone": "caution",
+            "text": "If you choose to bet, only stake what you can afford to lose. Vision X1 is for 18+ users. Support: BeGambleAware.org · Joueurs-info-service.fr"
+          }
+        ],
+        "sources": [],
+        "followUps": [
+          "What are the key signals before PSG vs Marseille?",
+          "What makes this fixture difficult to predict?"
+        ]
+      }
+    }
+  ],
+  "fallback": {
+    "blocks": [
+      {
+        "type": "text",
+        "text": "In this prototype I'm connected to a small demo dataset centred on PSG vs Marseille, so I can't answer that one yet. In the full product, the assistant will draw on live fixtures, event data and Vision X1 analyst notes."
+      },
+      {
+        "type": "bullets",
+        "items": [
+          "Team form and home/away splits",
+          "Head-to-head context",
+          "Key signals and risks before a fixture",
+          "Side-by-side team comparisons"
+        ]
+      }
+    ],
+    "sources": [
+      "Prototype scope: demo dataset only"
+    ],
+    "followUps": [
+      "How has PSG performed at home this season?",
+      "What are the key signals before PSG vs Marseille?"
+    ]
+  }
+}

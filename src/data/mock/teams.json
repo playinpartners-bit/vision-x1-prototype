@@ -1,0 +1,1538 @@
+[
+  {
+    "id": "psg",
+    "name": "Paris Saint-Germain",
+    "shortName": "PSG",
+    "code": "PSG",
+    "city": "Paris",
+    "competitionId": "ligue-1",
+    "venue": "Parc des Princes",
+    "colors": [
+      "#1B2A6B",
+      "#D7263D"
+    ],
+    "season": {
+      "played": 7,
+      "position": 1,
+      "points": 17,
+      "goalsFor": 18,
+      "goalsAgainst": 6,
+      "xgFor": 15.9,
+      "xgAgainst": 6.8,
+      "possession": 64,
+      "shotsPerGame": 17.1,
+      "shotsOnTargetPerGame": 6.4,
+      "cleanSheets": 3,
+      "bttsRate": 0.43,
+      "over25Rate": 0.57,
+      "home": {
+        "played": 4,
+        "w": 3,
+        "d": 1,
+        "l": 0,
+        "gf": 11,
+        "ga": 3
+      },
+      "away": {
+        "played": 3,
+        "w": 2,
+        "d": 1,
+        "l": 0,
+        "gf": 7,
+        "ga": 3
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Lens",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W",
+        "competition": "Ligue 1",
+        "daysAgo": 4,
+        "xgFor": 2.6,
+        "xgAgainst": 0.9
+      },
+      {
+        "opponent": "Nantes",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W",
+        "competition": "Ligue 1",
+        "daysAgo": 8,
+        "xgFor": 1.9,
+        "xgAgainst": 0.5
+      },
+      {
+        "opponent": "Bayern Munich",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L",
+        "competition": "Champions League",
+        "daysAgo": 12,
+        "xgFor": 1.4,
+        "xgAgainst": 1.8
+      },
+      {
+        "opponent": "Monaco",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D",
+        "competition": "Ligue 1",
+        "daysAgo": 16,
+        "xgFor": 2.1,
+        "xgAgainst": 1.2
+      },
+      {
+        "opponent": "Toulouse",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W",
+        "competition": "Ligue 1",
+        "daysAgo": 23,
+        "xgFor": 3.2,
+        "xgAgainst": 0.8
+      }
+    ]
+  },
+  {
+    "id": "marseille",
+    "name": "Olympique de Marseille",
+    "shortName": "Marseille",
+    "code": "OM",
+    "city": "Marseille",
+    "competitionId": "ligue-1",
+    "venue": "Stade Vélodrome",
+    "colors": [
+      "#2FAEE0",
+      "#E8ECF4"
+    ],
+    "season": {
+      "played": 7,
+      "position": 3,
+      "points": 13,
+      "goalsFor": 14,
+      "goalsAgainst": 9,
+      "xgFor": 12.4,
+      "xgAgainst": 8.7,
+      "possession": 55,
+      "shotsPerGame": 14.2,
+      "shotsOnTargetPerGame": 4.9,
+      "cleanSheets": 2,
+      "bttsRate": 0.57,
+      "over25Rate": 0.57,
+      "home": {
+        "played": 4,
+        "w": 3,
+        "d": 0,
+        "l": 1,
+        "gf": 10,
+        "ga": 5
+      },
+      "away": {
+        "played": 3,
+        "w": 1,
+        "d": 1,
+        "l": 1,
+        "gf": 4,
+        "ga": 4
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Brest",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W",
+        "competition": "Ligue 1",
+        "daysAgo": 3,
+        "xgFor": 1.8,
+        "xgAgainst": 0.6
+      },
+      {
+        "opponent": "Lille",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L",
+        "competition": "Ligue 1",
+        "daysAgo": 9,
+        "xgFor": 1.1,
+        "xgAgainst": 1.6
+      },
+      {
+        "opponent": "Nice",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W",
+        "competition": "Ligue 1",
+        "daysAgo": 15,
+        "xgFor": 2.2,
+        "xgAgainst": 1.0
+      },
+      {
+        "opponent": "Strasbourg",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D",
+        "competition": "Ligue 1",
+        "daysAgo": 22,
+        "xgFor": 1.5,
+        "xgAgainst": 1.7
+      },
+      {
+        "opponent": "Le Havre",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W",
+        "competition": "Ligue 1",
+        "daysAgo": 29,
+        "xgFor": 1.3,
+        "xgAgainst": 0.7
+      }
+    ]
+  },
+  {
+    "id": "arsenal",
+    "name": "Arsenal",
+    "shortName": "Arsenal",
+    "code": "ARS",
+    "city": "London",
+    "competitionId": "premier-league",
+    "venue": "Emirates Stadium",
+    "colors": [
+      "#C8102E",
+      "#E8ECF4"
+    ],
+    "season": {
+      "played": 6,
+      "position": 2,
+      "points": 14,
+      "goalsFor": 12,
+      "goalsAgainst": 4,
+      "xgFor": 11.8,
+      "xgAgainst": 4.6,
+      "possession": 58,
+      "shotsPerGame": 15.8,
+      "shotsOnTargetPerGame": 5.6,
+      "cleanSheets": 3,
+      "bttsRate": 0.33,
+      "over25Rate": 0.5,
+      "home": {
+        "played": 3,
+        "w": 3,
+        "d": 0,
+        "l": 0,
+        "gf": 8,
+        "ga": 1
+      },
+      "away": {
+        "played": 3,
+        "w": 1,
+        "d": 2,
+        "l": 0,
+        "gf": 4,
+        "ga": 3
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Brighton",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D",
+        "competition": "Premier League",
+        "daysAgo": 5,
+        "xgFor": 1.6,
+        "xgAgainst": 1.1
+      },
+      {
+        "opponent": "Fulham",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W",
+        "competition": "Premier League",
+        "daysAgo": 12,
+        "xgFor": 2.7,
+        "xgAgainst": 0.4
+      },
+      {
+        "opponent": "Man City",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D",
+        "competition": "Premier League",
+        "daysAgo": 19,
+        "xgFor": 1.5,
+        "xgAgainst": 2.0
+      },
+      {
+        "opponent": "Brentford",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W",
+        "competition": "Premier League",
+        "daysAgo": 26,
+        "xgFor": 2.1,
+        "xgAgainst": 0.9
+      },
+      {
+        "opponent": "Everton",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W",
+        "competition": "Premier League",
+        "daysAgo": 33,
+        "xgFor": 2.4,
+        "xgAgainst": 0.5
+      }
+    ]
+  },
+  {
+    "id": "newcastle",
+    "name": "Newcastle United",
+    "shortName": "Newcastle",
+    "code": "NEW",
+    "city": "Newcastle",
+    "competitionId": "premier-league",
+    "venue": "St James' Park",
+    "colors": [
+      "#1C1C1C",
+      "#E8ECF4"
+    ],
+    "season": {
+      "played": 6,
+      "position": 7,
+      "points": 10,
+      "goalsFor": 9,
+      "goalsAgainst": 7,
+      "xgFor": 9.6,
+      "xgAgainst": 8.1,
+      "possession": 51,
+      "shotsPerGame": 13.4,
+      "shotsOnTargetPerGame": 4.5,
+      "cleanSheets": 2,
+      "bttsRate": 0.5,
+      "over25Rate": 0.5,
+      "home": {
+        "played": 3,
+        "w": 2,
+        "d": 1,
+        "l": 0,
+        "gf": 6,
+        "ga": 2
+      },
+      "away": {
+        "played": 3,
+        "w": 1,
+        "d": 0,
+        "l": 2,
+        "gf": 3,
+        "ga": 5
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Wolves",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W",
+        "competition": "Premier League",
+        "daysAgo": 6,
+        "xgFor": 1.9,
+        "xgAgainst": 0.7
+      },
+      {
+        "opponent": "Chelsea",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L",
+        "competition": "Premier League",
+        "daysAgo": 13,
+        "xgFor": 1.2,
+        "xgAgainst": 1.5
+      },
+      {
+        "opponent": "Bournemouth",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D",
+        "competition": "Premier League",
+        "daysAgo": 20,
+        "xgFor": 1.4,
+        "xgAgainst": 1.3
+      },
+      {
+        "opponent": "West Ham",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W",
+        "competition": "Premier League",
+        "daysAgo": 27,
+        "xgFor": 1.6,
+        "xgAgainst": 1.2
+      },
+      {
+        "opponent": "Spurs",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L",
+        "competition": "Premier League",
+        "daysAgo": 34,
+        "xgFor": 0.8,
+        "xgAgainst": 1.9
+      }
+    ]
+  },
+  {
+    "id": "real-sociedad",
+    "name": "Real Sociedad",
+    "shortName": "Real Sociedad",
+    "code": "RSO",
+    "city": "San Sebastián",
+    "competitionId": "laliga",
+    "venue": "Reale Arena",
+    "colors": [
+      "#0067B1",
+      "#E8ECF4"
+    ],
+    "season": {
+      "played": 7,
+      "position": 6,
+      "points": 11,
+      "goalsFor": 9,
+      "goalsAgainst": 7,
+      "xgFor": 9.1,
+      "xgAgainst": 7.7,
+      "possession": 53,
+      "shotsPerGame": 12.6,
+      "shotsOnTargetPerGame": 4.1,
+      "cleanSheets": 2,
+      "bttsRate": 0.43,
+      "over25Rate": 0.29,
+      "home": {
+        "played": 4,
+        "w": 2,
+        "d": 1,
+        "l": 1,
+        "gf": 5,
+        "ga": 3
+      },
+      "away": {
+        "played": 3,
+        "w": 1,
+        "d": 1,
+        "l": 1,
+        "gf": 4,
+        "ga": 4
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Getafe",
+        "venue": "A",
+        "score": "1-0",
+        "result": "W",
+        "competition": "LaLiga",
+        "daysAgo": 4,
+        "xgFor": 1.0,
+        "xgAgainst": 0.8
+      },
+      {
+        "opponent": "Girona",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D",
+        "competition": "LaLiga",
+        "daysAgo": 8,
+        "xgFor": 1.5,
+        "xgAgainst": 1.0
+      },
+      {
+        "opponent": "Betis",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D",
+        "competition": "LaLiga",
+        "daysAgo": 14,
+        "xgFor": 1.3,
+        "xgAgainst": 1.6
+      },
+      {
+        "opponent": "Osasuna",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W",
+        "competition": "LaLiga",
+        "daysAgo": 21,
+        "xgFor": 1.8,
+        "xgAgainst": 0.6
+      },
+      {
+        "opponent": "Atlético",
+        "venue": "A",
+        "score": "0-1",
+        "result": "L",
+        "competition": "LaLiga",
+        "daysAgo": 28,
+        "xgFor": 0.7,
+        "xgAgainst": 1.4
+      }
+    ]
+  },
+  {
+    "id": "villarreal",
+    "name": "Villarreal",
+    "shortName": "Villarreal",
+    "code": "VIL",
+    "city": "Villarreal",
+    "competitionId": "laliga",
+    "venue": "Estadio de la Cerámica",
+    "colors": [
+      "#FFE135",
+      "#0B1220"
+    ],
+    "season": {
+      "played": 7,
+      "position": 4,
+      "points": 13,
+      "goalsFor": 13,
+      "goalsAgainst": 8,
+      "xgFor": 11.2,
+      "xgAgainst": 8.9,
+      "possession": 52,
+      "shotsPerGame": 13.9,
+      "shotsOnTargetPerGame": 5.0,
+      "cleanSheets": 2,
+      "bttsRate": 0.57,
+      "over25Rate": 0.57,
+      "home": {
+        "played": 3,
+        "w": 2,
+        "d": 1,
+        "l": 0,
+        "gf": 7,
+        "ga": 3
+      },
+      "away": {
+        "played": 4,
+        "w": 2,
+        "d": 0,
+        "l": 2,
+        "gf": 6,
+        "ga": 5
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Valencia",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W",
+        "competition": "LaLiga",
+        "daysAgo": 4,
+        "xgFor": 2.0,
+        "xgAgainst": 1.1
+      },
+      {
+        "opponent": "Rayo",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L",
+        "competition": "LaLiga",
+        "daysAgo": 8,
+        "xgFor": 1.4,
+        "xgAgainst": 1.3
+      },
+      {
+        "opponent": "Mallorca",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W",
+        "competition": "LaLiga",
+        "daysAgo": 14,
+        "xgFor": 1.7,
+        "xgAgainst": 0.9
+      },
+      {
+        "opponent": "Celta",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W",
+        "competition": "LaLiga",
+        "daysAgo": 21,
+        "xgFor": 1.5,
+        "xgAgainst": 0.8
+      },
+      {
+        "opponent": "Real Madrid",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L",
+        "competition": "LaLiga",
+        "daysAgo": 28,
+        "xgFor": 0.9,
+        "xgAgainst": 2.1
+      }
+    ]
+  },
+  {
+    "id": "inter",
+    "name": "Inter",
+    "shortName": "Inter",
+    "code": "INT",
+    "city": "Milan",
+    "competitionId": "serie-a",
+    "venue": "San Siro",
+    "colors": [
+      "#0A2A6B",
+      "#1C1C1C"
+    ],
+    "season": {
+      "played": 6,
+      "position": 1,
+      "points": 16,
+      "goalsFor": 15,
+      "goalsAgainst": 4,
+      "xgFor": 12.9,
+      "xgAgainst": 4.8,
+      "possession": 57,
+      "shotsPerGame": 16.4,
+      "shotsOnTargetPerGame": 6.0,
+      "cleanSheets": 3,
+      "bttsRate": 0.33,
+      "over25Rate": 0.5,
+      "home": {
+        "played": 3,
+        "w": 3,
+        "d": 0,
+        "l": 0,
+        "gf": 9,
+        "ga": 1
+      },
+      "away": {
+        "played": 3,
+        "w": 2,
+        "d": 1,
+        "l": 0,
+        "gf": 6,
+        "ga": 3
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Lazio",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W",
+        "competition": "Serie A",
+        "daysAgo": 5,
+        "xgFor": 1.8,
+        "xgAgainst": 1.0
+      },
+      {
+        "opponent": "Genoa",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W",
+        "competition": "Serie A",
+        "daysAgo": 11,
+        "xgFor": 2.6,
+        "xgAgainst": 0.3
+      },
+      {
+        "opponent": "Napoli",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D",
+        "competition": "Serie A",
+        "daysAgo": 18,
+        "xgFor": 1.2,
+        "xgAgainst": 1.4
+      },
+      {
+        "opponent": "Torino",
+        "venue": "H",
+        "score": "4-1",
+        "result": "W",
+        "competition": "Serie A",
+        "daysAgo": 25,
+        "xgFor": 2.9,
+        "xgAgainst": 0.7
+      },
+      {
+        "opponent": "Udinese",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W",
+        "competition": "Serie A",
+        "daysAgo": 32,
+        "xgFor": 1.7,
+        "xgAgainst": 0.9
+      }
+    ]
+  },
+  {
+    "id": "atalanta",
+    "name": "Atalanta",
+    "shortName": "Atalanta",
+    "code": "ATA",
+    "city": "Bergamo",
+    "competitionId": "serie-a",
+    "venue": "Gewiss Stadium",
+    "colors": [
+      "#1E71B8",
+      "#1C1C1C"
+    ],
+    "season": {
+      "played": 6,
+      "position": 4,
+      "points": 11,
+      "goalsFor": 12,
+      "goalsAgainst": 8,
+      "xgFor": 11.7,
+      "xgAgainst": 7.3,
+      "possession": 54,
+      "shotsPerGame": 15.1,
+      "shotsOnTargetPerGame": 5.3,
+      "cleanSheets": 1,
+      "bttsRate": 0.67,
+      "over25Rate": 0.67,
+      "home": {
+        "played": 3,
+        "w": 2,
+        "d": 1,
+        "l": 0,
+        "gf": 8,
+        "ga": 3
+      },
+      "away": {
+        "played": 3,
+        "w": 1,
+        "d": 1,
+        "l": 1,
+        "gf": 4,
+        "ga": 5
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Bologna",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D",
+        "competition": "Serie A",
+        "daysAgo": 5,
+        "xgFor": 2.1,
+        "xgAgainst": 1.3
+      },
+      {
+        "opponent": "Roma",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L",
+        "competition": "Serie A",
+        "daysAgo": 11,
+        "xgFor": 1.3,
+        "xgAgainst": 1.5
+      },
+      {
+        "opponent": "Cagliari",
+        "venue": "H",
+        "score": "4-0",
+        "result": "W",
+        "competition": "Serie A",
+        "daysAgo": 18,
+        "xgFor": 3.1,
+        "xgAgainst": 0.4
+      },
+      {
+        "opponent": "Fiorentina",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D",
+        "competition": "Serie A",
+        "daysAgo": 25,
+        "xgFor": 1.6,
+        "xgAgainst": 1.7
+      },
+      {
+        "opponent": "Como",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W",
+        "competition": "Serie A",
+        "daysAgo": 32,
+        "xgFor": 1.9,
+        "xgAgainst": 1.0
+      }
+    ]
+  },
+  {
+    "id": "leverkusen",
+    "name": "Bayer Leverkusen",
+    "shortName": "Leverkusen",
+    "code": "B04",
+    "city": "Leverkusen",
+    "competitionId": "bundesliga",
+    "venue": "BayArena",
+    "colors": [
+      "#E32221",
+      "#1C1C1C"
+    ],
+    "season": {
+      "played": 5,
+      "position": 3,
+      "points": 10,
+      "goalsFor": 12,
+      "goalsAgainst": 7,
+      "xgFor": 10.4,
+      "xgAgainst": 6.2,
+      "possession": 60,
+      "shotsPerGame": 16.0,
+      "shotsOnTargetPerGame": 5.8,
+      "cleanSheets": 1,
+      "bttsRate": 0.6,
+      "over25Rate": 0.8,
+      "home": {
+        "played": 3,
+        "w": 2,
+        "d": 1,
+        "l": 0,
+        "gf": 8,
+        "ga": 4
+      },
+      "away": {
+        "played": 2,
+        "w": 1,
+        "d": 0,
+        "l": 1,
+        "gf": 4,
+        "ga": 3
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Mainz",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W",
+        "competition": "Bundesliga",
+        "daysAgo": 6,
+        "xgFor": 1.7,
+        "xgAgainst": 0.9
+      },
+      {
+        "opponent": "Freiburg",
+        "venue": "H",
+        "score": "3-3",
+        "result": "D",
+        "competition": "Bundesliga",
+        "daysAgo": 13,
+        "xgFor": 2.4,
+        "xgAgainst": 1.6
+      },
+      {
+        "opponent": "Hoffenheim",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W",
+        "competition": "Bundesliga",
+        "daysAgo": 20,
+        "xgFor": 2.2,
+        "xgAgainst": 1.0
+      },
+      {
+        "opponent": "Dortmund",
+        "venue": "A",
+        "score": "2-2",
+        "result": "D",
+        "competition": "Bundesliga",
+        "daysAgo": 27,
+        "xgFor": 1.5,
+        "xgAgainst": 1.8
+      },
+      {
+        "opponent": "Union Berlin",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W",
+        "competition": "Bundesliga",
+        "daysAgo": 34,
+        "xgFor": 1.9,
+        "xgAgainst": 0.6
+      }
+    ]
+  },
+  {
+    "id": "stuttgart",
+    "name": "VfB Stuttgart",
+    "shortName": "Stuttgart",
+    "code": "VFB",
+    "city": "Stuttgart",
+    "competitionId": "bundesliga",
+    "venue": "MHPArena",
+    "colors": [
+      "#E32219",
+      "#E8ECF4"
+    ],
+    "season": {
+      "played": 5,
+      "position": 5,
+      "points": 9,
+      "goalsFor": 10,
+      "goalsAgainst": 8,
+      "xgFor": 9.3,
+      "xgAgainst": 7.4,
+      "possession": 55,
+      "shotsPerGame": 14.6,
+      "shotsOnTargetPerGame": 5.1,
+      "cleanSheets": 1,
+      "bttsRate": 0.6,
+      "over25Rate": 0.6,
+      "home": {
+        "played": 2,
+        "w": 2,
+        "d": 0,
+        "l": 0,
+        "gf": 5,
+        "ga": 1
+      },
+      "away": {
+        "played": 3,
+        "w": 1,
+        "d": 0,
+        "l": 2,
+        "gf": 5,
+        "ga": 7
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Wolfsburg",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W",
+        "competition": "Bundesliga",
+        "daysAgo": 6,
+        "xgFor": 2.0,
+        "xgAgainst": 1.1
+      },
+      {
+        "opponent": "Leipzig",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L",
+        "competition": "Bundesliga",
+        "daysAgo": 13,
+        "xgFor": 1.2,
+        "xgAgainst": 2.3
+      },
+      {
+        "opponent": "Augsburg",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W",
+        "competition": "Bundesliga",
+        "daysAgo": 20,
+        "xgFor": 1.8,
+        "xgAgainst": 0.5
+      },
+      {
+        "opponent": "Bremen",
+        "venue": "A",
+        "score": "3-2",
+        "result": "W",
+        "competition": "Bundesliga",
+        "daysAgo": 27,
+        "xgFor": 1.9,
+        "xgAgainst": 1.6
+      },
+      {
+        "opponent": "Bayern Munich",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L",
+        "competition": "Bundesliga",
+        "daysAgo": 34,
+        "xgFor": 1.0,
+        "xgAgainst": 2.4
+      }
+    ]
+  },
+  {
+    "id": "lyon",
+    "name": "Olympique Lyonnais",
+    "shortName": "Lyon",
+    "code": "OL",
+    "city": "Lyon",
+    "competitionId": "ligue-1",
+    "venue": "Groupama Stadium",
+    "colors": [
+      "#1A3D8F",
+      "#D7263D"
+    ],
+    "season": {
+      "played": 7,
+      "position": 5,
+      "points": 12,
+      "goalsFor": 11,
+      "goalsAgainst": 8,
+      "xgFor": 10.6,
+      "xgAgainst": 9.1,
+      "possession": 51,
+      "shotsPerGame": 13.0,
+      "shotsOnTargetPerGame": 4.3,
+      "cleanSheets": 2,
+      "bttsRate": 0.57,
+      "over25Rate": 0.43,
+      "home": {
+        "played": 3,
+        "w": 2,
+        "d": 1,
+        "l": 0,
+        "gf": 6,
+        "ga": 3
+      },
+      "away": {
+        "played": 4,
+        "w": 1,
+        "d": 2,
+        "l": 1,
+        "gf": 5,
+        "ga": 5
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Rennes",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W",
+        "competition": "Ligue 1",
+        "daysAgo": 4,
+        "xgFor": 1.6,
+        "xgAgainst": 1.2
+      },
+      {
+        "opponent": "Monaco",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D",
+        "competition": "Ligue 1",
+        "daysAgo": 9,
+        "xgFor": 1.2,
+        "xgAgainst": 1.5
+      },
+      {
+        "opponent": "Lens",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L",
+        "competition": "Ligue 1",
+        "daysAgo": 15,
+        "xgFor": 0.9,
+        "xgAgainst": 1.4
+      },
+      {
+        "opponent": "Nice",
+        "venue": "H",
+        "score": "1-1",
+        "result": "D",
+        "competition": "Ligue 1",
+        "daysAgo": 22,
+        "xgFor": 1.4,
+        "xgAgainst": 1.1
+      },
+      {
+        "opponent": "Auxerre",
+        "venue": "A",
+        "score": "2-0",
+        "result": "W",
+        "competition": "Ligue 1",
+        "daysAgo": 29,
+        "xgFor": 1.5,
+        "xgAgainst": 0.6
+      }
+    ]
+  },
+  {
+    "id": "lille",
+    "name": "LOSC Lille",
+    "shortName": "Lille",
+    "code": "LOSC",
+    "city": "Lille",
+    "competitionId": "ligue-1",
+    "venue": "Stade Pierre-Mauroy",
+    "colors": [
+      "#C8102E",
+      "#1A2B5E"
+    ],
+    "season": {
+      "played": 7,
+      "position": 4,
+      "points": 12,
+      "goalsFor": 10,
+      "goalsAgainst": 6,
+      "xgFor": 10.1,
+      "xgAgainst": 7.0,
+      "possession": 53,
+      "shotsPerGame": 13.5,
+      "shotsOnTargetPerGame": 4.6,
+      "cleanSheets": 3,
+      "bttsRate": 0.29,
+      "over25Rate": 0.43,
+      "home": {
+        "played": 4,
+        "w": 2,
+        "d": 2,
+        "l": 0,
+        "gf": 6,
+        "ga": 2
+      },
+      "away": {
+        "played": 3,
+        "w": 1,
+        "d": 1,
+        "l": 1,
+        "gf": 4,
+        "ga": 4
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Toulouse",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D",
+        "competition": "Ligue 1",
+        "daysAgo": 4,
+        "xgFor": 1.1,
+        "xgAgainst": 1.0
+      },
+      {
+        "opponent": "Marseille",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W",
+        "competition": "Ligue 1",
+        "daysAgo": 9,
+        "xgFor": 1.6,
+        "xgAgainst": 1.1
+      },
+      {
+        "opponent": "Nantes",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W",
+        "competition": "Ligue 1",
+        "daysAgo": 15,
+        "xgFor": 1.3,
+        "xgAgainst": 0.6
+      },
+      {
+        "opponent": "Brest",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L",
+        "competition": "Ligue 1",
+        "daysAgo": 22,
+        "xgFor": 0.8,
+        "xgAgainst": 1.5
+      },
+      {
+        "opponent": "Angers",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W",
+        "competition": "Ligue 1",
+        "daysAgo": 29,
+        "xgFor": 1.7,
+        "xgAgainst": 0.5
+      }
+    ]
+  },
+  {
+    "id": "liverpool",
+    "name": "Liverpool",
+    "shortName": "Liverpool",
+    "code": "LIV",
+    "city": "Liverpool",
+    "competitionId": "premier-league",
+    "venue": "Anfield",
+    "colors": [
+      "#C8102E",
+      "#00A398"
+    ],
+    "season": {
+      "played": 6,
+      "position": 1,
+      "points": 16,
+      "goalsFor": 15,
+      "goalsAgainst": 6,
+      "xgFor": 13.8,
+      "xgAgainst": 6.5,
+      "possession": 60,
+      "shotsPerGame": 17.3,
+      "shotsOnTargetPerGame": 6.3,
+      "cleanSheets": 2,
+      "bttsRate": 0.5,
+      "over25Rate": 0.67,
+      "home": {
+        "played": 3,
+        "w": 3,
+        "d": 0,
+        "l": 0,
+        "gf": 9,
+        "ga": 2
+      },
+      "away": {
+        "played": 3,
+        "w": 2,
+        "d": 1,
+        "l": 0,
+        "gf": 6,
+        "ga": 4
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Forest",
+        "venue": "A",
+        "score": "2-1",
+        "result": "W",
+        "competition": "Premier League",
+        "daysAgo": 5,
+        "xgFor": 1.9,
+        "xgAgainst": 1.0
+      },
+      {
+        "opponent": "Leeds",
+        "venue": "H",
+        "score": "3-0",
+        "result": "W",
+        "competition": "Premier League",
+        "daysAgo": 12,
+        "xgFor": 2.8,
+        "xgAgainst": 0.5
+      },
+      {
+        "opponent": "Arsenal",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W",
+        "competition": "Premier League",
+        "daysAgo": 19,
+        "xgFor": 1.9,
+        "xgAgainst": 1.3
+      },
+      {
+        "opponent": "Burnley",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W",
+        "competition": "Premier League",
+        "daysAgo": 26,
+        "xgFor": 2.4,
+        "xgAgainst": 0.8
+      },
+      {
+        "opponent": "Chelsea",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D",
+        "competition": "Premier League",
+        "daysAgo": 33,
+        "xgFor": 1.4,
+        "xgAgainst": 1.5
+      }
+    ]
+  },
+  {
+    "id": "aston-villa",
+    "name": "Aston Villa",
+    "shortName": "Aston Villa",
+    "code": "AVL",
+    "city": "Birmingham",
+    "competitionId": "premier-league",
+    "venue": "Villa Park",
+    "colors": [
+      "#7A003C",
+      "#95BFE5"
+    ],
+    "season": {
+      "played": 6,
+      "position": 6,
+      "points": 10,
+      "goalsFor": 10,
+      "goalsAgainst": 9,
+      "xgFor": 9.0,
+      "xgAgainst": 8.4,
+      "possession": 50,
+      "shotsPerGame": 13.1,
+      "shotsOnTargetPerGame": 4.4,
+      "cleanSheets": 1,
+      "bttsRate": 0.67,
+      "over25Rate": 0.67,
+      "home": {
+        "played": 3,
+        "w": 2,
+        "d": 0,
+        "l": 1,
+        "gf": 6,
+        "ga": 4
+      },
+      "away": {
+        "played": 3,
+        "w": 1,
+        "d": 1,
+        "l": 1,
+        "gf": 4,
+        "ga": 5
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Palace",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W",
+        "competition": "Premier League",
+        "daysAgo": 5,
+        "xgFor": 1.6,
+        "xgAgainst": 1.1
+      },
+      {
+        "opponent": "Man Utd",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D",
+        "competition": "Premier League",
+        "daysAgo": 12,
+        "xgFor": 1.2,
+        "xgAgainst": 1.6
+      },
+      {
+        "opponent": "Spurs",
+        "venue": "H",
+        "score": "2-0",
+        "result": "W",
+        "competition": "Premier League",
+        "daysAgo": 19,
+        "xgFor": 1.8,
+        "xgAgainst": 0.9
+      },
+      {
+        "opponent": "Newcastle",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L",
+        "competition": "Premier League",
+        "daysAgo": 26,
+        "xgFor": 1.0,
+        "xgAgainst": 1.4
+      },
+      {
+        "opponent": "Sunderland",
+        "venue": "H",
+        "score": "2-2",
+        "result": "D",
+        "competition": "Premier League",
+        "daysAgo": 33,
+        "xgFor": 1.9,
+        "xgAgainst": 1.2
+      }
+    ]
+  },
+  {
+    "id": "barcelona",
+    "name": "FC Barcelona",
+    "shortName": "Barcelona",
+    "code": "BAR",
+    "city": "Barcelona",
+    "competitionId": "laliga",
+    "venue": "Estadi Olímpic",
+    "colors": [
+      "#A50044",
+      "#004D98"
+    ],
+    "season": {
+      "played": 7,
+      "position": 1,
+      "points": 18,
+      "goalsFor": 22,
+      "goalsAgainst": 8,
+      "xgFor": 18.4,
+      "xgAgainst": 8.0,
+      "possession": 66,
+      "shotsPerGame": 18.2,
+      "shotsOnTargetPerGame": 7.1,
+      "cleanSheets": 2,
+      "bttsRate": 0.57,
+      "over25Rate": 0.86,
+      "home": {
+        "played": 4,
+        "w": 4,
+        "d": 0,
+        "l": 0,
+        "gf": 14,
+        "ga": 3
+      },
+      "away": {
+        "played": 3,
+        "w": 2,
+        "d": 0,
+        "l": 1,
+        "gf": 8,
+        "ga": 5
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Espanyol",
+        "venue": "A",
+        "score": "3-1",
+        "result": "W",
+        "competition": "LaLiga",
+        "daysAgo": 4,
+        "xgFor": 2.5,
+        "xgAgainst": 1.0
+      },
+      {
+        "opponent": "Alavés",
+        "venue": "H",
+        "score": "4-0",
+        "result": "W",
+        "competition": "LaLiga",
+        "daysAgo": 8,
+        "xgFor": 3.3,
+        "xgAgainst": 0.4
+      },
+      {
+        "opponent": "Bilbao",
+        "venue": "A",
+        "score": "1-2",
+        "result": "L",
+        "competition": "LaLiga",
+        "daysAgo": 14,
+        "xgFor": 1.6,
+        "xgAgainst": 1.4
+      },
+      {
+        "opponent": "Celta",
+        "venue": "H",
+        "score": "3-1",
+        "result": "W",
+        "competition": "LaLiga",
+        "daysAgo": 21,
+        "xgFor": 2.7,
+        "xgAgainst": 0.9
+      },
+      {
+        "opponent": "Valencia",
+        "venue": "H",
+        "score": "4-2",
+        "result": "W",
+        "competition": "LaLiga",
+        "daysAgo": 28,
+        "xgFor": 2.9,
+        "xgAgainst": 1.3
+      }
+    ]
+  },
+  {
+    "id": "sevilla",
+    "name": "Sevilla",
+    "shortName": "Sevilla",
+    "code": "SEV",
+    "city": "Seville",
+    "competitionId": "laliga",
+    "venue": "Ramón Sánchez-Pizjuán",
+    "colors": [
+      "#D71920",
+      "#E8ECF4"
+    ],
+    "season": {
+      "played": 7,
+      "position": 11,
+      "points": 8,
+      "goalsFor": 8,
+      "goalsAgainst": 11,
+      "xgFor": 7.6,
+      "xgAgainst": 10.2,
+      "possession": 48,
+      "shotsPerGame": 11.4,
+      "shotsOnTargetPerGame": 3.6,
+      "cleanSheets": 1,
+      "bttsRate": 0.57,
+      "over25Rate": 0.57,
+      "home": {
+        "played": 4,
+        "w": 2,
+        "d": 1,
+        "l": 1,
+        "gf": 5,
+        "ga": 4
+      },
+      "away": {
+        "played": 3,
+        "w": 0,
+        "d": 1,
+        "l": 2,
+        "gf": 3,
+        "ga": 7
+      }
+    },
+    "recent": [
+      {
+        "opponent": "Leganés",
+        "venue": "H",
+        "score": "1-0",
+        "result": "W",
+        "competition": "LaLiga",
+        "daysAgo": 4,
+        "xgFor": 1.2,
+        "xgAgainst": 0.9
+      },
+      {
+        "opponent": "Celta",
+        "venue": "A",
+        "score": "1-1",
+        "result": "D",
+        "competition": "LaLiga",
+        "daysAgo": 8,
+        "xgFor": 1.0,
+        "xgAgainst": 1.3
+      },
+      {
+        "opponent": "Getafe",
+        "venue": "H",
+        "score": "2-1",
+        "result": "W",
+        "competition": "LaLiga",
+        "daysAgo": 14,
+        "xgFor": 1.5,
+        "xgAgainst": 1.0
+      },
+      {
+        "opponent": "Atlético",
+        "venue": "A",
+        "score": "1-3",
+        "result": "L",
+        "competition": "LaLiga",
+        "daysAgo": 21,
+        "xgFor": 0.9,
+        "xgAgainst": 2.7
+      },
+      {
+        "opponent": "Girona",
+        "venue": "A",
+        "score": "0-2",
+        "result": "L",
+        "competition": "LaLiga",
+        "daysAgo": 28,
+        "xgFor": 0.6,
+        "xgAgainst": 1.7
+      }
+    ]
+  }
+]

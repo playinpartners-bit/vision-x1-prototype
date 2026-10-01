@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ins-arsenal-newcastle",
+    "matchId": "arsenal-newcastle",
+    "analyst": { "name": "Tom Hadley", "role": "Premier League Analyst", "initials": "TH" },
+    "title": "Set pieces are Arsenal's quiet edge again",
+    "excerpt": "Newcastle concede more from corners than any top-half side. Arsenal have scored four from dead balls already.",
+    "body": [],
+    "conviction": "Medium",
+    "angle": "Set-piece matchup",
+    "publishedAt": "2026-10-01T07:40:00Z",
+    "tags": ["Set pieces"]
+  },
+  {
+    "id": "ins-inter-atalanta",
+    "matchId": "inter-atalanta",
+    "analyst": { "name": "Luca Bernardi", "role": "Serie A Analyst", "initials": "LB" },
+    "title": "Atalanta's press is the variable that matters",
+    "excerpt": "If Inter's back three can play through the first line, the space behind Atalanta's wing-backs is enormous. If not, expect a scrappy, stop-start game.",
+    "body": [],
+    "conviction": "Low",
+    "angle": "Pressing & build-up",
+    "publishedAt": "2026-10-01T06:55:00Z",
+    "tags": ["Tactical", "Uncertain"]
+  },
+  {
+    "id": "ins-liverpool-villa",
+    "matchId": "liverpool-aston-villa",
+    "analyst": { "name": "Tom Hadley", "role": "Premier League Analyst", "initials": "TH" },
+    "title": "Villa's high line vs Anfield's tempo",
+    "excerpt": "Villa hold one of the league's highest defensive lines. Against Liverpool's runners in behind, that's a structural risk worth tracking.",
+    "body": [],
+    "conviction": "Medium",
+    "angle": "Defensive structure",
+    "publishedAt": "2026-09-30T18:20:00Z",
+    "tags": ["Tactical"]
+  }
+]

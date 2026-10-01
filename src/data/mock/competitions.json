@@ -1,0 +1,7 @@
+[
+  { "id": "ligue-1", "name": "Ligue 1", "shortName": "L1", "country": "France" },
+  { "id": "premier-league", "name": "Premier League", "shortName": "PL", "country": "England" },
+  { "id": "laliga", "name": "LaLiga", "shortName": "LL", "country": "Spain" },
+  { "id": "serie-a", "name": "Serie A", "shortName": "SA", "country": "Italy" },
+  { "id": "bundesliga", "name": "Bundesliga", "shortName": "BL", "country": "Germany" }
+]
