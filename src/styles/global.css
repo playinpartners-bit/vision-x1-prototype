@@ -5174,3 +5174,58 @@ a.notif:hover {
     min-width: 0;
   }
 }
+
+/* ---------- mobile clipping fixes (overnight QA) ---------- */
+/* The hero grid track sized itself to the match card's min-content width (~378px),
+   which clipped the landing headline and buttons on 320–390px phones. */
+.lp-hero__inner {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+}
+@media (max-width: 900px) {
+  .lp-hero__inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 640px) {
+  .lp-matchcard {
+    padding: 18px 14px;
+  }
+  .lp-matchcard__teams {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 6px;
+  }
+  .lp-matchcard__team .form-strip--sm {
+    gap: 3px;
+  }
+  .lp-matchcard__team .form-strip--sm .form-pill {
+    width: 16px;
+    height: 16px;
+  }
+  /* Large CTAs may wrap instead of pushing the page 1px wider at 360px. */
+  .deep-cta__btns .btn {
+    white-space: normal;
+    text-align: center;
+  }
+  /* Reading-history table scrolls inside its card instead of being clipped. */
+  .my-main .table-card {
+    overflow-x: auto;
+  }
+}
+/* Very small phones (≤400px, e.g. 320px): let grid tracks shrink below content width. */
+@media (max-width: 400px) {
+  .fixture {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .fixture__name {
+    min-width: 0;
+  }
+  .mh__teams {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+  .mh__name {
+    overflow-wrap: anywhere;
+  }
+  .layer__body .card--pad:has(> .table--compact) {
+    overflow-x: auto;
+  }
+}
