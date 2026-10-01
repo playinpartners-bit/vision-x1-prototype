@@ -1,7 +1,8 @@
 import { Link, useParams } from 'react-router-dom';
 import { football } from '../services';
 import { useAsync } from '../hooks/useAsync';
-import { useAppState } from '../hooks/AppState';
+import { track } from '../analytics/track';
+import { TELEGRAM_URL } from '../config';
 import { Icon } from '../components/ui/Icon';
 import { Badge, Button, Card, CardSkeleton, DemoTag } from '../components/ui/primitives';
 import { TeamCrest } from '../components/match/TeamCrest';
@@ -90,7 +91,6 @@ function LayerOverview({ d }: { d: MatchDetail }) {
 export function MatchPage() {
   const { matchId = 'psg-marseille' } = useParams();
   const { data: d, loading } = useAsync(() => football.getMatchDetail(matchId), [matchId]);
-  const { openMembership } = useAppState();
 
   if (loading)
     return (
@@ -414,7 +414,13 @@ export function MatchPage() {
             <Button size="lg" icon="bookmark" to="/me">
               Open My Vision X1
             </Button>
-            <Button size="lg" variant="secondary" icon="telegram" onClick={() => openMembership('match_page')}>
+            <Button
+              size="lg"
+              variant="secondary"
+              icon="telegram"
+              href={TELEGRAM_URL}
+              onClick={() => track('telegram_open', { placement: 'match_follow', match_id: match.id, destination: TELEGRAM_URL })}
+            >
               Get Telegram alerts (demo)
             </Button>
           </div>

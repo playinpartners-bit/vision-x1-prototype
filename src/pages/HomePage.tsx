@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { football, trackRecord } from '../services';
 import { useAsync } from '../hooks/useAsync';
 import { useAppState } from '../hooks/AppState';
+import { track } from '../analytics/track';
+import { TELEGRAM_URL } from '../config';
 import { Icon, type IconName } from '../components/ui/Icon';
 import { Badge, Button, Card, CardSkeleton, DemoTag, SectionHeader } from '../components/ui/primitives';
 import { MatchCard } from '../components/match/MatchCard';
@@ -280,7 +282,12 @@ export function HomePage() {
                 </div>
               ))}
             </div>
-            <Button variant="secondary" icon="telegram" onClick={() => openMembership('home')}>
+            <Button
+              variant="secondary"
+              icon="telegram"
+              href={TELEGRAM_URL}
+              onClick={() => track('telegram_open', { placement: 'home_pocket', destination: TELEGRAM_URL })}
+            >
               Connect Telegram (demo)
             </Button>
           </div>

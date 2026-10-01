@@ -12,6 +12,7 @@ import { football, trackRecord } from '../services';
 import { useAsync } from '../hooks/useAsync';
 import { useAppState } from '../hooks/AppState';
 import { readCampaign, setTrackingContext, track } from '../analytics/track';
+import { TELEGRAM_URL } from '../config';
 import { TrackDebug } from '../analytics/TrackDebug';
 import { Icon, type IconName } from '../components/ui/Icon';
 import { Button, Card, CardSkeleton, DemoTag } from '../components/ui/primitives';
@@ -75,7 +76,7 @@ export function LandingPage() {
     track('account_start', { placement });
     openAccount();
   };
-  const openTelegram = () => track('telegram_open', { placement: 'telegram_band', destination: 't.me/visionx1 (placeholder)' });
+  const openTelegram = () => track('telegram_open', { placement: 'telegram_band', destination: TELEGRAM_URL });
 
   const summary = recordSummary(record.data?.graded ?? [], record.data?.pending ?? []);
   const latest = [...(record.data?.pending ?? []), ...(record.data?.graded ?? [])].slice(0, 3);
@@ -372,7 +373,7 @@ export function LandingPage() {
               <h3>Vision X1 in your pocket</h3>
               <p className="muted">Morning briefings, line-up alerts and the community on Telegram. The match page stays the source of truth.</p>
             </div>
-            <Button variant="ghost" icon="telegram" onClick={openTelegram}>
+            <Button variant="ghost" icon="telegram" href={TELEGRAM_URL} onClick={openTelegram}>
               Open Telegram companion (demo)
             </Button>
           </div>

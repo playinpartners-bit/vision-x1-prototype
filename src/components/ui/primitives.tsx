@@ -11,9 +11,11 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: IconName;
   iconRight?: IconName;
   to?: string;
+  /** External destination: rendered as a link that opens in a new tab. */
+  href?: string;
 }
 
-export function Button({ variant = 'primary', size = 'md', icon, iconRight, to, className, children, ...rest }: ButtonProps) {
+export function Button({ variant = 'primary', size = 'md', icon, iconRight, to, href, className, children, ...rest }: ButtonProps) {
   const cls = cx('btn', `btn--${variant}`, `btn--${size}`, className);
   const inner = (
     <>
@@ -22,6 +24,13 @@ export function Button({ variant = 'primary', size = 'md', icon, iconRight, to, 
       {iconRight && <Icon name={iconRight} size={size === 'sm' ? 15 : 17} />}
     </>
   );
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={cls} onClick={rest.onClick as unknown as MouseEventHandler<HTMLAnchorElement>}>
+        {inner}
+      </a>
+    );
+  }
   if (to) {
     return (
       <Link to={to} className={cls} onClick={rest.onClick as unknown as MouseEventHandler<HTMLAnchorElement>}>
