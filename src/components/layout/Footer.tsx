@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Logo } from './Logo';
+import { TELEGRAM_URL } from '../../config';
+import { track } from '../../analytics/track';
 
 export function ResponsibleNote({ compact }: { compact?: boolean }) {
   return (
@@ -36,7 +38,14 @@ export function Footer() {
             <h4>Company</h4>
             <span>Methodology</span>
             <span>Our analysts</span>
-            <span>Telegram community</span>
+            <a
+              href={TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => track('telegram_open', { placement: 'footer_telegram', destination: TELEGRAM_URL })}
+            >
+              Telegram community
+            </a>
             <span>Contact</span>
           </div>
           <div>
