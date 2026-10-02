@@ -29,7 +29,7 @@ export function TelegramMock() {
           Inter vs Atalanta XIs are in. The data layer has been updated.
         </div>
         <div className="tg-msg tg-msg--community">
-          <div className="tg-msg__label">💬 Community · 1,240 members</div>
+          <div className="tg-msg__label">💬 Vision X1 community</div>
           <em>Hugo:</em> That PSG right-back vs OM's left winger duel is the whole game.
         </div>
         <div className="tg-msg tg-msg--me">Remind me at line-ups 👍</div>
