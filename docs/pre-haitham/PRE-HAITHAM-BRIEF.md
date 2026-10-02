@@ -92,6 +92,6 @@ All on `claude/vision-x1-pre-haitham-polish`:
 |---|---|
 | `74378b8` | Removes the invented member count; links the footer Telegram item |
 | `c317f6b` | Adds the four audit documents |
-| (this commit) | Adds this brief |
+| `d714c70` | Adds this brief |
 
 Production is untouched, nothing was merged, and nothing was deployed. Merging `74378b8` to production would trigger a Vercel redeploy and needs your approval.
